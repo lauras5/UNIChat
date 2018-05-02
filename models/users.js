@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         gender: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         }
     });
