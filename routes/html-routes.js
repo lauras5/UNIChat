@@ -9,6 +9,7 @@ module.exports = function(app) {
     // home page messages new & trending
     app.get('/messages', function (req, res) {
         // message page
+        res.redirect('./feed.html')
     })
 
 }
