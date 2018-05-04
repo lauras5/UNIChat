@@ -4,22 +4,25 @@
   "description": "groupProject2",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lauras5/GroupProject2.git"
+    "url": "git+https://github.com/lauras5/UNIChat.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lauras5/GroupProject2/issues"
+    "url": "https://github.com/lauras5/UNIChat/issues"
   },
-  "homepage": "https://github.com/lauras5/GroupProject2#readme",
+  "homepage": "https://github.com/lauras5/UNIChat#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.6"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
