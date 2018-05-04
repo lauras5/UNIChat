@@ -24,23 +24,22 @@
                     </div>
                 </form>
             </div>
- 
+
             <div class="row">
                 <h1 id="feedHeader">Feed</h1>
                 <div id="sidenav" class="col s4 headCols">
                     <h6>Logo</h6>
                     <!-- <img src="./imagesTemp/tempAvatar.png" alt="avatar"> -->
-    
+
                 </div>
                 <div id="postCol" class="col s4 headCols">
                     <h6>Posts</h6>
                 </div>
-                <div id="raCol" class="col s4 headCols">
-                    <h6>RA Announcements</h6>
+                <div id="annCol" class="col s4 headCols">
+                    <h6>Announcements</h6>
                 </div>
             </div>
-            <hr>
-    
+
             <div class="row">
                 <div id="profile" class="col s4">
                     <div>
@@ -57,13 +56,18 @@
                     </div>
                 </div>
                 <div id="posts" class="col s4">
-    
+
                 </div>
                 <div id="announcements" class="col s4">
-    
+                    <div class="row admin">Admin Announcements
+                        
+                    </div>
+                    <div class="row ra">RA Announcements
+
+                    </div>
                 </div>
             </div>
-    
+
         </center>
     </div>
 
@@ -72,16 +76,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 
-        <script>
-        $("#btn").on('click', function() {
+    <script>
+        $("#btn").on('click', function () {
             var user = {
                 post: $("#input").val()
             }
-            $.post('/users', user).then(function() {
+            $.post('/users', user).then(function () {
                 console.log('posts')
             })
         })
-        </script>
+    </script>
 </body>
 
 </html>
