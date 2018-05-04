@@ -1,40 +1,43 @@
-module.exports = function (sequelize, DataTypes) {
-    var Users = sequelize.define("Users", {
-        name: {
+// var models= require('models')
+
+module.exports = function(sequelize, DataTypes) {
+    var Posts = sequelize.define("Posts", {
+        body: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [5, 20]
+                len: [1, 150]
             }
         },
-        password: {
-            type: DataTypes.STRING,
+        upvotes: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        email: {
-            type: DataTypes.STRING,
+        downvotes: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         dorm: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        clearance_level: {
+        type: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: 'student'
+            defaultValue: 'post'
         }
+
     });
 
-    Users.associate =  function(models) {
-        Users.hasMany(models.Posts, {
+    Posts.associate =  function(models) {
+        Posts.belongsTo(models.Users, {
             foreignKey: {allowNull: false}
         });
 
-        Users.hasMany(models.Comments, {
+        Posts.hasMany(models.Comments, {
             foreignKey: {allowNull: false}
         });
-    };
+    }
 
-    return Users;
+    return Posts;
 };
