@@ -13,11 +13,11 @@ module.exports = function(app) {
         // message page
         res.sendFile(path.join(__dirname, "../public/feed.html"))
     })
-
+    
     // admin page
     app.get('/admin', function (req, res) {
         // admin page
         res.sendFile(path.join(__dirname, "../public/admin.html"))
     })
+}
 
-};

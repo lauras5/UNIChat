@@ -15,6 +15,14 @@ module.exports = function(app) {
             res.json(Messages)
         });
     });
+
+    // gets authentication
+    app.post("/admin/token", function (req, res) {
+        db.authKeys.create(req.body).then(function(res){
+            console.log(res)
+        })
+    })
+
 };
 
 // how to build tables for chat forum
