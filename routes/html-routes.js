@@ -1,4 +1,6 @@
 var db = require("../models");
+var path = require("path");
+
 
 module.exports = function(app) {
     // login page
@@ -9,15 +11,11 @@ module.exports = function(app) {
     // home page messages new & trending
     app.get('/messages', function (req, res) {
         // message page
-        res.redirect('./feed.html')
+        res.sendFile(path.join(__dirname, "../public/feed.html"))
     })
 
     // admin page
     app.get('/admin', function (req, res) {
         // admin page
-        res.redirect('./admin.html')
+        res.sendFile(path.join(__dirname, "../public/admin.html"))
     })
-}
-
-
-
