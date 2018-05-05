@@ -1,5 +1,3 @@
-// var models= require('models')
-
 module.exports = function(sequelize, DataTypes) {
     var Posts = sequelize.define("Posts", {
         body: {

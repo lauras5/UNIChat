@@ -1,5 +1,3 @@
-// var models = require('models')
-
 module.exports = function(sequelize, DataTypes) {
     var Comments = sequelize.define("Comments", {
         body: {
@@ -30,12 +28,6 @@ module.exports = function(sequelize, DataTypes) {
             foreignKey: {allowNull: false}
         });
     }
-    
-    // Comments.associate =  function(models) {
-    //     Comments.belongsTo(models.Posts, {
-    //         foreignKey: {allowNull: false}
-    //     });
-    // }
 
     return Comments;
 };
