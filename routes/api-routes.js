@@ -2,6 +2,7 @@
 var db = require('../models');
 
 module.exports = function(app) {
+    
     // gets students and creates json 
     app.get("/api/studentList", function(req, res) {
         db.Users.findAll({}).then(function(Users) {
