@@ -19,4 +19,3 @@ module.exports = function(app) {
         // admin page
         res.sendFile(path.join(__dirname, "../public/admin.html"))
     })
-}
