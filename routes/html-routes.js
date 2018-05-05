@@ -12,4 +12,11 @@ module.exports = function(app) {
         res.redirect('./feed.html')
     })
 }
+    // admin page
+    app.get('/admin', function (req, res) {
+        // admin page
+        res.redirect('./admin.html')
+    })
+
+}
 
