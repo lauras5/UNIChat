@@ -3,19 +3,22 @@
     margin-top: 0;
 }
 
-
 .headCols {
     font-family: 'Raleway', sans-serif;
     /* border-right: black solid 1px;
     border-left: black solid 1px; */
 }
 
-.sideLinks {
-    margin: 50px 0;
+.submitBtn {
+    
 }
 
-#postForm {
+/* #postForm {
     width: 400px;
+} */
+
+.logoutBtn {
+    float: right;
 }
 
 div {
