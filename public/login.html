@@ -12,15 +12,17 @@
 <body>
 
     <div class="logmod" id="background">
+        <center>
+            <img class="logo" src="./images/unichatlogo-nb.png" alt="unichat-logo">
+        </center>
         <div class="logmod__wrapper">
-            <span class="logmod__close">Close</span>
             <div class="logmod__container">
-                <ul class="logmod__tabs">
+                <ul class="logmod__tabs">   
                     <li data-tabtar="lgm-2">
                         <a href="#">Login</a>
                     </li>
                     <li data-tabtar="lgm-1">
-                        <a href="#">Sign Up</a>
+                        <a href="#">Register</a>
                     </li>
                 </ul>
                 <div class="logmod__tab-wrapper">
@@ -30,14 +32,16 @@
                             </span>
                         </div>
                         <div class="sminputs">
-                            <div class="input string optional">
+                            <div class="input full">
+                                <label class="string optional" for="admin-gen-code" type="text" name="code">Unique Student Code</label>
+                                <input class="string optional" maxlength="255" id="user-code" placeholder="Your Code" type="text" size="50" />
+                            </div>
+                        </div>
+                        <div class="sminputs">
+                            <div class="input full">
                                 <label class="string optional" for="flname">Name</label>
                                 <input class="string optional name" maxlength="255" id="user-flname" placeholder="First and Last Name" type="text" size="50"
                                 />
-                            </div>
-                            <div class="input string optional">
-                                <label class="string optional" for="dorm">Dorm Room #</label>
-                                <input class="string optional dorm" maxlength="255" id="user-dorm" placeholder="#" type="text" size="50" />
                             </div>
                         </div>
                         <div class="logmod__form">
@@ -54,18 +58,11 @@
                                         <input class="string optional password" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" />
                                     </div>
                                     <div class="input string optional">
-                                        <label class="string optional password" for="user-pw-repeat">Repeat password</label>
-                                        <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat password" type="text" size="50" />
+                                        <label class="string optional password" for="user-pw-repeat">Repeat Password</label>
+                                        <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat Password" type="text" size="50" />
                                     </div>
                                 </div>
-                                <div class="sminputs">
-                                    <div class="input full">
-                                        <label class="string" for="admin generated code" type="text" name="code">Unique Student Code
-                                            <p id="studentcode"></p>
-                                        </label>
-                                    </div>
-                                </div>
-                                <button class="subtn btn-large" id="btnstyle1" type="submit" name="action">Log In</button>
+                                <button class="subtn btn-large" id="btnstyle1" type="submit" name="action">Submit</button>
 
                             </form>
                         </div>
@@ -89,7 +86,7 @@
                                         <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
                                         <!-- <span class="hide-password">Show</span> -->
                                     </div>
-                                    <button class="subtn btn-large waves-effect waves-maroon" id="btnstyle2" type="submit" name="action">Log In</button>
+                                    <button class="subtn btn-large" id="btnstyle2" type="submit" name="action">Login</button>
                                 </div>
                             </form>
                         </div>
@@ -98,6 +95,7 @@
             </div>
         </div>
     </div>
+    
 
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
