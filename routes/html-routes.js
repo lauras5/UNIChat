@@ -11,7 +11,7 @@ module.exports = function(app) {
         // message page
         res.redirect('./feed.html')
     })
-
+}
     // admin page
     app.get('/admin', function (req, res) {
         // admin page
@@ -19,3 +19,4 @@ module.exports = function(app) {
     })
 
 }
+
