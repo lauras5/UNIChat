@@ -15,57 +15,17 @@
 
 <body>
     <div class="container">
+<!-- Logout Button -->
+        <button class="logoutBtn">Logout</button>
+<!-- Center everything under logout button-->
         <center>
-
+<!-- UNI Chat header -->
             <div class="row">
-                <h1 id="feedHeader">Feed</h1>
-
-                <!-- <div class="row postSubmit">
-                    <form>
-                        <div class="input">
-                            <input id="postInput" type="text">
-                            <input type="submit" id="btn" class="btn waves-effect waves-light" value="Post" />
-                        </div>
-                    </form>
-                </div> -->
-
-                <!-- </form> -->
+                <h1 id="feedHeader">U N I Chat</h1>
             </div>
+<!-- Links on left -->
             <div class="row">
-                <!-- <form class="col s12">
-
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <textarea id="comments" class="materialize-textarea" length="120">
-                             </textarea>
-                            <label for="comments">Comments</label>
-                            <input type="submit" id="btn" class="btn waves-effect waves-light" value="Post" />
-                            <span id="chars">150</span> characters remaining
-                        </div>
-                    </div>
-                </form> -->
-                <form id="postForm">
-
-                    <!-- remember to markup your forms properly using labels! -->
-                    <label for="textareaChars">No more than 150 characters</label>
-
-                    <textarea id="textareaChars" maxlength="150"></textarea>
-
-                    <span id="chars">150</span> characters remaining
-                    <input type="submit" id="btn" class="btn waves-effect waves-light" value="Post" />
-
-                </form>
-            </div>
-
-            <!-- <div id="postCol" class="col s4 headCols">
-                    <h6>Posts</h6>
-                </div>
-                <div id="annCol" class="col s4 headCols">
-                    <h6>Announcements</h6>
-                </div> -->
-
-            <div class="row">
-                <div id="profile" class="col s4">
+                <div id="profile" class="col s3">
                     <div>
                         <a class="sideLinks" href="#">Profile</a>
                     </div>
@@ -79,31 +39,51 @@
                         <a class="sideLinks" href="#">Ass</a>
                     </div>
                 </div>
-                <div id="posts" class="col s4">Posts
+<!-- Input for Posting -->
+                <div class="col s6">
+                    <form id="postForm">
+                            <div class="row">
+                                    <div class="input-field col s12">
+                                      <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
+                                      <label for="textarea2">Textarea</label>
+                                    </div>
+                                  </div>
 
+                        <!-- remember to markup your forms properly using labels! -->
+                        <!-- <label for="textareaChars">No more than 150 characters</label> -->
+
+                        <!-- <textarea id="textareaChars" maxlength="150"></textarea>
+
+                        <span id="chars">150</span> characters remaining
+                        <button disabled="disabled"></button>
+                        <input type="submit" id="btn" class="btn waves-effect waves-light" value="Post" /> -->
+
+                    </form>
+                    <!-- <div id="posts" class="col s5">Posts</div> -->
                 </div>
-                <div id="announcements" class="col s4">
-                    <div class="row admin">Admin Announcements
-
+<!-- Announcements Column -->
+                <div id="announcements" class="col s3">
+                    <!-- Admin Announcements div -->
+                    <div class="row admin">
+                        <h6>Admin Announcements</h6>
                     </div>
-                    <div class="row ra">RA Announcements
-
+                    <!-- RA Announcements div -->
+                    <div class="row ra">
+                        <h6>RA Announcements</h6>
                     </div>
                 </div>
+
             </div>
-
         </center>
     </div>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/feed.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
     <script src="./js/feed.js"></script>
 

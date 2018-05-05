@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path')
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -17,7 +18,7 @@ app.use(express.static('public'));
 
 // require routes
 require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js") (app);
+require("./routes/html-routes.js")(app);
 
 // listen on port 3000
 db.sequelize.sync().then(function() {
