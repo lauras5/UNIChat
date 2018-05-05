@@ -13,3 +13,11 @@
 .sideLinks {
     margin: 50px 0;
 }
+
+#postForm {
+    width: 400px;
+}
+
+div {
+    border: black solid 0.5px;
+}
