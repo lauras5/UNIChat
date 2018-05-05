@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var authKey = sequelize.define("authKey", {
+    var authKeys = sequelize.define("authKeys", {
         key: {
             type: DataTypes.STRING,
             allowNull: false
@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     
-    return authKey;
+    return authKeys;
 };
