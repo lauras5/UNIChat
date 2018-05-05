@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Document</title>
 </head>
+
 <body>
     <center>
         <button class="submitBtn">Submit</button>
+        <select name="dorm" id="dorm">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
         <div class="results">
-            <h4 class="posts">Results</h4>
+            <h4 class="key">Results</h4>
+
         </div>
     </center>
+    <script>
+        $(".submitBtn").on('click', function (event) {
+            event.preventDefault()
+            console.log('hello')
+            var rand = function () {
+                return Math.random().toString(20).substr(2); // remove `0.`
+            };
+
+            var token = function () {
+                return rand() + rand(); // to make it longer
+            };
+            // push token to db
+            console.log(token()); 
+
+            console.log(dorm);
+        })
+    </script>
+
 </body>
+
 </html>
