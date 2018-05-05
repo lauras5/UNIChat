@@ -7,14 +7,21 @@ $("#btn").on('click', function () {
     })
 })
 
-// $(document).ready(function () {
-//     $('input#input_text, textarea#textarea1').characterCounter();
-// });
-$('input#input_text, textarea#textarea1').characterCounter();
+$('input#input_text, textarea#textarea2').characterCounter() 
+    // if(data-length > 150) {
+    //     console.log('stop')
+    // }
 
-var maxLength = 150;
-$('textarea').keyup(function() {
-  var length = $(this).val().length;
-  var length = maxLength-length;
-  $('#chars').text(length);
-});
+
+
+// $(document).ready(function () {
+    // $('input#input_text, textarea#textarea1').characterCounter();
+// });
+// $('input#input_text, textarea#textarea1').characterCounter();
+
+// var maxLength = 150;
+// $('textarea').keyup(function() {
+//   var length = $(this).val().length;
+//   var length = maxLength-length;
+//   $('#chars').text(length);
+// });
