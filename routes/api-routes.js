@@ -15,6 +15,13 @@ module.exports = function(app) {
             res.json(Messages)
         });
     });
+    
+    // gets authentication
+    app.get("/api/authentication", function (req, res) {
+        db.authKey.findAll({}).then(function(authKey) {
+            res.json(authKey)
+        })
+    })
 };
 
 // how to build tables for chat forum

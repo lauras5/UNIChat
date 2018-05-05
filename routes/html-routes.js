@@ -11,5 +11,5 @@ module.exports = function(app) {
         // message page
         res.redirect('./feed.html')
     })
-
 }
+
