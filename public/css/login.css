@@ -1,13 +1,12 @@
 body {
   margin: 0;
   background-image: url('../images/trinitylibrary-blr.png');
-  background-image: cover;
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: 100%;
+  overflow-y:scroll; 
+
 }
-
-
 
 /* html {
   box-sizing: border-box;
@@ -49,15 +48,16 @@ body {
   content: "";
   display: table;
 }
+
 .logmod__wrapper {
   display: block;
   background: #fff;
   position: relative;
   max-width: 550px;
-  /* border-radius: 4px; */
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
-  margin: 120px auto;
+  margin: auto;
 }
+
 .logmod__close {
   display: block;
   position: absolute;
@@ -73,15 +73,18 @@ body {
   width: 48px;
   height: 48px;
 }
+
 .logmod__container {
   overflow: hidden;
   width: 100%;
 }
+
 .logmod__container::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .logmod__tab {
   position: relative;
   width: 100%;
@@ -90,30 +93,36 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
 .logmod__tab-wrapper {
   width: 100%;
   height: auto;
   overflow: hidden;
 }
+
 .logmod__tab.show {
   opacity: 1;
   height: 100%;
   visibility: visible;
 }
+
 .logmod__tabs {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .logmod__tabs::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .logmod__tabs li.current a {
   background: #4b1524;
   color: white;
 }
+
 .logmod__tabs li a {
   width: 50%;
   position: relative;
@@ -129,13 +138,16 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
 .logmod__tabs li a:focus {
   outline: dotted 1px;
 }
+
 .logmod__heading {
   text-align: center;
   padding: 12px 0 12px 0;
 }
+
 .logmod__heading-subtitle {
   display: block;
   font-weight: 400;
@@ -143,19 +155,23 @@ body {
   color: black;
   line-height: 48px;
 }
+
 .logmod__form {
   border-top: 1px solid #e5e5e5;
 }
+
 .logmod__alter {
   display: block;
   position: relative;
   margin-top: 7px;
 }
+
 .logmod__alter::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .logmod__alter .connect:last-child {
   border-radius: 0 0 4px 4px;
 }
@@ -169,17 +185,20 @@ body {
   line-height: 72px;
   text-decoration: none;
 }
+
 .connect::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .connect:focus,
 .connect:hover,
 .connect:visited {
   color: #fff;
   text-decoration: none;
 }
+
 .connect__icon {
   vertical-align: middle;
   float: left;
@@ -460,11 +479,10 @@ width: 100%;
 }
 
 .logo {
-  margin: 0;
+  margin: auto;
   background: no-repeat;
   width: 550px;
-  margin-top: 70px;
-  margin-bottom: -110px;
+  margin-top: 50px;
 }
 
 

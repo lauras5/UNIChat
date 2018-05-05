@@ -1,10 +1,17 @@
+
 // require model
 var db = require('../models');
 
 module.exports = function(app) {
+
+    app.post("/users", function(req, res) {
+        db.Users.create(req.body).then(function(res) {
+            console.log(res)
+        })
+    })
     
     // gets students and creates json 
-    app.get("/api/studentList", function(req, res) {
+    app.get("/users", function(req, res) {
         db.Users.findAll({}).then(function(Users) {
             res.json(Users)
         });
@@ -23,7 +30,4 @@ module.exports = function(app) {
             console.log(res)
         })
     })
-
 };
-
-// how to build tables for chat forum

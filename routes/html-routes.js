@@ -5,7 +5,7 @@ var path = require("path");
 module.exports = function(app) {
     // login page
     app.get('/', function (req, res) {
-        // res.json('index')
+        res.render('index')
     })
 
     // home page messages new & trending
@@ -19,3 +19,4 @@ module.exports = function(app) {
         // admin page
         res.sendFile(path.join(__dirname, "../public/admin.html"))
     })
+}
