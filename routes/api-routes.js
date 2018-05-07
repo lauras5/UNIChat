@@ -19,7 +19,7 @@ module.exports = function(app) {
     });
 
     // gets messages
-    app.get("/api/messages", function (req, res) {
+    app.get("/students/posts", function (req, res) {
         db.Messages.findAll({}).then(function(Messages) {
             res.json(Messages)
         });
@@ -38,4 +38,5 @@ module.exports = function(app) {
             res.json(authKeys)
         });
     });
+
 };

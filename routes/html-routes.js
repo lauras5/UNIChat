@@ -9,7 +9,7 @@ module.exports = function(app) {
     });
 
     // home page messages new & trending
-    app.get('/messages', function (req, res) {
+    app.get('/students', function (req, res) {
         // message page
         res.sendFile(path.join(__dirname, "../public/feed.html"))
     });
@@ -19,4 +19,5 @@ module.exports = function(app) {
         // admin page
         res.sendFile(path.join(__dirname, "../public/admin.html"))
     });
+
 };
