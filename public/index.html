@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="./css/login.css">
     <title>Login</title>
 </head>
 
@@ -26,6 +25,30 @@
                     </li>
                 </ul>
                 <div class="logmod__tab-wrapper">
+                    <div class="logmod__tab lgm-2">
+                        <div class="logmod__heading">
+                            <span class="logmod__heading-subtitle">Enter your email and password to sign in.
+                            </span>
+                        </div>
+                        <div class="logmod__form">
+                            <form accept-charset="utf-8" action="#" class="simform">
+                                <div class="sminputs">
+                                    <div class="input full">
+                                        <label class="string optional" for="user-name">Email</label>
+                                        <input class="string optional" maxlength="255" id="user-email-l" placeholder="Email" type="email" size="50" />
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input full">
+                                        <label class="string optional" for="user-pw">Password</label>
+                                        <input class="string optional" maxlength="255" id="user-pw-l" placeholder="Password" type="password" size="50" />
+                                        <!-- <span class="hide-password">Show</span> -->
+                                    </div>
+                                    <button class="subtn btn-large" id="login-btn" type="submit" name="action">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="logmod__tab lgm-1">
                         <div class="logmod__heading">
                             <span class="logmod__heading-subtitle"> All fields are required.</span>
@@ -49,45 +72,22 @@
                                 <div class="sminputs">
                                     <div class="input full">
                                         <label class="string optional" for="user-name">Email</label>
-                                        <input class="string optional email" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
+                                        <input class="string optional email" maxlength="255" id="user-email-r" placeholder="Email" type="email" size="50" />
                                     </div>
                                 </div>
                                 <div class="sminputs">
                                     <div class="input string optional">
                                         <label class="string optional" for="user-pw">Password</label>
-                                        <input class="string optional password" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" />
+                                        <input class="string optional password" maxlength="255" id="user-pw-r" placeholder="Password" type="password" size="50" />
                                     </div>
                                     <div class="input string optional">
                                         <label class="string optional password" for="user-pw-repeat">Repeat Password</label>
-                                        <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat Password" type="text" size="50" />
+                                        <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat Password" type="password" size="50"
+                                        />
                                     </div>
                                 </div>
-                                <button class="subtn btn-large" id="btnstyle1" type="submit" name="action">Submit</button>
+                                <button class="subtn btn-large" id="register-btn" type="submit" name="action">Submit</button>
 
-                            </form>
-                        </div>
-                    </div>
-                    <div class="logmod__tab lgm-2">
-                        <div class="logmod__heading">
-                            <span class="logmod__heading-subtitle">Enter your email and password to sign in.
-                            </span>
-                        </div>
-                        <div class="logmod__form">
-                            <form accept-charset="utf-8" action="#" class="simform">
-                                <div class="sminputs">
-                                    <div class="input full">
-                                        <label class="string optional" for="user-name">Email</label>
-                                        <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
-                                    </div>
-                                </div>
-                                <div class="sminputs">
-                                    <div class="input full">
-                                        <label class="string optional" for="user-pw">Password</label>
-                                        <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
-                                        <!-- <span class="hide-password">Show</span> -->
-                                    </div>
-                                    <button class="subtn btn-large" id="btnstyle2" type="submit" name="action">Login</button>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="./js/login.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 
