@@ -113,10 +113,10 @@ $(document).ready(function () {
 
 // click events and userAuth 
 
-loggedIn = localStorage.getItem('loggedIn');
-console.log(localStorage.getItem('loggedIn'))
+// loggedIn = localStorage.getItem(loggedIn);
+console.log("Logged in: " + sessionStorage.getItem("loggedIn"))
 
-if (localStorage.getItem('loggedIn')) {
+if (sessionStorage.getItem("loggedIn")) {
     $.get('/students').then(function (data, status) {
         // window.location.href = "index.html";
     })
@@ -138,16 +138,20 @@ $("#register-btn").on("click", function () {
     $.get('/admin/token').then(function (data, status) {
         // returns all saved tokens
 
+        var count = 0;
+
         for (var key in data) {
             if (secKey === data[key].key) {
+                count++;
+
                 loggedIn = sessionStorage.setItem("loggedIn", true);
-                console.log(localStorage.getItem('loggedIn'))
-    
-    
+                console.log("Logged in? " + sessionStorage.getItem("loggedIn"))
+
+
                 var userp = $("#user-pw-r").val();
                 var userpr = $("#user-pw-repeat").val();
-                
-                
+
+
                 if (userp !== userpr) {
                     alert("Passowords do not match!");
                 }
@@ -161,20 +165,20 @@ $("#register-btn").on("click", function () {
                     }
                     console.log(user);
                     $.post('/users', user).then(function (data, status) {
-                        console.log(data);
-                        console.log(status)
+                        console.log("data: " + data);
+                        console.log("status" + status)
                     })
                     $.get('/students').then(function (data, status) {
-                        data.redirect;
+                        // data.redirect;
                     })
                 }
-    
-    
+
+
             }
-            else{
-                console.log("You have entered an invalid student code. Please try again!")
-            }
-          }
+        }
+        if (count === 0) {
+            alert("You have entered an invalid student code. Please try again!")
+        }
 
     })
 
