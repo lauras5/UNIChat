@@ -5,13 +5,23 @@ var path = require("path");
 module.exports = function(app) {
     // login page
     app.get('/', function (req, res) {
-        res.render('index')
+        res.redirect('index')
     });
 
     // home page messages new & trending
     app.get('/students', function (req, res) {
         // message page
         res.sendFile(path.join(__dirname, "../public/feed.html"))
+    });
+
+    app.get('/students2', function (req, res) {
+        // message page
+        res.sendFile(path.join(__dirname, "../public/feed2.html"))
+    });
+    
+    app.get('/students3', function (req, res) {
+        // message page
+        res.sendFile(path.join(__dirname, "../public/feed3.html"))
     });
 
     // // dorm 2

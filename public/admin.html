@@ -11,17 +11,20 @@
 <body>
     <center>
         <p>Select a Dorm : </p>
+
         <select name="dorm" id="dorm">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
+
         <button class="submitBtn" style="display: block; margin: auto; margin: 10px;">Generate New Key</button>
         <div class="results">
             <h4>New Key Will Be Generated Below : </h4>
             <div id="key" style="background-color: lightgrey; width: 50%; padding: 10px;">
                 <div class="key"></div>
             </div>
+
             <p>Once key per student, key will be disactivated once used.</p>
         </div>
     </center>
@@ -35,7 +38,7 @@
             // console.log('hello')
             var rand = function () {
                 return Math.random().toString(26).substr(2); // remove `0.`
-            };
+            }; ki
 
             var key = function () {
                 return rand() + rand(); // to make it longer
@@ -45,13 +48,13 @@
             var adminToken = { key: key(), dorm: dorm.value }
 
             console.log(adminToken)
-            $('.key').append("New Student AUTH KEY : <b>" + adminToken.key +"</b> for dorm #" + adminToken.dorm + ".")
+            $('.key').append("New Student AUTH KEY : <b>" + adminToken.key + "</b> for dorm #" + adminToken.dorm + ".")
 
             $.post('/admin/token', adminToken, function (data, status) {
                 console.log(data)
             });
         });
-        
+
     </script>
 
 </body>

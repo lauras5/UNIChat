@@ -106,11 +106,6 @@ $(document).ready(function () {
     LoginModalController.initialize();
 });
 
-
-
-
-
-
 // click events and userAuth 
 
 // loggedIn = localStorage.getItem(loggedIn);
@@ -147,10 +142,8 @@ $("#register-btn").on("click", function () {
                 loggedIn = sessionStorage.setItem("loggedIn", true);
                 console.log("Logged in? " + sessionStorage.getItem("loggedIn"))
 
-
                 var userp = $("#user-pw-r").val();
                 var userpr = $("#user-pw-repeat").val();
-
 
                 if (userp !== userpr) {
                     alert("Passowords do not match!");
@@ -164,6 +157,7 @@ $("#register-btn").on("click", function () {
                         clearance_level: "student"
                     }
                     console.log(user);
+
                     $.post('/users', user).then(function (data, status) {
                         console.log("data: " + data);
                         console.log("status" + status)

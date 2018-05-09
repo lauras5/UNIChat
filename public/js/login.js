@@ -159,16 +159,13 @@ $("#register-btn").on("click", function (event) {
 
                     console.log(user);
 
-                    // $.post('/users', user, function (data, status) {
-                    //     console.log("data: " + data);
-                    //     console.log("status" + status)
-                    // });
-
-                    $.post('/users', user).then(function(data, status) {
-                        console.log('newData: ' + data)
+                    $.post('/users', user).then(function (data, status) {
+                        console.log("data: " + data);
+                        console.log("status" + status)
                     });
 
                     $.get('/students').then(function (data, status) {
+                        window.location.href=''
                         // data.redirect;
                         console.log(data)
                     });
@@ -188,7 +185,9 @@ $("#register-btn").on("click", function (event) {
 
 $("#login-btn").on("click", function () {
     event.preventDefault();
-
+    $.get('/students', function(req, res) {
+        res.redirect('feed')
+    })
     var email = sessionStorage.setItem("email", $("#user-email-l").val().trim());
     var password = sessionStorage.setItem("password", $("#user-pw-l").val().trim());
 });
