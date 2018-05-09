@@ -1,0 +1,52 @@
+.devmain {
+    margin-top: 100px;
+    flex: 1 0 auto;
+}
+
+.body {
+    background: #4b1524;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.nav,
+.dev-name,
+.c-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.devtitle {
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.dev-name{
+    margin: 0;
+    color: black;   
+}
+
+img {
+    height: 350px;
+    width: auto;
+    background-size: cover; 
+}
+
+.c-text {
+    height: 100%;  
+}
+
+.waves-effect.waves-maroon {
+    background: #4b1524;
+}
+
+.page-footer {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 11px;
+    background: #4b1524;
+    height: 50px;
+}
+
+
+     
