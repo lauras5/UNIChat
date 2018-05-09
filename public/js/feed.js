@@ -36,7 +36,7 @@ $('#postSubmitBTN').on('click', function (event) {
 
 // logout button
 $("#logoutBtn").on("click", function () {
-    console.log("sup")
-    loggedIn = sessionStorage.setItem("loggedIn", false);
-})
-
+    sessionStorage.setItem("loggedIn", false);
+    sessionStorage.removeItem('name');
+    window.location.href = '/';
+});
