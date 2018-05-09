@@ -26,6 +26,10 @@ $('input#input_text, textarea#textarea2').characterCounter()
 //   $('#chars').text(length);
 // });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5fb7ea2ea369e8f05b1eb2d1a69a847ee04061fb
 // logout button
 $("#logoutBtn").on("click", function () {
     console.log("sup")
