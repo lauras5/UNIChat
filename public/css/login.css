@@ -467,13 +467,13 @@ html {
 width: 100%;
 }
 
-#btnstyle1,
-#btnstyle2 {
+#login-btn,
+#register-btn {
   background: none;
   color: black;
 }
-#btnstyle1:hover,
-#btnstyle2:hover {
+#login-btn:hover,
+#register-btn:hover {
   background: #4b1524;
   color: white;
 }

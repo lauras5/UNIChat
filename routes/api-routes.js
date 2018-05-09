@@ -8,18 +8,21 @@ module.exports = function(app) {
     app.post("/users", function(req, res) {
         db.Users.create(req.body).then(function(res) {
             console.log(res)
-        });
+        }).catch(function(err) {
+            // print the error details
+            console.log(err);
+        });;
     });
     
     // returns all student stuff from db and posts the json to page
-    app.get("/users", function(req, res) {
-        db.Users.findAll({}).then(function(Users) {
-            res.json(Users)
-        });
-    });
+    // app.get("/users", function(req, res) {
+    //     db.Users.findAll({}).then(function(Users) {
+    //         res.json(Users)
+    //     });
+    // });
 
     // gets messages
-    app.get("/api/messages", function (req, res) {
+    app.get("/students/posts", function (req, res) {
         db.Messages.findAll({}).then(function(Messages) {
             res.json(Messages)
         });
@@ -38,4 +41,5 @@ module.exports = function(app) {
             res.json(authKeys)
         });
     });
+
 };
