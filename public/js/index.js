@@ -112,16 +112,17 @@ $(document).ready(function () {
 console.log("Logged in: " + sessionStorage.getItem("loggedIn"));
 
 if (sessionStorage.getItem("loggedIn") == "true") {
-
-
-
     var uEmail = sessionStorage.getItem("email");
-
+    var admin = 'admin'
     $.get('/users').then(function(data, status) {
         console.log(data)
         for (var key in data) {
-            if (uEmail === data[key].email) {
+            console.log(admin)
+            
+            if (uEmail === data[key].email && data[key].clearance_level > 0) {
                 window.location.href = '/students' + data[key].dorm;
+            } else {
+                window.location.href = '/admin'
             }
         };
     });
@@ -213,7 +214,7 @@ $("#login-btn").on("click", function () {
         var count = 0;
 
         for (var key in data) {
-            if (userEmail === data[key].email && userPwd === data[key].password) {
+            if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'student') {
                 count++;
 
                 sessionStorage.setItem("loggedIn", true);
@@ -221,6 +222,22 @@ $("#login-btn").on("click", function () {
                 sessionStorage.setItem("email", data[key].email);
 
                 window.location.href = '/students' + data[key].dorm;
+        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'ra'){
+            count++;
+
+            sessionStorage.setItem("loggedIn", true);
+            sessionStorage.setItem("name", data[key].name);
+            sessionStorage.setItem("email", data[key].email);
+
+            window.location.href = '/ra' + data[key].dorm;
+        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'admin'){
+                count++;
+
+                sessionStorage.setItem("loggedIn", true);
+                sessionStorage.setItem("name", data[key].name);
+                sessionStorage.setItem("email", data[key].email);
+
+                window.location.href = '/admin';
             }
         }
         if (count === 0) {

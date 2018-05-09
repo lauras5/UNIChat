@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed</title>
+    <title>UNI Chat Feed | 2</title>
 </head>
 
 <body>
-    <div class="container">
-    <!-- Logout Button -->
-    <button id="logoutBtn">Logout</button>
-    <!-- Center everything under logout button-->
-    <center>
-        <!-- Links on left -->
-        <div class="row">
-            <div id="profile" class="col s2">
+    <div class="row">
+        <div class="col s12">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="profile" class="col s2">
+            <center>
                 <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
                 <h3>Dorm 2</h3>
                 <div>
@@ -32,81 +33,57 @@
                 <div>
                     <a id="links" href="#">Top</a>
                 </div>
-                <!-- <div>
-                        <a id="links" href="#">Ass</a>
-                    </div> -->
-            </div>
-            <!-- Input for Posting -->
-            <div id="posts" class="col s7">
-                <form id="postForm">
-                    <div class="row">
-                        <div class="input-field col s12 z-depth-2">
-                            <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                            <label for="textarea2">Post Away</label>
-                        </div>
-                        <br>
-                        <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
-                            <i class="material-icons right"></i>
-                        </button>
-                    </div>
+            </center>
+        </div>
+        <!-- Input for Posting -->
+        <div id="posts" class="col s7">
+            <form id="postForm">
+                <!-- <div class="row"> -->
+                <div class="input-field col s12 z-depth-2">
+                    <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
+                    <label for="textarea2">Post Away</label>
+                </div>
+                <br>
+                <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
+                    <i class="material-icons right"></i>
+                </button>
+                <!-- </div> -->
+            </form>
 
-                    <!-- remember to markup your forms properly using labels! -->
-                    <!-- <label for="textareaChars">No more than 150 characters</label> -->
-
-                    <!-- <textarea id="textareaChars" maxlength="150"></textarea>
-
-                        <span id="chars">150</span> characters remaining
-                        <button disabled="disabled"></button>
-                        <input type="submit" id="btn" class="btn waves-effect waves-light" value="Post" /> -->
-
-                </form>
-            </div>
+            <div id="postArea"></div>
         </div>
 
-        <!-- Links on left -->
-        <div class="row">
-            <div id="postArea" class="col s7">
-
-
-            </div>
-        </div>
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
             <!-- Admin Announcements div -->
             <div class="row admin">
-                <div class="row">
-                    <div class="col s12 m12">
-                        <div class="card-panel adminCard">
-                            <h4>Admin Announcements</h4>
-                            <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                                I require little markup to use effectively. I am similar to what is called a panel in other
-                                frameworks.
-                            </span>
-                        </div>
+                <div class="col s12 m12">
+                    <div class="card-panel adminCard">
+                        <h4>Admin Announcements</h4>
+                        <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>
                     </div>
-
                 </div>
-
             </div>
             <!-- RA Announcements div -->
             <div class="row ra">
-                <div class="row">
-                    <div class="col s12 m12">
-                        <div class="card-panel raCard">
-                            <h4 id="raHeader" class="anHeader">RA Announcements</h4>
-                            <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                                I require little markup to use effectively. I am similar to what is called a panel in other
-                                frameworks.
-                            </span>
-                        </div>
+                <div class="col s12 m12">
+                    <div class="card-panel raCard">
+                        <h4 id="raHeader" class="anHeader">RA Announcements</h4>
+                        <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>
                     </div>
                 </div>
-
             </div>
         </div>
-        </div>
-    </center>
-    <!-- </div> -->
+    </div>
+    <div class="row">
+        <center>
+            <div id="postArea" class="col s7"></div>
+        </center>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
@@ -119,26 +96,44 @@
     <script src="./js/feed2.js"></script>
     <script>
 
-        // var d = new Date()
-        // var today = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDay() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
-
-        // console.log(today)
-
         $.get('/students2/posts').then(function (data, status) {
             console.log(data)
+            // loops through data
             for (var key in data) {
-                // use temp key
-                // sort by createdAt
-                console.log(data[key].createdAt)
+                console.log(data[key].id)
                 var postBody = data[key].body
+                var postTime = data[key].createdAt
+                var postId = data[key].id
                 $('#postArea').prepend(
                     "<div id='uPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + data[key].createdAt + "</p></div>" +
-                    // get comments and number of comments to display
-                    "<div id= 'commentLink'>COMMENTS</div>"
+                    "<p>" + postTime + "</p></div>" +
+                    // get comments and number of comments to display & upvotes/downvotes buttons
+                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
                 )
+                // add downvote & upvote counts
+                $('#upvoteBtn').on('click', function () {
+                    var upvotes = 1
+                    var upvoteID = $(this).val()
+                    console.log(upvoteID)
+                    // $.post('/students2/posts', function (req, res) {
+                    //     console.log(res)
+                    // });
+        
+                    $.get('/students2/posts', function (data, status) {
+                        for (var key in data) {
+                            if (upvoteID === postId)
+                                console.log('found a match at id #' + postId)
+                        }
+                        // where id matches this id add one upvote
+                        // limit 1 per user
+
+                    })
+                });
             }
         });
+
+
+        // getting RA posts to post, how many?
         // $.get('/students2/ra/posts').then(function (data, status) {
         //     console.log(data);
         //     for (var key in data) {

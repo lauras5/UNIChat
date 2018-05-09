@@ -5,38 +5,64 @@
 body {
     background-color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
 }
 
 #postArea {
     background-color: rgba(0, 0, 0, 0.63);
     padding: 10px;
+    text-align: center;
+    margin-top: 20%;
 }
 
 #uPost {
     background-color: white;
     box-shadow: 2px 2px 2px dimgrey;
-    margin-top: 5px;
-    height: 80px;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 #commentLink {
-    background-color: rgb(85, 39, 39);
+    background-color: #26a69a;
+    box-shadow: 2px 2px 2px dimgrey;
     color: white;
-    padding: 10px;
+    padding: 8px;
 }
 
 #commentLink:hover {
-    background-color: dimgrey;
+    background-color: grey;
 }
 
-/* .container { */
-    /* background-color: red; */
-/* } */
+#upvoteBtn {
+    background-color: blue;
+}
+
+#downvoteBtn {
+    background-color: red;
+}
+
+#dorm {
+    display: block;
+    width: 20%;
+}
+
+#postTabs {
+    margin-top: 2%;
+}
+
+#tabs {
+    color: dimgrey;
+}
+
+#tabs:focus.active {
+    background-color: #26a69970;
+}
 
 #feedHeader {
     background-color: rgb(141, 65, 65);
     margin-top: 0;
 }
+
 .input-field {
     background-color: white;
     margin: 0;
@@ -45,14 +71,12 @@ body {
 .headCols {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #4b1524;
-
-
     /* border-left: black solid 1px;  */
 }
 
-.submitBtn {
+/* .submitBtn {
     float: right;
-}
+} */
 
 /* #postForm {
     width: 400px;
@@ -63,10 +87,13 @@ body {
 
 }
 
+#postSubmitBTN {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 
 #feedLogo {
-    height: 200px;
-    width: auto;
+    width: 100%;
 }
 
 /* #profile, #posts, #announcements { */
