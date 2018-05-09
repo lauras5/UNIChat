@@ -25,3 +25,10 @@ $('input#input_text, textarea#textarea2').characterCounter()
 //   var length = maxLength-length;
 //   $('#chars').text(length);
 // });
+
+
+// logout button
+$("#logoutBtn").on("click", function () {
+    console.log("sup")
+    loggedIn = sessionStorage.setItem("loggedIn", false);
+})
