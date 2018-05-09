@@ -1,15 +1,37 @@
-div {
+/* div { */
     /* border: black solid 1px; */
-}
+/* } */
 
 body {
     background-color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.container {
-    /* background-color: red; */
+#postArea {
+    background-color: rgba(0, 0, 0, 0.63);
+    padding: 10px;
 }
+
+#uPost {
+    background-color: white;
+    box-shadow: 2px 2px 2px dimgrey;
+    margin-top: 5px;
+    height: 80px;
+}
+
+#commentLink {
+    background-color: rgb(85, 39, 39);
+    color: white;
+    padding: 10px;
+}
+
+#commentLink:hover {
+    background-color: dimgrey;
+}
+
+/* .container { */
+    /* background-color: red; */
+/* } */
 
 #feedHeader {
     background-color: rgb(141, 65, 65);
@@ -47,9 +69,9 @@ body {
     width: auto;
 }
 
-#profile, #posts, #announcements {
+/* #profile, #posts, #announcements { */
     /* padding: 5px; */
-}
+/* } */
 
 #links {
     /* font-family: 'Raleway', sans-serif; */
@@ -80,5 +102,4 @@ body {
 h4 {
     color: #4b1524;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
