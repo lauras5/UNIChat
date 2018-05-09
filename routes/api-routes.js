@@ -15,11 +15,11 @@ module.exports = function(app) {
     });
     
     // returns all student stuff from db and posts the json to page
-    // app.get("/users", function(req, res) {
-    //     db.Users.findAll({}).then(function(Users) {
-    //         res.json(Users)
-    //     });
-    // });
+    app.get("/users", function(req, res) {
+        db.Users.findAll({}).then(function(Users) {
+            res.json(Users)
+        });
+    });
 
     // gets messages
     app.get("/students/posts", function (req, res) {
