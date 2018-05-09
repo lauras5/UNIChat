@@ -22,7 +22,7 @@ module.exports = function(app) {
     });
 
     app.post('/students/posts', function(req, res) {
-        db.Messages.create(req.body).then(function(res) {
+        db.Posts.create(req.body).then(function(res) {
             console.log(res)
         }).catch(function(err) {
             console.log(err);
@@ -31,8 +31,8 @@ module.exports = function(app) {
     
     // gets messages
     app.get("/students/posts", function (req, res) {
-        db.Messages.findAll({}).then(function(Messages) {
-            res.json(Messages)
+        db.Posts.findAll({}).then(function(Posts) {
+            res.json(Posts)
         });
     });
 

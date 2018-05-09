@@ -112,8 +112,19 @@ $(document).ready(function () {
 console.log("Logged in: " + sessionStorage.getItem("loggedIn"));
 
 if (sessionStorage.getItem("loggedIn") == "true") {
-    window.location.href = '/students';
 
+
+
+    var uEmail = sessionStorage.getItem("email");
+
+    $.get('/users').then(function(data, status) {
+        console.log(data)
+        for (var key in data) {
+            if (uEmail === data[key].email) {
+                window.location.href = '/students' + data[key].dorm;
+            }
+        }
+    });
 }
 
 
@@ -130,9 +141,6 @@ $("#register-btn").on("click", function () {
         for (var key in data) {
             if (secKey === data[key].key) {
                 count++;
-
-                sessionStorage.setItem("loggedIn", true);
-                console.log("Logged in? " + sessionStorage.getItem("loggedIn"));
 
                 var userp = $("#user-pw-r").val();
                 var userpr = $("#user-pw-repeat").val();
@@ -165,6 +173,11 @@ $("#register-btn").on("click", function () {
                                     dorm: data[key].dorm,
                                     clearance_level: "student"
                                 };
+
+                                sessionStorage.setItem("loggedIn", true);
+                                sessionStorage.setItem("name", data[key].name);
+                                sessionStorage.setItem("email", data[key].email);
+    
                                 console.log(user);
                                 $.post('/users', user, function (data, status) {
                                     console.log("data: " + data);
@@ -204,10 +217,10 @@ $("#login-btn").on("click", function () {
                 count++;
 
                 sessionStorage.setItem("loggedIn", true);
-                console.log("Logged in? " + sessionStorage.getItem("loggedIn"))
-
                 sessionStorage.setItem("name", data[key].name);
-                window.location.href = '/students';
+                sessionStorage.setItem("email", data[key].email);
+
+                window.location.href = '/students' + data[key].dorm;
             }
         }
         if (count === 0) {

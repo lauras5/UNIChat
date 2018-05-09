@@ -48,7 +48,7 @@
             var adminToken = { key: key(), dorm: dorm.value }
 
             console.log(adminToken)
-            $('.key').append("New Student AUTH KEY : <b>" + adminToken.key + "</b> for dorm #" + adminToken.dorm + ".")
+            $('.key').append("<p>New Student AUTH KEY : <b>" + adminToken.key + "</b> for dorm #" + adminToken.dorm + ".</p>")
 
             $.post('/admin/token', adminToken, function (data, status) {
                 console.log(data)

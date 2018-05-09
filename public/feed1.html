@@ -15,42 +15,42 @@
 <body>
     <!-- <div class="container"> -->
     <!-- Logout Button -->
-        <button id="logoutBtn">Logout</button>
-        <!-- Center everything under logout button-->
-        <center>
-            <!-- UNI Chat header -->
-            <div class="row">
-                <!-- <h1 id="feedHeader">U n I Chat</h1> -->
-            </div>
-            <!-- Links on left -->
-            <div class="row">
-                <div id="profile" class="col s2">
-                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-                    <h3>Dorm 1</h3>
+    <button id="logoutBtn">Logout</button>
+    <!-- Center everything under logout button-->
+    <center>
+        <!-- UNI Chat header -->
+        <div class="row">
+            <!-- <h1 id="feedHeader">U n I Chat</h1> -->
+        </div>
+        <!-- Links on left -->
+        <div class="row">
+            <div id="profile" class="col s2">
+                <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+                <h3>Dorm 1</h3>
 
-                    <div>
-                        <a id="links" href="#">Profile</a>
-                    </div>
-                    <div>
-                        <a id="links" href="#">Current</a>
-                    </div>
-                    <div>
-                        <a id="links" href="#">Top</a>
-                    </div>
-                    <!-- <div>
+                <div>
+                    <a id="links" href="#">Profile</a>
+                </div>
+                <div>
+                    <a id="links" href="#">Current</a>
+                </div>
+                <div>
+                    <a id="links" href="#">Top</a>
+                </div>
+                <!-- <div>
                         <a id="links" href="#">Ass</a>
                     </div> -->
-                </div>
-                <!-- Input for Posting -->
-                <div id="posts" class="col s7">
-                    <form id="postForm">
-                        <div class="row">
-                            <div class="input-field col s12 z-depth-2">
-                                <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                                <label for="textarea2">Post Away</label>
-                            </div>
-                            <br>
-                        <button class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
+            </div>
+            <!-- Input for Posting -->
+            <div id="posts" class="col s7">
+                <form id="postForm">
+                    <div class="row">
+                        <div class="input-field col s12 z-depth-2">
+                            <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
+                            <label for="textarea2">Post Away</label>
+                        </div>
+                        <br>
+                        <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
                             <i class="material-icons right"></i>
                         </button>
                     </div>
@@ -91,18 +91,19 @@
                         <div class="col s12 m12">
                             <div class="card-panel raCard">
                                 <h4 id="raHeader" class="anHeader">RA Announcements</h4>
-                                <span>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                                <span>I am a very simple card. I am good at containing small bits of information. I am convenient
+                                    because I require little markup to use effectively. I am similar to what is called a
+                                    panel in other frameworks.
                                 </span>
-                              </div>
                             </div>
-                          </div>
-                                   
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </center>
+
+        </div>
+    </center>
     <!-- </div> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -113,7 +114,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="./js/feed.js"></script>
+    <script src="./js/feed1.js"></script>
     <script>
 
 
@@ -123,11 +124,13 @@
             // do if statement for 150 characters, do not post if more than 150.
             var body = $('#textarea2').val().trim();
 
-            // post that info to sql
             // get user info so we can return user info for foreign keys
             // $.get('/') //get user info
             var post = { body: body, upvotes: 0, downvotes: 0, dorm: 1, type: 'post' }
+
             console.log(post)
+
+            // post that info to sql
             $.post('/students/posts', post, function (data, status) {
                 console.log(status)
             });
