@@ -39,3 +39,4 @@ $("#logoutBtn").on("click", function () {
     console.log("sup")
     loggedIn = sessionStorage.setItem("loggedIn", false);
 })
+
