@@ -115,7 +115,7 @@
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
     <script src="./js/feed1.js"></script>
-    <script>
+    <!-- <script>
 
 
         $('#postSubmitBTN').on('click', function (event) {
@@ -123,10 +123,12 @@
             // text area turns into var on submit button click
             // do if statement for 150 characters, do not post if more than 150.
             var body = $('#textarea2').val().trim();
+            // $.get('/users').then(function(data, status) {
 
+            // })
             // get user info so we can return user info for foreign keys
             // $.get('/') //get user info
-            var post = { body: body, upvotes: 0, downvotes: 0, dorm: 1, type: 'post' }
+            var post = { body: body, upvotes: 0, downvotes: 0, dorm: 1, type: 'post',  UserId: 1}
 
             console.log(post)
 
@@ -136,7 +138,7 @@
             });
         });
 
-    </script>
+    </script> -->
 
 </body>
 

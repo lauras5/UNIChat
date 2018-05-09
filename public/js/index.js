@@ -123,9 +123,9 @@ if (sessionStorage.getItem("loggedIn") == "true") {
             if (uEmail === data[key].email) {
                 window.location.href = '/students' + data[key].dorm;
             }
-        }
+        };
     });
-}
+};
 
 
 $("#register-btn").on("click", function () {
