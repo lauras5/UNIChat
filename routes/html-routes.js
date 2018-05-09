@@ -14,6 +14,18 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/feed.html"))
     });
 
+    // // dorm 2
+    // app.get('/students2', function (req, res) {
+    //     // message page
+    //     res.sendFile(path.join(__dirname, "../public/feed2.html"))
+    // });
+
+    // // dorm 3
+    // app.get('/students3', function (req, res) {
+    //     // message page
+    //     res.sendFile(path.join(__dirname, "../public/feed3.html"))
+    // });
+
     // admin page
     app.get('/admin', function (req, res) {
         // admin page

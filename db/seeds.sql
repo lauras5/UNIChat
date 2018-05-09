@@ -11,3 +11,5 @@ SET name = 'Alice Chambers', password = 'password2', email = 'mspritz@unichat.co
 
 INSERT INTO users
 SET name = 'Michelle James', password = 'password3', email = 'mjames@unichat.com', dorm = 3, clearance_level='ra';
+
+
