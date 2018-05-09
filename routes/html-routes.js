@@ -10,9 +10,9 @@ module.exports = function(app) {
     });
 
     // home page messages new & trending
-    app.get('/students', function (req, res) {
+    app.get('/students1', function (req, res) {
         // message page
-        res.sendFile(path.join(__dirname, "../public/feed.html"));
+        res.sendFile(path.join(__dirname, "../public/feed1.html"));
     });
 
     app.get('/students2', function (req, res) {
