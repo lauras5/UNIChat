@@ -3,7 +3,7 @@ div {
 }
 
 body {
-    background-color: rgba(206, 180, 180, 0.63);
+    background-color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .headCols {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #4b1524;
 
 
@@ -79,6 +79,6 @@ body {
 
 h4 {
     color: #4b1524;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
