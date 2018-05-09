@@ -170,7 +170,7 @@ $("#register-btn").on("click", function () {
                                     console.log("data: " + data);
                                     console.log("status" + status)
                                 });
-                                window.location.href = '/students';
+                                window.location.href = '/students' + data[key].dorm;
                             }
 
                         }
