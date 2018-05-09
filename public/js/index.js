@@ -91,6 +91,7 @@ var LoginModalController = {
 
             $input.focus();
         });
+
         return base;
     },
 
@@ -104,7 +105,6 @@ var LoginModalController = {
 $(document).ready(function () {
     LoginModalController.initialize();
 });
-
 
 // click events and userAuth 
 
@@ -125,7 +125,7 @@ else {
 }
 
 
-$("#register-btn").on("click", function (event) {
+$("#register-btn").on("click", function () {
     event.preventDefault();
 
     var secKey = $("#user-code").val().trim();
@@ -146,48 +146,45 @@ $("#register-btn").on("click", function (event) {
                 var userpr = $("#user-pw-repeat").val();
 
                 if (userp !== userpr) {
-                    alert("Passwords do not match!");
+                    alert("Passowords do not match!");
                 }
                 else {
                     var user = {
                         name: $("#user-flname").val(),
-                        password: $("#user-pw-r").val(),
                         email: $("#user-email-r").val(),
+                        password: $("#user-pw-r").val(),
                         dorm: data[key].dorm,
                         clearance_level: "student"
                     }
-
                     console.log(user);
 
                     $.post('/users', user).then(function (data, status) {
                         console.log("data: " + data);
                         console.log("status" + status)
-                    });
-
+                    })
                     $.get('/students').then(function (data, status) {
-                        window.location.href=''
                         // data.redirect;
-                        console.log(data)
-                    });
-                };
-            };
-        };
+                    })
+                }
 
+
+            }
+        }
         if (count === 0) {
             alert("You have entered an invalid student code. Please try again!")
-        };
+        }
 
-        // redirect to /students page
-        // clear inputs after
-    });
-});
+    })
+
+
+})
 
 
 $("#login-btn").on("click", function () {
     event.preventDefault();
-    $.get('/students', function(req, res) {
-        res.redirect('feed')
-    })
+
+
     var email = sessionStorage.setItem("email", $("#user-email-l").val().trim());
     var password = sessionStorage.setItem("password", $("#user-pw-l").val().trim());
-});
+
+})

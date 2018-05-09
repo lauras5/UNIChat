@@ -1,26 +1,84 @@
+div {
+    /* border: black solid 1px; */
+}
+
+body {
+    background-color: rgba(206, 180, 180, 0.63);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    /* background-color: red; */
+}
+
 #feedHeader {
     background-color: rgb(141, 65, 65);
     margin-top: 0;
 }
+.input-field {
+    background-color: white;
+    margin: 0;
+}
 
 .headCols {
     font-family: 'Raleway', sans-serif;
-    /* border-right: black solid 1px;
-    border-left: black solid 1px; */
+    color: #4b1524;
+
+
+    /* border-left: black solid 1px;  */
 }
 
 .submitBtn {
-    
+    float: right;
 }
 
 /* #postForm {
     width: 400px;
 } */
 
-.logoutBtn {
+#logoutBtn {
     float: right;
+
 }
 
-div {
-    /* border: black solid 0.5px; */
+
+#feedLogo {
+    height: 200px;
+    width: auto;
+}
+
+#profile, #posts, #announcements {
+    /* padding: 5px; */
+}
+
+#links {
+    /* font-family: 'Raleway', sans-serif; */
+    font-size: 30px;
+    margin-top: 10%;
+    color: #4b1524;
+}
+
+.adminCard, .raCard {
+    margin: 0 17px;
+}
+
+#feedLogo {
+    margin: 0 5px ;
+    margin-right: 10px;
+}
+
+#posts {
+    padding-left: 30px;
+}
+
+#textarea2 {
+    color: #4b1524;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+
+h4 {
+    color: #4b1524;
+    font-family: 'Raleway', sans-serif;
+
 }

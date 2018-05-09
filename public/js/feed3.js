@@ -6,7 +6,7 @@ $('#postSubmitBTN').on('click', function (event) {
 
     // get user info so we can return user info for foreign keys
     // $.get('/') //get user info
-    var post = { body: body, upvotes: 0, downvotes: 0, dorm: 1, type: 'post' }
+    var post = { body: body, upvotes: 0, downvotes: 0, dorm: 3, type: 'post' }
     console.log(post)
     
     // post that info to sql

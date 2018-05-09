@@ -5,7 +5,7 @@ var path = require("path");
 module.exports = function(app) {
     // login page
     app.get('/', function (req, res) {
-        res.render('index')
+        res.redirect('index')
     });
 
     // home page messages new & trending
@@ -13,6 +13,28 @@ module.exports = function(app) {
         // message page
         res.sendFile(path.join(__dirname, "../public/feed.html"))
     });
+
+    app.get('/students2', function (req, res) {
+        // message page
+        res.sendFile(path.join(__dirname, "../public/feed2.html"))
+    });
+    
+    app.get('/students3', function (req, res) {
+        // message page
+        res.sendFile(path.join(__dirname, "../public/feed3.html"))
+    });
+
+    // // dorm 2
+    // app.get('/students2', function (req, res) {
+    //     // message page
+    //     res.sendFile(path.join(__dirname, "../public/feed2.html"))
+    // });
+
+    // // dorm 3
+    // app.get('/students3', function (req, res) {
+    //     // message page
+    //     res.sendFile(path.join(__dirname, "../public/feed3.html"))
+    // });
 
     // admin page
     app.get('/admin', function (req, res) {
