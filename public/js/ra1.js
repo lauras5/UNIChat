@@ -16,16 +16,22 @@ $('#postSubmitBTN').on('click', function (event) {
                 console.log(post)
                 
                 // post that info to sql
-                $.post('/students1/ra/posts', post, function (data, status) {
+                $.post('/ra/posts', post, function (data, status) {
                     console.log(status)
                 }); 
             }
         }
-    })
-    
+    });
 });
 
-$('input#input_text, textarea#textarea2').characterCounter()
+$.get('/admin/posts').then(function(data, status) {
+    for (var key in data) {
+        var adminPost = data[key].body
+        $('#adminCard').prepend("<div id='aPost'>" + adminPost + "</div>")
+    };
+});
+
+$('input#input_text, textarea#textarea2').characterCounter();
 
 var maxLength = 150;
 $('textarea').keyup(function() {
