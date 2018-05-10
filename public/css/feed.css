@@ -1,36 +1,82 @@
-div {
+/* div { */
     /* border: black solid 1px; */
-}
+/* } */
 
 body {
-    background-color: rgba(206, 180, 180, 0.63);
+    background-color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
 }
 
-.container {
-    /* background-color: red; */
+#postArea {
+    background-color: rgba(0, 0, 0, 0.63);
+    padding: 10px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+#uPost {
+    background-color: white;
+    box-shadow: 2px 2px 2px dimgrey;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#commentLink {
+    background-color: #26a69a;
+    box-shadow: 2px 2px 2px dimgrey;
+    color: white;
+    padding: 8px;
+}
+
+#commentLink:hover {
+    background-color: grey;
+}
+
+#upvoteBtn {
+    background-color: blue;
+}
+
+#downvoteBtn {
+    background-color: red;
+}
+
+#dorm {
+    display: block;
+    width: 20%;
+}
+
+#postTabs {
+    margin-top: 2%;
+}
+
+#tabs {
+    color: dimgrey;
+}
+
+#tabs:focus.active {
+    background-color: #26a69970;
 }
 
 #feedHeader {
     background-color: rgb(141, 65, 65);
     margin-top: 0;
 }
+
 .input-field {
     background-color: white;
     margin: 0;
 }
 
 .headCols {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #4b1524;
-
-
     /* border-left: black solid 1px;  */
 }
 
-.submitBtn {
+/* .submitBtn {
     float: right;
-}
+} */
 
 /* #postForm {
     width: 400px;
@@ -41,15 +87,18 @@ body {
 
 }
 
+#postSubmitBTN {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 
 #feedLogo {
-    height: 200px;
-    width: auto;
+    width: 100%;
 }
 
-#profile, #posts, #announcements {
+/* #profile, #posts, #announcements { */
     /* padding: 5px; */
-}
+/* } */
 
 #links {
     /* font-family: 'Raleway', sans-serif; */
@@ -79,6 +128,5 @@ body {
 
 h4 {
     color: #4b1524;
-    font-family: 'Raleway', sans-serif;
-
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

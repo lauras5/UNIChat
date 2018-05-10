@@ -4,38 +4,39 @@ $('#postSubmitBTN').on('click', function (event) {
     // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
 
-    // get user info so we can return user info for foreign keys
-    // $.get('/') //get user info
-    var post = { body: body, upvotes: 0, downvotes: 0, dorm: 2, type: 'post' }
-    console.log(post)
+    $.get('/users').then(function(data, status) {
+        // loops through the keys
+        for (var key in data) {
+            
+            var uEmail = sessionStorage.getItem("email");
+            if (uEmail === data[key].email) {
+                // define post, give it unique id of user id
+                var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
-    // post that info to sql
-    $.post('/students/posts', post, function (data, status) {
-        console.log(status)
-    });
+                console.log(post)
+                
+                // post that info to sql
+                $.post('/students2/posts', post, function (data, status) {
+                    console.log(status)
+                }); 
+            }
+        }
+    })
+    
 });
 
-// $('input#input_text, textarea#textarea2').characterCounter()
-// if(data-length > 150) {
-//     console.log('stop')
-// }
+$('input#input_text, textarea#textarea2').characterCounter()
 
-
-
-// $(document).ready(function () {
-// $('input#input_text, textarea#textarea1').characterCounter();
-// });
-// $('input#input_text, textarea#textarea1').characterCounter();
-
-// var maxLength = 150;
-// $('textarea').keyup(function() {
-//   var length = $(this).val().length;
-//   var length = maxLength-length;
-//   $('#chars').text(length);
-// });
+var maxLength = 150;
+$('textarea').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength-length;
+  $('#chars').text(length);
+});
 
 // logout button
 $("#logoutBtn").on("click", function () {
-    console.log("sup")
-    loggedIn = sessionStorage.setItem("loggedIn", false);
-})
+    sessionStorage.setItem("loggedIn", false);
+    sessionStorage.removeItem('name');
+    window.location.href = '/';
+});

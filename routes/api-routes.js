@@ -11,20 +11,71 @@ module.exports = function(app) {
         }).catch(function(err) {
             // print the error details
             console.log(err);
-        });;
+        });
     });
     
-    // returns all student stuff from db and posts the json to page
-    // app.get("/users", function(req, res) {
-    //     db.Users.findAll({}).then(function(Users) {
-    //         res.json(Users)
-    //     });
-    // });
+    // returns all users from db in json format
+    app.get("/users", function(req, res) {
+        db.Users.findAll({}).then(function(Users) {
+            res.json(Users)
+        });
+    });
 
-    // gets messages
-    app.get("/students/posts", function (req, res) {
-        db.Messages.findAll({}).then(function(Messages) {
-            res.json(Messages)
+    // Dorm 1 posts
+    app.post('/students1/posts', function(req, res) {
+        db.Posts.create(req.body).then(function(res) {
+            console.log(res)
+        }).catch(function(err) {
+            console.log(err);
+        });
+    });
+    
+    
+    app.get("/students1/posts", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm : 1
+            }
+        }).then(function(Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // Dorm 2 posts
+    app.post('/students2/posts', function(req, res) {
+        db.Posts.create(req.body).then(function(res) {
+            console.log(res)
+        }).catch(function(err) {
+            console.log(err);
+        });
+    });
+    
+    app.get("/students2/posts", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm : 2
+            }
+        }).then(function(Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // Dorm 3 posts
+    app.post('/students3/posts', function(req, res) {
+        db.Posts.create(req.body).then(function(res) {
+            console.log(res)
+        }).catch(function(err) {
+            console.log(err);
+        });
+    });
+    
+    app.get("/students3/posts", function (req, res) {
+        db.Posts.findAll({
+            where : {
+                dorm : 3
+            }
+        }).then(function(Posts) {
+            res.json(Posts)
         });
     });
 

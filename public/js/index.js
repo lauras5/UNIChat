@@ -106,23 +106,27 @@ $(document).ready(function () {
     LoginModalController.initialize();
 });
 
-// click events and userAuth 
 
-// loggedIn = localStorage.getItem(loggedIn);
-console.log("Logged in: " + sessionStorage.getItem("loggedIn"))
+// Login userAuth 
 
-if (sessionStorage.getItem("loggedIn")) {
-    $.get('/students').then(function (data, status) {
-        // window.location.href = "index.html";
-    })
-}
-else {
-    // direct to logged out page
-    $.get('/').then(function (data, status) {
-        console.log("logged out")
-    })
+console.log("Logged in: " + sessionStorage.getItem("loggedIn"));
 
-}
+if (sessionStorage.getItem("loggedIn") == "true") {
+    var uEmail = sessionStorage.getItem("email");
+    var admin = 'admin'
+    $.get('/users').then(function(data, status) {
+        console.log(data)
+        for (var key in data) {
+            console.log(admin)
+            
+            if (uEmail === data[key].email && data[key].clearance_level > 0) {
+                window.location.href = '/students' + data[key].dorm;
+            } else {
+                window.location.href = '/admin'
+            }
+        };
+    });
+};
 
 
 $("#register-btn").on("click", function () {
@@ -139,9 +143,6 @@ $("#register-btn").on("click", function () {
             if (secKey === data[key].key) {
                 count++;
 
-                loggedIn = sessionStorage.setItem("loggedIn", true);
-                console.log("Logged in? " + sessionStorage.getItem("loggedIn"))
-
                 var userp = $("#user-pw-r").val();
                 var userpr = $("#user-pw-repeat").val();
 
@@ -149,42 +150,98 @@ $("#register-btn").on("click", function () {
                     alert("Passowords do not match!");
                 }
                 else {
-                    var user = {
-                        name: $("#user-flname").val(),
-                        email: $("#user-email-r").val(),
-                        password: $("#user-pw-r").val(),
-                        dorm: data[key].dorm,
-                        clearance_level: "student"
-                    }
-                    console.log(user);
+                    // check to see if the email already exists in the data base
+                    $.get('/users').then(function (data, status) {
+                        console.log(data);
+                        var userEmail = $("#user-email-r").val().trim();
 
-                    $.post('/users', user).then(function (data, status) {
-                        console.log("data: " + data);
-                        console.log("status" + status)
-                    })
-                    $.get('/students').then(function (data, status) {
-                        // data.redirect;
+                        var count = 0;
+
+                        for (var key in data) {
+                            if (userEmail === data[key].email) {
+                                count++;
+                            }
+                        }
+                        if (count === 0) {
+                            if ($("#user-email-r").val().trim().indexOf("@") === -1) {
+                                alert("Please enter a valid email.");
+                            }
+                            else {
+                                var user = {
+                                    name: $("#user-flname").val(),
+                                    email: $("#user-email-r").val().trim(),
+                                    password: $("#user-pw-r").val(),
+                                    dorm: data[key].dorm,
+                                    clearance_level: "student"
+                                };
+
+                                sessionStorage.setItem("loggedIn", true);
+                                sessionStorage.setItem("name", data[key].name);
+                                sessionStorage.setItem("email", data[key].email);
+    
+                                console.log(user);
+                                $.post('/users', user, function (data, status) {
+                                    console.log("data: " + data);
+                                    console.log("status" + status)
+                                });
+                                window.location.href = '/students' + data[key].dorm;
+                            }
+
+                        }
+                        else {
+                            alert("A account already exists under this email. Please use a different email.");
+                        }
+                    
                     })
                 }
-
-
             }
         }
         if (count === 0) {
-            alert("You have entered an invalid student code. Please try again!")
+            alert("You have entered an invalid student code. Please try again!");
         }
-
-    })
-
-
-})
+    });
+});
 
 
 $("#login-btn").on("click", function () {
     event.preventDefault();
 
+    $.get('/users').then(function (data, status) {
+        console.log(data);
+        var userEmail = $("#user-email-l").val().trim();
+        var userPwd = $("#user-pw-l").val().trim();
 
-    var email = sessionStorage.setItem("email", $("#user-email-l").val().trim());
-    var password = sessionStorage.setItem("password", $("#user-pw-l").val().trim());
+        var count = 0;
 
-})
+        for (var key in data) {
+            if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'student') {
+                count++;
+
+                sessionStorage.setItem("loggedIn", true);
+                sessionStorage.setItem("name", data[key].name);
+                sessionStorage.setItem("email", data[key].email);
+
+                window.location.href = '/students' + data[key].dorm;
+        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'ra'){
+            count++;
+
+            sessionStorage.setItem("loggedIn", true);
+            sessionStorage.setItem("name", data[key].name);
+            sessionStorage.setItem("email", data[key].email);
+
+            window.location.href = '/ra' + data[key].dorm;
+        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'admin'){
+                count++;
+
+                sessionStorage.setItem("loggedIn", true);
+                sessionStorage.setItem("name", data[key].name);
+                sessionStorage.setItem("email", data[key].email);
+
+                window.location.href = '/admin';
+            }
+        }
+        if (count === 0) {
+            alert("You did not enter a valid email or password. Try Again");
+        }
+    });
+});

@@ -16,7 +16,7 @@ $('#postSubmitBTN').on('click', function (event) {
                 console.log(post)
                 
                 // post that info to sql
-                $.post('/students3/posts', post, function (data, status) {
+                $.post('/students1/posts', post, function (data, status) {
                     console.log(status)
                 }); 
             }

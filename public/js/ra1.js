@@ -11,12 +11,12 @@ $('#postSubmitBTN').on('click', function (event) {
             var uEmail = sessionStorage.getItem("email");
             if (uEmail === data[key].email) {
                 // define post, give it unique id of user id
-                var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
+                var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
                 console.log(post)
                 
                 // post that info to sql
-                $.post('/students3/posts', post, function (data, status) {
+                $.post('/students1/ra/posts', post, function (data, status) {
                     console.log(status)
                 }); 
             }
