@@ -93,4 +93,23 @@ module.exports = function(app) {
         });
     });
 
+    // direct admin posts to new route
+    app.post("/admin/posts", function(req, res) {
+        db.Posts.create(req.body).then(function(res) {
+            console.log(res)
+        }).catch(function(err) {
+            console.log(err);
+        });
+    });
+
+    app.get("/admin/posts", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm : 0
+            }
+        }).then(function(Posts) {
+            res.json(Posts)
+        });
+    });
+
 };

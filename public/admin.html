@@ -78,7 +78,6 @@
                     <div id="postArea2" class="col s12"></div>
                     <div id="postArea3" class="col s12"></div>
                 </div>
-                <!-- <div id="postArea"></div> -->
             </div>
 
             <!-- Announcements Column -->
@@ -109,7 +108,7 @@
                                     <option value="3">3</option>
                                 </select>
 
-                                <button class="submitBtn" style="display: block; margin: auto; margin: 10px;">Generate New Key</button>
+                                <button class="generateBtn" style="display: block; margin: auto; margin: 10px;">Generate New Key</button>
                                 <p>New Key Will Be Generated Below : </p>
                                 <div class="results">
                                     <div id="key" style="background-color: lightgrey; padding: 10px;">
@@ -150,7 +149,7 @@
                 $('.tabs').tabs();
             });
 
-            $(".submitBtn").on('click', function (event) {
+            $(".generateBtn").on('click', function (event) {
                 event.preventDefault()
                 // console.log('hello')
                 var rand = function () {
@@ -239,6 +238,31 @@
                 };
             });
 
+            $('#postSubmitBTN').on('click', function (event) {
+                event.preventDefault();
+                // text area turns into var on submit button click
+                // do if statement for 150 characters, do not post if more than 150.
+                var body = $('#textarea2').val().trim();
+
+                $.get('/users').then(function (data, status) {
+                    // loops through the keys
+                    for (var key in data) {
+
+                        var uEmail = sessionStorage.getItem("email");
+                        if (uEmail === data[key].email) {
+                            // define post, give it unique id of user id
+                            var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id }
+
+                            console.log(post)
+
+                            // post that info to sql
+                            $.post('/admin/posts', post, function (data, status) {
+                                console.log(status)
+                            });
+                        }
+                    }
+                })
+            });
 
         </script>
 

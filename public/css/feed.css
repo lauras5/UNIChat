@@ -8,11 +8,11 @@ body {
     text-align: center;
 }
 
-#postArea {
-    background-color: rgba(0, 0, 0, 0.63);
+#postArea1, #postArea2, #postArea3, #newPosts, #hotPosts {
+    background-color: white;
     padding: 10px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 #uPost {
@@ -58,6 +58,14 @@ body {
     background-color: #26a69970;
 }
 
+#aPost {
+    background-color: rgb(138, 40, 40);
+    color: white;
+    border: 5px solid black;
+    margin: 5px;
+    font-size: 25px;
+}
+
 #feedHeader {
     background-color: rgb(141, 65, 65);
     margin-top: 0;
@@ -90,6 +98,7 @@ body {
 #postSubmitBTN {
     margin-top: 5px;
     margin-bottom: 20px;
+    background-color: #4b1524;
 }
 
 #feedLogo {
