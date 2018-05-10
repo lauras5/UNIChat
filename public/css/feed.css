@@ -6,7 +6,8 @@ body {
     background-color: rgb(236, 236, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-}
+    }
+
 
 #postArea1, #postArea2, #postArea3, #newPosts, #hotPosts {
     background-color: white;
@@ -76,6 +77,7 @@ body {
     margin: 0;
 }
 
+
 .headCols {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #4b1524;
@@ -117,8 +119,9 @@ body {
 }
 
 .adminCard, .raCard {
-    margin: 0 17px;
+    margin: 0 17px; 
 }
+
 
 #feedLogo {
     margin: 0 5px ;
@@ -138,4 +141,13 @@ body {
 h4 {
     color: #4b1524;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.rev {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
