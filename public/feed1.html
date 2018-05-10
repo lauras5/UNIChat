@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./public/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
     <title>UNI Chat Feed | 1</title>
 </head>
@@ -17,12 +18,15 @@
         <div class="col s12">
             <button id="logoutBtn">Logout</button>
         </div>
-    </div>
 
-    <div class="row">
-        <div id="profile" class="col s2">
-            <center>
-                <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+        <!-- Links on left -->
+        <div class="row">
+            <div id="profile" class="col s2">
+                <a href="devpage.html">
+                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+                </a>
+                
+
                 <h3>Dorm 1</h3>
                 <div>
                     <a id="links" href="#">Profile</a>
@@ -65,14 +69,18 @@
             </div>
         </div>
 
+
+
+
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
             <!-- Admin Announcements div -->
             <div class="row admin">
                 <div class="col s12 m12">
                     <div class="card-panel adminCard">
-                        <h4>Admin Announcements</h4>
+                 <h4>Admin <i class="fas fa-bullhorn"></i> Announcements</h4>
                         <div id="adminCard"></div>
+
                     </div>
                 </div>
             </div>
