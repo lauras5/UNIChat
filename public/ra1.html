@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="./public/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed | 1</title>
+    <title>UNI Chat Feed | RA1</title>
 </head>
 
 <body>
@@ -18,16 +17,13 @@
         <div class="col s12">
             <button id="logoutBtn">Logout</button>
         </div>
+    </div>
 
-        <!-- Links on left -->
-        <div class="row">
-            <div id="profile" class="col s2">
-                <a href="devpage.html">
-                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-                </a>
-                
-
-                <h3>Dorm 1</h3>
+    <div class="row">
+        <div id="profile" class="col s2">
+            <center>
+                <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+                <h3>RA : Dorm 1</h3>
                 <div>
                     <a id="links" href="#">Profile</a>
                 </div>
@@ -69,18 +65,14 @@
             </div>
         </div>
 
-
-
-
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
             <!-- Admin Announcements div -->
             <div class="row admin">
-                <div class="col s12 m12 l11">
+                <div class="col s12 m12">
                     <div class="card-panel adminCard">
-                 <h4>Admin <i class="fas fa-bullhorn"></i> Announcements</h4>
+                        <h4>Admin Announcements</h4>
                         <div id="adminCard"></div>
-
                     </div>
                 </div>
             </div>
@@ -88,7 +80,7 @@
             <div class="row ra">
                 <div class="col s12 m12">
                     <div class="card-panel raCard">
-                        <h4 id="raHeader" class="anHeader"><i class="fas fa-bullhorn rev"></i>RA Announcements</h4>
+                        <h4 id="raHeader" class="anHeader">RA Announcements</h4>
                         <div id="raCard"></div>
                     </div>
                 </div>
@@ -104,7 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="./js/feed1.js"></script>
+    <script src="./js/ra1.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -125,6 +117,7 @@
                     // get comments and number of comments to display & upvotes/downvotes buttons
                     "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
                 )
+
                 // add downvote & upvote counts
                 $('#upvoteBtn').on('click', function () {
                     var upvotes = 1
@@ -141,20 +134,18 @@
                         }
                         // where id matches this id add one upvote
                         // limit 1 per user
-                    })
+                    });
                 });
-            }
+            };
         });
 
-
-        // getting RA posts to post, how many?
-        // $.get('/students2/ra/posts').then(function (data, status) {
+        // // getting RA posts to post, how many?
+        // $.get('/ra/posts').then(function (data, status) {
         //     console.log(data);
         //     for (var key in data) {
         //         var RApost = data[key].body
         //     }
         // })
-
 
     </script>
 
