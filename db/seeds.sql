@@ -10,6 +10,6 @@ INSERT INTO users
 SET name = 'Alice Chambers', password = 'password2', email = 'mspritz@unichat.com', dorm = 2, clearance_level='ra';
 
 INSERT INTO users
-SET name = 'Michelle James', password = 'password3', email = 'mjames@unichat.com', dorm = 3, clearance_level='ra';
+SET name = 'Michelle James', password = 'password3', email = 'mjames@unichat.com', dorm = 3, clearance_level='student';
 
 
