@@ -16,7 +16,7 @@ $('#postSubmitBTN').on('click', function (event) {
                 console.log(post)
                 
                 // post that info to sql
-                $.post('/ra/posts', post, function (data, status) {
+                $.post('/ra1/posts', post, function (data, status) {
                     console.log(status)
                 }); 
             }
@@ -28,6 +28,13 @@ $.get('/admin/posts').then(function(data, status) {
     for (var key in data) {
         var adminPost = data[key].body
         $('#adminCard').prepend("<div id='aPost'>" + adminPost + "</div>")
+    };
+});
+
+$.get('/ra1/posts').then(function(data, status) {
+    for (var key in data) {
+        var raPost = data[key].body
+        $('#raCard').prepend("<div id='raPost'>" + raPost + "</div>")
     };
 });
 

@@ -106,7 +106,7 @@ module.exports = function (app) {
         db.Posts.findAll({
             where: {
                 dorm: 1,
-                clearance_level: 'ra'
+                userId: 2
             }
         }).then(function (Posts) {
             res.json(Posts)
