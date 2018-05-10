@@ -121,18 +121,63 @@
                 )
                 // add downvote & upvote counts
                 $('#upvoteBtn').on('click', function () {
-                    var upvotes = 1
+                    var uVotes = 0;
                     var upvoteID = $(this).val()
                     console.log(upvoteID)
                     // $.post('/students2/posts', function (req, res) {
                     //     console.log(res)
                     // });
 
+
                     $.get('/students3/posts', function (data, status) {
                         for (var key in data) {
-                            if (upvoteID === postId)
-                                console.log('found a match at id #' + postId)
+                            if (upvoteID == data[key].id) {
+                                uVotes = data[key].upvotes + 1;
+                                
+                                // console.log('found a match at id #' + postId)
+
+                                var postUpdate = {
+                                    id: upvoteID,
+                                    upvotes: uVotes
+                                };
+
+                                $.post('/students3/updateUp', postUpdate, function (data, status) {
+                                    console.log('ping');
+                                })
+                            }
                         }
+
+
+                        // where id matches this id add one upvote
+                        // limit 1 per user
+
+                    })
+                });
+
+
+                $('#downvoteBtn').on('click', function () {
+                    var dVotes = 0;
+                    var downvoteID = $(this).val()
+
+                    $.get('/students3/posts', function (data, status) {
+                        for (var key in data) {
+                            if (downvoteID == data[key].id) {
+                                dVotes = data[key].downvotes + 1;
+                                
+                                // console.log('found a match at id #' + postId)
+
+                                var postUpdate = {
+                                    id: downvoteID,
+                                    downvotes: dVotes
+                                };
+
+                                $.post('/students3/updateDown', postUpdate, function (data, status) {
+    
+                                })
+                            }
+                        }
+
+
                         // where id matches this id add one upvote
                         // limit 1 per user
 

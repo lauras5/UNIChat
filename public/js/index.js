@@ -114,11 +114,11 @@ console.log("Logged in: " + sessionStorage.getItem("loggedIn"));
 if (sessionStorage.getItem("loggedIn") == "true") {
     var uEmail = sessionStorage.getItem("email");
     var admin = 'admin'
-    $.get('/users').then(function(data, status) {
+    $.get('/users').then(function (data, status) {
         console.log(data)
         for (var key in data) {
             console.log(admin)
-            
+
             if (uEmail === data[key].email && data[key].clearance_level > 0) {
                 window.location.href = '/students' + data[key].dorm;
             } else {
@@ -176,9 +176,9 @@ $("#register-btn").on("click", function () {
                                 };
 
                                 sessionStorage.setItem("loggedIn", true);
-                                sessionStorage.setItem("name", data[key].name);
-                                sessionStorage.setItem("email", data[key].email);
-    
+                                sessionStorage.setItem("name", $("#user-flname").val());
+                                sessionStorage.setItem("email", $("#user-email-r").val().trim());
+
                                 console.log(user);
                                 $.post('/users', user, function (data, status) {
                                     console.log("data: " + data);
@@ -191,7 +191,7 @@ $("#register-btn").on("click", function () {
                         else {
                             alert("A account already exists under this email. Please use a different email.");
                         }
-                    
+
                     })
                 }
             }
@@ -222,15 +222,15 @@ $("#login-btn").on("click", function () {
                 sessionStorage.setItem("email", data[key].email);
 
                 window.location.href = '/students' + data[key].dorm;
-        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'ra'){
-            count++;
+            } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'ra') {
+                count++;
 
-            sessionStorage.setItem("loggedIn", true);
-            sessionStorage.setItem("name", data[key].name);
-            sessionStorage.setItem("email", data[key].email);
+                sessionStorage.setItem("loggedIn", true);
+                sessionStorage.setItem("name", data[key].name);
+                sessionStorage.setItem("email", data[key].email);
 
-            window.location.href = '/ra' + data[key].dorm;
-        } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'admin'){
+                window.location.href = '/ra' + data[key].dorm;
+            } else if (userEmail === data[key].email && userPwd === data[key].password && data[key].clearance_level === 'admin') {
                 count++;
 
                 sessionStorage.setItem("loggedIn", true);

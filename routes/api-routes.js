@@ -132,4 +132,35 @@ module.exports = function (app) {
         });
     });
 
+    app.post("/students1/updateUp", function (req, res) {
+        db.Posts.update({ upvotes: req.body.upvotes },
+            { where: { id: req.body.id } });
+    });
+
+    app.post("/students1/updateDown", function (req, res) {
+        db.Posts.update({ downvotes: req.body.downvotes },
+            { where: { id: req.body.id } });
+    });
+
+    app.post("/students2/updateUp", function (req, res) {
+        db.Posts.update({ upvotes: req.body.upvotes },
+            { where: { id: req.body.id } });
+    });
+
+    app.post("/students2/updateDown", function (req, res) {
+        db.Posts.update({ downvotes: req.body.downvotes },
+            { where: { id: req.body.id } });
+    });
+
+    app.post("/students3/updateUp", function (req, res) {
+        db.Posts.update({ upvotes: req.body.upvotes },
+            { where: { id: req.body.id } });
+    });
+
+    app.post("/students3/updateDown", function (req, res) {
+        db.Posts.update({ downvotes: req.body.downvotes },
+            { where: { id: req.body.id } });
+    });
+
+
 };
