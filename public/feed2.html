@@ -49,8 +49,20 @@
                 </button>
                 <!-- </div> -->
             </form>
-
-            <div id="postArea"></div>
+            <div class="row" id='postTabs'>
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s6">
+                            <a id='tabs' href="#newPosts">NEW</a>
+                        </li>
+                        <li class="tab col s6">
+                            <a id='tabs' href="#hotPosts">TRENDING</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="newPosts" class="col s12"></div>
+                <div id="hotPosts" class="col s12"></div>
+            </div>
         </div>
 
         <!-- Announcements Column -->
@@ -60,9 +72,7 @@
                 <div class="col s12 m12">
                     <div class="card-panel adminCard">
                         <h4>Admin Announcements</h4>
-                        <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>
+                        <div id="adminCard"></div>
                     </div>
                 </div>
             </div>
@@ -71,18 +81,11 @@
                 <div class="col s12 m12">
                     <div class="card-panel raCard">
                         <h4 id="raHeader" class="anHeader">RA Announcements</h4>
-                        <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>
+                        <div id="raCard"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <center>
-            <div id="postArea" class="col s7"></div>
-        </center>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -96,6 +99,10 @@
     <script src="./js/feed2.js"></script>
     <script>
 
+        $(document).ready(function () {
+            $('.tabs').tabs();
+        });
+
         $.get('/students2/posts').then(function (data, status) {
             console.log(data)
             // loops through data
@@ -104,7 +111,7 @@
                 var postBody = data[key].body
                 var postTime = data[key].createdAt
                 var postId = data[key].id
-                $('#postArea').prepend(
+                $('#newPosts').prepend(
                     "<div id='uPost'><h4>" + postBody + "</h4>" +
                     "<p>" + postTime + "</p></div>" +
                     // get comments and number of comments to display & upvotes/downvotes buttons
@@ -118,7 +125,7 @@
                     // $.post('/students2/posts', function (req, res) {
                     //     console.log(res)
                     // });
-        
+
                     $.get('/students2/posts', function (data, status) {
                         for (var key in data) {
                             if (upvoteID === postId)

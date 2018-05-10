@@ -22,7 +22,12 @@ $('#postSubmitBTN').on('click', function (event) {
             }
         }
     })
-    
+});
+
+$.get('/admin/posts').then(function(data, status) {
+    for (var key in data) {
+        var adminPost = data[key].body
+        $('#adminCard').prepend("<div id='aPost'>" + adminPost + "</div>")    };
 });
 
 $('input#input_text, textarea#textarea2').characterCounter()
