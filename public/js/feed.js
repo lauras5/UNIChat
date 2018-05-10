@@ -7,28 +7,36 @@ $("#btn").on('click', function () {
     })
 })
 
-$('input#input_text, textarea#textarea2').characterCounter() 
-    // if(data-length > 150) {
-    //     console.log('stop')
-    // }
-
-
-
-// $(document).ready(function () {
-    // $('input#input_text, textarea#textarea1').characterCounter();
-// });
-// $('input#input_text, textarea#textarea1').characterCounter();
-
-// var maxLength = 150;
-// $('textarea').keyup(function() {
-//   var length = $(this).val().length;
-//   var length = maxLength-length;
-//   $('#chars').text(length);
-// });
-
+// character counter function on post
+var data-length
+$('input#input_text, textarea#textarea2').characterCounter()
+    if(data-length > 150) {
+        console.log('too long')
+    }
 
 // logout button
 $("#logoutBtn").on("click", function () {
     console.log("sup")
     loggedIn = sessionStorage.setItem("loggedIn", false);
 })
+
+// Or with jQuery
+$(document).ready(function(){
+    $('ul.tabs').tabs({
+      swipeable : true,
+      responsiveThreshold : 1920
+    });
+  });
+
+  $(function() {      
+    //Enable swiping...
+    $("#test").swipe( {
+      //Generic swipe handler for all directions
+      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        $(this).text("You swiped " + direction );  
+      },
+      //Default is 75px, set to 0 for demo so any distance triggers swipe
+       threshold:0
+    });
+  });
+

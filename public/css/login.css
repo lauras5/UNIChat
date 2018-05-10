@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-image: url('../images/trinitylibrary-blr.png');
+  background-image: url('../images/trinitylibrary-blr.png') ;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
