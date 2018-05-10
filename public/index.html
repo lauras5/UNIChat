@@ -3,8 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- reset css -->
     <link rel="stylesheet" href="reset.css">
+    <!-- materialize cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- css for login page -->
     <link rel="stylesheet" href="./css/login.css">
     <title>Login</title>
 </head>
@@ -12,9 +15,11 @@
 <body>
 
     <div class="logmod" id="background">
+        <!-- main logo -->
         <center>
                 <img class="logo" src="./images/unichatlogo-nb.png" alt="unichat-logo">
         </center>
+        <!-- form tabs -->
         <div class="logmod__wrapper">
             <div class="logmod__container">
                 <ul class="logmod__tabs">
@@ -25,6 +30,7 @@
                         <a href="#">Register</a>
                     </li>
                 </ul>
+                <!-- form login inputs -->
                 <div class="logmod__tab-wrapper">
                     <div class="logmod__tab lgm-2">
                         <div class="logmod__heading">
@@ -43,13 +49,13 @@
                                     <div class="input full">
                                         <label class="string optional" for="user-pw">Password</label>
                                         <input class="string optional" maxlength="255" id="user-pw-l" placeholder="Password" type="password" size="50" />
-                                        <!-- <span class="hide-password">Show</span> -->
                                     </div>
                                     <button class="subtn btn-large" id="login-btn" type="submit" name="action">Login</button>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    <!-- form register inputs -->
                     <div class="logmod__tab lgm-1">
                         <div class="logmod__heading">
                             <span class="logmod__heading-subtitle"> All fields are required.</span>
