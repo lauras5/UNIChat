@@ -1,42 +1,22 @@
 body {
   margin: 0;
-  background-image: url('../images/trinitylibrary-blr.png');
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(59%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('../images/trinitylibrary-blr.png') no-repeat;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  overflow-y:scroll; 
-
-}
-
-.logmod {
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  margin-top: -40px;
-}
-
-#background::after {
-  width:100%;
-    height: 100%;
-    content: "";
-    background: url('../images/blackbg.jpg');
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
+  overflow-y: scroll;
 }
 
 .logmod::after {
   clear: both;
   content: "";
   display: table;
+  margin-bottom: 50px;
 }
 
 .logmod__wrapper {
@@ -52,8 +32,7 @@ body {
   display: block;
   position: absolute;
   right: 50%;
-  background: url("http://imgh.us/close_white.svg") no-repeat scroll 0% 0%
-    transparent;
+  background: url("http://imgh.us/close_white.svg") no-repeat scroll 0% 0% transparent;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -200,15 +179,18 @@ body {
 .simform {
   position: relative;
 }
+
 .simform__actions {
   padding: 15px;
   font-size: 14px;
 }
+
 .simform__actions::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .simform__actions .sumbit {
   height: 48px;
   float: right;
@@ -218,11 +200,13 @@ body {
   font-size: 16px;
   margin-top: 7px;
 }
+
 .simform__actions .sumbit::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .simform__actions-sidetext {
   display: inline-block;
   float: left;
@@ -233,6 +217,7 @@ body {
   text-align: center;
   line-height: 24px;
 }
+
 .simform__actions-sidetext::after {
   clear: both;
   content: "";
@@ -242,11 +227,13 @@ body {
 .sminputs {
   border-bottom: 1px solid #e5e5e5;
 }
+
 .sminputs::after {
   clear: both;
   content: "";
   display: table;
 }
+
 .sminputs .input {
   display: block;
   position: relative;
@@ -263,15 +250,19 @@ body {
   -moz-appearance: none;
   appearance: none;
 }
+
 .sminputs .input.active {
   background: #eee;
 }
+
 .sminputs .input.active .hide-password {
   background: #eee;
 }
+
 .sminputs .input.full {
   width: 100%;
 }
+
 .sminputs .input label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -286,6 +277,7 @@ body {
   line-height: 24px;
   color: #4b1524;
 }
+
 .sminputs .input input {
   position: relative;
   display: inline-block;
@@ -304,6 +296,7 @@ body {
   cursor: pointer;
   background-color: transparent;
 }
+
 .sminputs .hide-password {
   display: inline-block;
   position: absolute;
@@ -339,7 +332,7 @@ html {
 }
 
 .subtn {
-width: 100%;
+  width: 100%;
 }
 
 #login-btn,
@@ -347,6 +340,7 @@ width: 100%;
   background: none;
   color: black;
 }
+
 #login-btn:hover,
 #register-btn:hover {
   background: #4b1524;
@@ -359,7 +353,3 @@ width: 100%;
   width: 550px;
   margin-top: 50px;
 }
-
-
-
-
