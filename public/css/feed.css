@@ -130,6 +130,15 @@ body {
     font-size: 30px;
 }
 
+/* @media only screen 
+and (min-width: 480px)
+and (max-width: 900px) {
+.adminCard, .raCard {
+    margin: 10px;
+    text-align: center;
+    }
+} */
+
 
 
 #posts {
@@ -142,11 +151,50 @@ body {
     font-size: 30px;
 }
 
+
 .anHeader {
     color: #4b1524;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-right: 10px;
+}
+
+/* Announcements media queries */
+/* phones */
+@media only screen 
+and (min-width: 350px)
+and (max-width: 767px) {
+.anHeader {
+    color: #4b1524;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 12px;
+    }
+}
+/* tablets */
+@media only screen 
+and (min-width: 768px)
+and (max-width: 1024px) {
+.anHeader {
+    color: #4b1524;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 18px;
+    }
+}
+/* large screens */
+@media only screen 
+and (min-width: 1025px)
+and (max-width: 1920px) {
+.anHeader {
+    color: #4b1524;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 24px;
+    }
 }
 
 .nav-wrapper {
@@ -181,13 +229,4 @@ body {
 
 nav .brand-logo.center {
     margin-top: 18px;
-}
-
-.rev {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
 }
