@@ -5,27 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./public/css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed | 3</title>
+    <title>UNI Chat Feed | 1</title>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12">
-            <button id="logoutBtn">Logout</button>
-        </div>
-    </div>
+    <nav>
+        <div id="navbar" class="nav-wrapper">
+            <a href="devpage.html">
+                <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+            </a>
+            <a href="#" class="brand-logo center">DORM I</a>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <button id="logoutBtn" class="logout btn-flat">Logout</button>
+                    <!-- <i class="fas fa-sign-out-alt"></i> -->
 
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row"></div>
+
+    <!-- Links on left -->
     <div class="row">
-        <div id="profile" class="col s2">
-            <center>
-                <a href="devpage.html">
-                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-                </a>
-                <h3>Dorm 3</h3>
+        <div id="profile" class="col s3">
+
+            <div class="card-panel">
                 <div>
                     <a id="links" href="#">Profile</a>
                 </div>
@@ -35,15 +48,16 @@
                 <div>
                     <a id="links" href="#">Top</a>
                 </div>
+            </div>
             </center>
         </div>
         <!-- Input for Posting -->
-        <div id="posts" class="col s7">
+        <div id="posts" class="col s6">
             <form id="postForm">
                 <!-- <div class="row"> -->
-                <div class="input-field col s12 z-depth-2">
+                <div class="input-field col s12 z-depth-1">
                     <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                    <label for="textarea2">Post Away</label>
+                    <!-- <label for="textarea2">Post Away</label> -->
                 </div>
                 <br>
                 <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
@@ -61,28 +75,33 @@
                             <a id='tabs' href="#hotPosts">TRENDING</a>
                         </li>
                     </ul>
+                    <div id="newPosts" class="col s12 postsDiv"></div>
+                    <div id="hotPosts" class="col s12 postsDiv"></div>
                 </div>
-                <div id="newPosts" class="col s12"></div>
-                <div id="hotPosts" class="col s12"></div>
             </div>
         </div>
+
+
+
 
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
             <!-- Admin Announcements div -->
             <div class="row admin">
                 <div class="col s12 m12">
-                    <div class="card-panel adminCard">
-                        <h4>Admin Announcements</h4>
+                    <div class="card-panel adminCard z-depth-3">
+                        <h4 id="adminHeader" class="anHeader">Admin
+                            <i class="fas fa-bullhorn"></i> Announcements</h4>
                         <div id="adminCard"></div>
+
                     </div>
                 </div>
             </div>
             <!-- RA Announcements div -->
             <div class="row ra">
                 <div class="col s12 m12">
-                    <div class="card-panel raCard">
-                        <h4 id="raHeader" class="anHeader">RA Announcements</h4>
+                    <div class="card-panel raCard z-depth-3">
+                        <h4 id="raHeader" class="anHeader"><i class="fas fa-bullhorn rev"></i>RA Announcements</h4>
                         <div id="raCard"></div>
                     </div>
                 </div>
@@ -98,14 +117,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="./js/feed3.js"></script>
+    <script src="./js/feed1.js"></script>
     <script>
 
         $(document).ready(function () {
             $('.tabs').tabs();
         });
 
-        $.get('/students3/posts').then(function (data, status) {
+        $.get('/students1/posts').then(function (data, status) {
             console.log(data)
             // loops through data
             for (var key in data) {
@@ -129,7 +148,7 @@
                     // });
 
 
-                    $.get('/students3/posts', function (data, status) {
+                    $.get('/students1/posts', function (data, status) {
                         for (var key in data) {
                             if (upvoteID == data[key].id) {
                                 uVotes = data[key].upvotes + 1;
@@ -141,8 +160,7 @@
                                     upvotes: uVotes
                                 };
 
-                                $.post('/students3/updateUp', postUpdate, function (data, status) {
-                                    console.log('ping');
+                                $.post('/students1/updateUp', postUpdate, function (data, status) {
                                 })
                             }
                         }
@@ -159,7 +177,7 @@
                     var dVotes = 0;
                     var downvoteID = $(this).val()
 
-                    $.get('/students3/posts', function (data, status) {
+                    $.get('/students1/posts', function (data, status) {
                         for (var key in data) {
                             if (downvoteID == data[key].id) {
                                 dVotes = data[key].downvotes + 1;
@@ -171,7 +189,7 @@
                                     downvotes: dVotes
                                 };
 
-                                $.post('/students3/updateDown', postUpdate, function (data, status) {
+                                $.post('/students1/updateDown', postUpdate, function (data, status) {
     
                                 })
                             }

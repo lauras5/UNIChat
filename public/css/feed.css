@@ -3,10 +3,11 @@ div {
 }
 
 body {
-    background-color: rgb(248, 245, 245);
+    background-color: #4b152410;
+    /* background-color: #F9EAE1; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    }
+}
 
 
 #postArea1, #postArea2, #postArea3, #newPosts, #hotPosts {
@@ -52,7 +53,7 @@ body {
 }
 
 #tabs {
-    color: dimgrey;
+    color: #435663;
 }
 
 #tabs:focus.active {
@@ -66,11 +67,11 @@ body {
     margin: 5px;
     font-size: 25px;
 }
-
+/* 
 #feedHeader {
     background-color: rgb(141, 65, 65);
     margin-top: 0;
-}
+} */
 
 .input-field {
     background-color: white;
@@ -92,22 +93,43 @@ body {
     width: 400px;
 } */
 
-#logoutBtn {
-    background-color: #435663;
+.logout {
+    /* background-color: white; */
     color: white;
-    margin-top: 32px;
-
+    /* height: 100px;
+    width: 124px;
+    border: #4b1524 solid 3px; */
+    font-weight: bold;
+    /* padding: 10px; */
+    /* margin-top: 23px; */
 }
+
+/* .logout:before {
+    border: 3px solid #4b1524;
+    /* top: 4px; */
+    /* left: 4px; */
+    right: 8px;
+    bottom: 7px;
+    content: " ";
+    height: 85px;
+    width: 106px;
+    display: block;
+    position: absolute;
+    box-shadow: -0.1px -0.1px 1px rgb(104, 102, 102);
+    /* background-color: white; */
+} */
+
 
 #postSubmitBTN {
     margin-top: 5px;
     margin-bottom: 20px;
-    background-color: #4b1524;
+    background-color: #435663;
 }
 
 #feedLogo {
     height: 100%;
     float: left;
+    background-color: white;
     /* margin: 0 5px ;
     margin-right: 10px; */
 }
@@ -120,29 +142,33 @@ body {
     /* font-family: 'Raleway', sans-serif; */
     font-size: 30px;
     margin-top: 10%;
-    color: black;
+    color: #435663;
 }
 
 .adminCard, .raCard {
-    margin: 10px;
+    /* margin: 10px; */
     text-align: center;
-    font-size: 30px;
+    /* font-size: 30px; */
+    /* margin-top: 10px; */
 }
 
-
+.admin {
+    margin-top: 10px;
+}
 
 #posts {
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 
 #textarea2 {
     color: black;
     font-family: 'Raleway', sans-serif;
     font-size: 30px;
+    text-align: center;
 }
 
 .anHeader {
-    color: #4b1524;
+    color: #435663;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-right: 10px;
@@ -150,6 +176,9 @@ body {
 
 .nav-wrapper {
     background-color: #435663;    
+    /* background-color: #435663;     */
+    padding: 5px;
+
 }
 
 #navbar {
@@ -162,7 +191,7 @@ body {
 
 
 #tabs:focus.active {
-    background-color: #bf8861;
+    background-color: #C1A5A9;
     color: white;
 }
 
@@ -170,7 +199,7 @@ body {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #bf8861;
+    background-color: #CC8B86;
     will-change: left, right;
 }
 
@@ -180,6 +209,8 @@ body {
 
 nav .brand-logo.center {
     margin-top: 18px;
+    font-size: 
+    
 }
 
 .rev {
@@ -189,4 +220,8 @@ nav .brand-logo.center {
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+}
+
+.signout {
+    margin-top: 20px;
 }
