@@ -19,6 +19,8 @@ $('#postSubmitBTN').on('click', function (event) {
                 // post that info to sql
                 $.post('/students2/posts', post, function (data, status) {
                     console.log(status)
+                    $('#newPosts').empty()
+                    getPosts()
                 }); 
             };
         }

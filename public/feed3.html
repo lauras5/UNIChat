@@ -125,11 +125,16 @@
 
         $(document).ready(function () {
             $('.tabs').tabs();
+<<<<<<< HEAD
             getPosts();
+=======
+            getPosts()
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
         });
 
         function getPosts() {
             $.get('/students3/posts').then(function (data, status) {
+<<<<<<< HEAD
                 console.log(data)
 
                 // loops through data
@@ -169,6 +174,48 @@
                             }
 
                         })
+=======
+            console.log(data)
+            // loops through data
+            for (var key in data) {
+                console.log(data[key].id)
+                var postBody = data[key].body
+                var postTime = data[key].createdAt
+                var postId = data[key].id
+                $('#newPosts').prepend(
+                    "<div id='uPost'><h4>" + postBody + "</h4>" +
+                    "<p>" + postTime + "</p></div>" +
+                    // get comments and number of comments to display & upvotes/downvotes buttons
+                    "<div id='commentRegion-" + postId + "'><button id= 'commentLink' value='" + postId + "'>COMMENTS</button></div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
+                )
+                    }
+                })
+            }
+
+                // add downvote & upvote counts
+                $('#upvoteBtn').on('click', function () {
+                    var uVotes = 0;
+                    var upvoteID = $(this).val()
+                    console.log(upvoteID)
+
+
+                    $.get('/students3/posts', function (data, status) {
+                        for (var key in data) {
+                            if (upvoteID == data[key].id) {
+                                uVotes = data[key].upvotes + 1;
+
+                                // console.log('found a match at id #' + postId)
+
+                                var postUpdate = {
+                                    id: upvoteID,
+                                    upvotes: uVotes
+                                };
+
+                                $.post('/students3/updateUp', postUpdate, function (data, status) {
+                                });
+                            };
+                        };
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
                     });
 
                     // downvote button on click
@@ -241,10 +288,17 @@
 
                     });
 
+<<<<<<< HEAD
                     // adds downvotes to post
                     $('#tdownvoteBtn').on('click', function () {
                         var dVotes = 0;
                         var downvoteID = $(this).val();
+=======
+
+                $('#downvoteBtn').on('click', function () {
+                    var dVotes = 0;
+                    var downvoteID = $(this).val()
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
 
                         $.get('/students3/posts', function (data, status) {
                             for (var key in data) {

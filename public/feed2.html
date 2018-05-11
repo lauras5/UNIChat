@@ -132,6 +132,7 @@
 
         $(document).ready(function () {
             $('.tabs').tabs();
+<<<<<<< HEAD
             getPosts();
         });
 
@@ -139,12 +140,22 @@
             $.get('/students2/posts').then(function (data, status) {
                 console.log(data)
 
+=======
+            getPosts()
+        });
+
+
+        function getPosts() {
+            $.get('/students2/posts').then(function (data, status) {
+                console.log(data)
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
                 // loops through data
                 for (var key in data) {
                     console.log(data[key].id)
                     var postBody = data[key].body
                     var postTime = data[key].createdAt
                     var postId = data[key].id
+<<<<<<< HEAD
 
                     if (data[key].UserId > 4) {
                         $('#newPosts').prepend(
@@ -243,6 +254,91 @@
                                         console.log('ping');
                                     })
                                 };
+=======
+                    $('#newPosts').prepend(
+                        "<div id='uPost'><h4>" + postBody + "</h4>" +
+                        "<p>" + postTime + "</p></div>" +
+                        // get comments and number of comments to display & upvotes/downvotes buttons
+                        "<div id='commentRegion-" + postId + "'><button id= 'commentLink' value='" + postId + "'>COMMENTS</button></div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
+                    )
+
+                }
+            });
+        }
+
+
+
+
+        // add downvote & upvote counts
+        $('#upvoteBtn').on('click', function () {
+            var uVotes = 0;
+            var upvoteID = $(this).val()
+            console.log(upvoteID)
+            // $.post('/students2/posts', function (req, res) {
+            //     console.log(res)
+            // });
+
+
+            $.get('/students2/posts', function (data, status) {
+                for (var key in data) {
+                    if (upvoteID == data[key].id) {
+                        uVotes = data[key].upvotes + 1;
+
+                        // console.log('found a match at id #' + postId)
+
+                        var postUpdate = {
+                            id: upvoteID,
+                            upvotes: uVotes
+                        };
+
+                        $.post('/students2/updateUp', postUpdate, function (data, status) {
+                            console.log('ping');
+                        })
+                    }
+                }
+
+
+                // where id matches this id add one upvote
+                // limit 1 per user
+
+            })
+        });
+
+
+        $('#downvoteBtn').on('click', function () {
+            var dVotes = 0;
+            var downvoteID = $(this).val()
+
+            $.get('/students2/posts', function (data, status) {
+                for (var key in data) {
+                    if (downvoteID == data[key].id) {
+                        dVotes = data[key].downvotes + 1;
+
+                        // console.log('found a match at id #' + postId)
+
+                        var postUpdate = {
+                            id: downvoteID,
+                            downvotes: dVotes
+                        };
+
+                        $.post('/students2/updateDown', postUpdate, function (data, status) {
+
+                        })
+                    }
+                }
+
+
+                // where id matches this id add one upvote
+                // limit 1 per user
+
+            })
+        });
+
+
+                                $.post('/students2/updateUp', postUpdate, function (data, status) {
+                                    console.log('ping');
+                                });
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
                             };
                         });
 
@@ -258,10 +354,24 @@
                                 if (downvoteID == data[key].id) {
                                     dVotes = data[key].downvotes + 1;
 
+<<<<<<< HEAD
                                     var postUpdate = {
                                         id: downvoteID,
                                         downvotes: dVotes
                                     };
+=======
+
+
+
+        // getting RA posts to post, how many?
+        // $.get('/students2/ra/posts').then(function (data, status) {
+        //     console.log(data);
+        //     for (var key in data) {
+        //         var RApost = data[key].body
+        //     }
+        // })
+
+>>>>>>> f9726d20e32b36e6770b0d306e9173e43ff7cc86
 
                                     $.post('/students2/updateDown', postUpdate, function (data, status) {
                                         console.log('ping')

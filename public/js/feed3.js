@@ -4,6 +4,7 @@ $('#postSubmitBTN').on('click', function (event) {
     // text area turns into var on submit button click
     // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
+    
 
     $.get('/users').then(function(data, status) {
         // loops through the keys
@@ -15,10 +16,12 @@ $('#postSubmitBTN').on('click', function (event) {
                 var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
                 console.log(post)
-                
                 // post that info to sql
                 $.post('/students3/posts', post, function (data, status) {
                     console.log(status)
+                    console.log('yo waddup my dude')
+                    $('#newPosts').empty()
+                    getPosts()
                 }); 
             };
         }

@@ -23,8 +23,9 @@ module.exports = function (app) {
 
     // Dorm 1 new posts
     app.post('/students1/posts', function (req, res) {
-        db.Posts.create(req.body).then(function (res) {
+        db.Posts.create(req.body).then(function (response) {
             console.log(res)
+            res.json(response)
         }).catch(function (err) {
             console.log(err);
         });
@@ -56,8 +57,9 @@ module.exports = function (app) {
 
     // Dorm 2 posts
     app.post('/students2/posts', function (req, res) {
-        db.Posts.create(req.body).then(function (res) {
+        db.Posts.create(req.body).then(function (response) {
             console.log(res)
+            res.json(response)
         }).catch(function (err) {
             console.log(err);
         });
@@ -89,8 +91,9 @@ module.exports = function (app) {
 
     // Dorm 3 posts
     app.post('/students3/posts', function (req, res) {
-        db.Posts.create(req.body).then(function (res) {
-            console.log(res)
+        db.Posts.create(req.body).then(function (response) {
+            console.log(response)
+            res.json(response)
         }).catch(function (err) {
             console.log(err);
         });

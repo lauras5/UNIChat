@@ -59,6 +59,10 @@ body {
     border-radius: 2px;
 }
 
+#commentBTN {
+    float: right;
+} */
+
 #commentLink:hover {
     background-color: grey;
 }
