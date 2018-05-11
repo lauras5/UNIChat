@@ -59,6 +59,10 @@ body {
     background-color: #26a69970;
 }
 
+.key {
+    font-size: 22px;
+}
+
 #aPost {
     background-color: lightgrey;
     box-shadow: 2px 2px 2px dimgrey;

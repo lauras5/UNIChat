@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         Comments.belongsTo(models.Posts, {
             foreignKey: {allowNull: false}
         });
-    }
+    };
 
     return Comments;
 };
