@@ -143,6 +143,8 @@ $("#register-btn").on("click", function () {
             if (secKey === data[key].key) {
                 count++;
 
+                var dormNum = data[key].dorm;
+
                 var userp = $("#user-pw-r").val();
                 var userpr = $("#user-pw-repeat").val();
 
@@ -171,7 +173,7 @@ $("#register-btn").on("click", function () {
                                     name: $("#user-flname").val(),
                                     email: $("#user-email-r").val().trim(),
                                     password: $("#user-pw-r").val(),
-                                    dorm: data[key].dorm,
+                                    dorm: dormNum,
                                     clearance_level: "student"
                                 };
 
@@ -184,7 +186,7 @@ $("#register-btn").on("click", function () {
                                     console.log("data: " + data);
                                     console.log("status" + status)
                                 });
-                                window.location.href = '/students' + data[key].dorm;
+                                window.location.href = '/students' + dormNum;
                             }
 
                         }
