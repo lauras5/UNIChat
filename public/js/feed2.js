@@ -1,19 +1,22 @@
+// on submit, it posts text to server 
 $('#postSubmitBTN').on('click', function (event) {
     event.preventDefault();
+
     // text area turns into var on submit button click
-    // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
 
     $.get('/users').then(function(data, status) {
         // loops through the keys
         for (var key in data) {
-            
+
+            // gets email stored inserver loop through db to find user and posts under that id
             var uEmail = sessionStorage.getItem("email");
             if (uEmail === data[key].email) {
+
                 // define post, give it unique id of user id
                 var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
-                console.log(post)
+                // console.log(post)
                 
                 // post that info to sql
                 $.post('/students2/posts', post, function (data, status) {
@@ -21,11 +24,12 @@ $('#postSubmitBTN').on('click', function (event) {
                     $('#newPosts').empty()
                     getPosts()
                 }); 
-            }
-        }
-    })
+            };
+        };
+    });
 });
 
+// returns admin posts and displays them on side
 $.get('/admin/posts').then(function(data, status) {
     for (var key in data) {
         var adminPost = data[key].body

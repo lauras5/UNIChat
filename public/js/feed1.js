@@ -33,6 +33,7 @@ $.get('/admin/posts').then(function (data, status) {
     };
 });
 
+$.get('/')
 $('input#input_text, textarea#textarea2').characterCounter()
 
 var maxLength = 150;
