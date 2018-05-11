@@ -126,9 +126,11 @@
 
         $(document).ready(function () {
             $('.tabs').tabs();
+            getPosts()
         });
 
-        $.get('/students3/posts').then(function (data, status) {
+        function getPosts() {
+            $.get('/students3/posts').then(function (data, status) {
             console.log(data)
             // loops through data
             for (var key in data) {
@@ -140,16 +142,17 @@
                     "<div id='uPost'><h4>" + postBody + "</h4>" +
                     "<p>" + postTime + "</p></div>" +
                     // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
+                    "<div id='commentRegion-" + postId + "'><button id= 'commentLink' value='" + postId + "'>COMMENTS</button></div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
                 )
+                    }
+                })
+            }
+
                 // add downvote & upvote counts
                 $('#upvoteBtn').on('click', function () {
                     var uVotes = 0;
                     var upvoteID = $(this).val()
                     console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
 
 
                     $.get('/students3/posts', function (data, status) {
@@ -239,6 +242,7 @@
                         };
                     });
                 });
+
 
 
                 $('#downvoteBtn').on('click', function () {
