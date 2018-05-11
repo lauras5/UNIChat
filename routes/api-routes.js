@@ -21,7 +21,7 @@ module.exports = function (app) {
         });
     });
 
-    // Dorm 1 posts
+    // Dorm 1 new posts
     app.post('/students1/posts', function (req, res) {
         db.Posts.create(req.body).then(function (res) {
             console.log(res)
@@ -30,12 +30,25 @@ module.exports = function (app) {
         });
     });
 
-
     app.get("/students1/posts", function (req, res) {
         db.Posts.findAll({
             where: {
                 dorm: 1
             }
+        }).then(function (Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // Dorm 1 trending posts
+    app.get("/students1/trending", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm: 1
+            },
+            order: [
+                ['upvotes', 'DESC']
+            ]
         }).then(function (Posts) {
             res.json(Posts)
         });
@@ -60,6 +73,20 @@ module.exports = function (app) {
         });
     });
 
+    // Dorm 2 trending posts
+    app.get("/students2/trending", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm: 2
+            },
+            order: [
+                ['upvotes', 'DESC']
+            ]
+        }).then(function (Posts) {
+            res.json(Posts)
+        });
+    });
+
     // Dorm 3 posts
     app.post('/students3/posts', function (req, res) {
         db.Posts.create(req.body).then(function (res) {
@@ -74,6 +101,20 @@ module.exports = function (app) {
             where: {
                 dorm: 3
             }
+        }).then(function (Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // Dorm 3 trending posts
+    app.get("/students3/trending", function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm: 3
+            },
+            order: [
+                ['upvotes', 'DESC']
+            ]
         }).then(function (Posts) {
             res.json(Posts)
         });
@@ -107,6 +148,46 @@ module.exports = function (app) {
             where: {
                 dorm: 1,
                 userId: 2
+            }
+        }).then(function (Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // ra dorm 2 posts
+    app.post('/ra2/posts', function (req, res) {
+        db.Posts.create(req.body).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err)
+        })
+    });
+
+    app.get('/ra2/posts', function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm: 2,
+                userId: 3
+            }
+        }).then(function (Posts) {
+            res.json(Posts)
+        });
+    });
+
+    // ra dorm 3 posts
+    app.post('/ra3/posts', function (req, res) {
+        db.Posts.create(req.body).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err)
+        })
+    });
+
+    app.get('/ra3/posts', function (req, res) {
+        db.Posts.findAll({
+            where: {
+                dorm: 3,
+                userId: 4
             }
         }).then(function (Posts) {
             res.json(Posts)

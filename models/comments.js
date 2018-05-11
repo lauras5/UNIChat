@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 'comment'
         },
-        // foreign key for user and message
-
+        
     });
-
+    
+    // foreign key for user and message
     Comments.associate =  function(models) {
         Comments.belongsTo(models.Users, {
             foreignKey: {allowNull: false}
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         Comments.belongsTo(models.Posts, {
             foreignKey: {allowNull: false}
         });
-    }
+    };
 
     return Comments;
 };

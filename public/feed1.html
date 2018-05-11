@@ -101,13 +101,16 @@
             <div class="row ra">
                 <div class="col s12 m12">
                     <div class="card-panel raCard z-depth-3">
-                        <h4 id="raHeader" class="anHeader"><i class="fas fa-bullhorn rev"></i>RA Announcements</h4>
+
+                        <h4 id="raHeader" class="anHeader">RA <i class="fas fa-bullhorn"></i> Announcements</h4>
+
                         <div id="raCard"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
@@ -126,6 +129,7 @@
 
         $.get('/students1/posts').then(function (data, status) {
             console.log(data)
+
             // loops through data
             for (var key in data) {
                 console.log(data[key].id)
@@ -152,7 +156,7 @@
                         for (var key in data) {
                             if (upvoteID == data[key].id) {
                                 uVotes = data[key].upvotes + 1;
-                                
+
                                 // console.log('found a match at id #' + postId)
 
                                 var postUpdate = {
@@ -181,7 +185,7 @@
                         for (var key in data) {
                             if (downvoteID == data[key].id) {
                                 dVotes = data[key].downvotes + 1;
-                                
+
                                 // console.log('found a match at id #' + postId)
 
                                 var postUpdate = {
@@ -190,29 +194,88 @@
                                 };
 
                                 $.post('/students1/updateDown', postUpdate, function (data, status) {
-    
+
                                 })
                             }
                         }
 
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
 
                     })
                 });
             }
         });
 
+        $.get('/students1/trending').then(function (data, status) {
+            console.log(data);
+            // loops through data
+            for (var key in data) {
+                console.log(data[key].id);
+                var postBody = data[key].body;
+                var postTime = data[key].createdAt;
+                var postId = data[key].id;
 
-        // getting RA posts to post, how many?
-        // $.get('/students2/ra/posts').then(function (data, status) {
-        //     console.log(data);
-        //     for (var key in data) {
-        //         var RApost = data[key].body
-        //     }
-        // })
+                $('#hotPosts').append(
+                    "<div id='tPost'><h4>" + postBody + "</h4>" +
+                    "<p>" + postTime + "</p></div>" +
+                    // get comments and number of comments to display & upvotes/downvotes buttons
+                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
+                );
 
+                // add downvote & upvote counts
+                $('#upvoteBtn').on('click', function () {
+                    var uVotes = 0;
+                    var upvoteID = $(this).val();
+                    console.log(upvoteID);
+                    // $.post('/students2/posts', function (req, res) {
+                    //     console.log(res)
+                    // });
+
+                    $.get('/students1/trending', function (data, status) {
+                        for (var key in data) {
+                            if (upvoteID == data[key].id) {
+                                uVotes = data[key].upvotes + 1;
+
+                                // console.log('found a match at id #' + postId)
+
+                                var postUpdate = {
+                                    id: upvoteID,
+                                    upvotes: uVotes
+                                };
+
+                                $.post('/students1/updateUp', postUpdate, function (data, status) {
+                                    console.log('ping');
+                                })
+                            };
+                        };
+                    });
+                });
+
+
+                $('#downvoteBtn').on('click', function () {
+                    var dVotes = 0;
+                    var downvoteID = $(this).val();
+
+                    $.get('/students1/trending', function (data, status) {
+                        for (var key in data) {
+                            if (downvoteID == data[key].id) {
+                                dVotes = data[key].downvotes + 1;
+
+                                // console.log('found a match at id #' + postId)
+
+                                var postUpdate = {
+                                    id: downvoteID,
+                                    downvotes: dVotes
+                                };
+
+                                $.post('/students1/updateDown', postUpdate, function (data, status) {
+                                    console.log('ping')
+                                });
+                            };
+                        };
+                    });
+                });
+            };
+        });
 
     </script>
 

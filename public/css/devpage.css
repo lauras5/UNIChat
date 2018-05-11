@@ -1,8 +1,10 @@
+/* row for dev cards */
 .devmain {
     margin-top: 100px;
     flex: 1 0 auto;
 }
 
+/* navbar and footer  */
 .body {
     background: #4b1524;
     display: flex;
@@ -16,30 +18,36 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* nav title */
 .devtitle {
     font-size: 28px;
     margin-left: 10px;
 }
 
+/* dev card names */
 .dev-name{
     margin: 0;
     color: black;   
 }
 
+/* card images */
 img {
     height: 350px;
     width: auto;
     background-size: cover; 
 }
 
+/* card text */
 .c-text {
     height: 100%;  
 }
 
+/* custom color */
 .waves-effect.waves-maroon {
     background: #4b1524;
 }
 
+/* footer styling */
 .page-footer {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -47,6 +55,8 @@ img {
     background: #4b1524;
     height: 50px;
 }
+
+
 
 
      

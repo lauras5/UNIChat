@@ -33,17 +33,14 @@
         <div class="row">
             <div id="profile" class="col s2">
                 <center>
-                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm" style="width: 100%;">
                     <h3>Admin</h3>
-                    <div>
-                        <a id="links" href="#">Profile</a>
-                    </div>
-                    <div>
-                        <a id="links" href="#">Current</a>
-                    </div>
-                    <div>
-                        <a id="links" href="#">Top</a>
-                    </div>
+
+                    <!-- posts admin to  -->
+                    <!-- <div class="card-panel aCard">
+                        <h4 id="raHeader" class="anHeader">My Posts</h4>
+                        <div id="adminCard"></div>
+                    </div> -->
                 </center>
             </div>
             <!-- Input for Posting -->
@@ -86,10 +83,35 @@
                 <div class="row admin">
                     <div class="col s12 m12">
                         <div class="card-panel adminCard">
+                            <h4>Admin Announcements</h4>
+                            <div id="adminCard"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ra">
+                    <div class="col s12 m12">
+                        <div class="card-panel raCard">
                             <h4>RA Announcements</h4>
-                            <span>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                                I require little markup to use effectively. I am similar to what is called a panel in other
-                                frameworks.
+                            <div id="raCard">
+                                <div class="row" id='postTabs'>
+                                    <div class="col s12">
+                                        <ul class="tabs">
+                                            <li class="tab col s4">
+                                                <a id='tabs' href="#raTab1">Dorm 1</a>
+                                            </li>
+                                            <li class="tab col s4">
+                                                <a id='tabs' href="#raTab2">Dorm 2</a>
+                                            </li>
+                                            <li class="tab col s4">
+                                                <a id='tabs' href="#raTab3">Dorm 3</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="raTab1" class="col s12"></div>
+                                    <div id="raTab2" class="col s12"></div>
+                                    <div id="raTab3" class="col s12"></div>
+                                </div>
+                            </div>
                             </span>
                         </div>
                     </div>
@@ -123,13 +145,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
-            <center>
-                <div id="postArea" class="col s7"></div>
-            </center>
-        </div> -->
-
-
 
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
@@ -166,7 +181,7 @@
 
                 // console.log(adminToken)
                 // append key to div
-                $('.key').append("<p>New Student AUTH KEY :</p> <p><b>" + adminToken.key + "</b></p> <p>for dorm #" + adminToken.dorm + ".</p>")
+                $('.key').html("<p>New Student AUTH KEY :</p> <p><b>" + adminToken.key + "</b></p> <p>for dorm #" + adminToken.dorm + ".</p>")
 
                 // adding button to copy key to clipboard
                 $('#copyKey').on('click', function () {
