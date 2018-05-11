@@ -173,45 +173,36 @@
 
                                 $.post('/students2/updateDown', postUpdate, function (data, status) {
 
-                                })
-                            }
-                        }
-
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
+                                });
+                            };
+                        };
+                    });
                 });
-
-
-
-
-            }
+            };
         });
 
         $.get('/students2/trending').then(function (data, status) {
             console.log(data)
             // loops through data
             for (var key in data) {
-                console.log(data[key].id)
-                var postBody = data[key].body
-                var postTime = data[key].createdAt
-                var postId = data[key].id
+                console.log(data[key].id);
+                var postBody = data[key].body;
+                var postTime = data[key].createdAt;
+                var postId = data[key].id;
+
                 $('#hotPosts').append(
                     "<div id='tPost'><h4>" + postBody + "</h4>" +
                     "<p>" + postTime + "</p></div>" +
                     // get comments and number of comments to display & upvotes/downvotes buttons
                     "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                )
+                );
+
                 // add downvote & upvote counts
                 $('#upvoteBtn').on('click', function () {
                     var uVotes = 0;
-                    var upvoteID = $(this).val()
-                    console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
+                    var upvoteID = $(this).val();
+                    console.log(upvoteID);
+                    
 
                     $.get('/students2/trending', function (data, status) {
                         for (var key in data) {
@@ -227,7 +218,7 @@
 
                                 $.post('/students2/updateUp', postUpdate, function (data, status) {
                                     console.log('ping');
-                                })
+                                });
                             };
                         };
                     });
@@ -259,17 +250,6 @@
                 });
             };
         });
-
-
-        // getting RA posts to post, how many?
-        // $.get('/students2/ra/posts').then(function (data, status) {
-        //     console.log(data);
-        //     for (var key in data) {
-        //         var RApost = data[key].body
-        //     }
-        // })
-
-
     </script>
 
 </body>
