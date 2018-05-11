@@ -4,9 +4,12 @@
     flex: 1 0 auto;
 }
 
+.nav-wrapper {
+    background: #192231;
+}
+
 /* navbar and footer  */
 .body {
-    background: #4b1524;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -27,7 +30,9 @@
 /* dev card names */
 .dev-name{
     margin: 0;
-    color: black;   
+    margin-bottom: 5px;
+    color: black; 
+    font-size: 20px;
 }
 
 /* card images */
@@ -39,21 +44,29 @@ img {
 
 /* card text */
 .c-text {
-    height: 100%;  
+    height: 100%; 
+    font-size: 14px;
 }
 
 /* custom color */
 .waves-effect.waves-maroon {
-    background: #4b1524;
+    background: #192231;
 }
 
 /* footer styling */
 .page-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 11px;
-    background: #4b1524;
-    height: 50px;
+    background: #192231;
+    height: 60px;
+}
+
+#footer-font {
+    margin-top: 8px;
 }
 
 
