@@ -18,6 +18,8 @@ $('#postSubmitBTN').on('click', function (event) {
                 // post that info to sql
                 $.post('/ra1/posts', post, function (data, status) {
                     console.log(status)
+                    $('#newPosts').empty()   		
+                    getPosts()
                 }); 
             }
         }
@@ -27,14 +29,14 @@ $('#postSubmitBTN').on('click', function (event) {
 $.get('/admin/posts').then(function(data, status) {
     for (var key in data) {
         var adminPost = data[key].body
-        $('#adminCard').prepend("<div id='aPost'>" + adminPost + "</div>")
+        $('#adminCard').prepend("<hr><div id='aPost'>" + adminPost + "</div>")
     };
 });
 
 $.get('/ra1/posts').then(function(data, status) {
     for (var key in data) {
         var raPost = data[key].body
-        $('#raCard').prepend("<div id='raPost'>" + raPost + "</div>")
+        $('#raCard').prepend("<hr><div id='raPost'>" + raPost + "</div>")
     };
 });
 
@@ -52,4 +54,79 @@ $("#logoutBtn").on("click", function () {
     sessionStorage.setItem("loggedIn", false);
     sessionStorage.removeItem('name');
     window.location.href = '/';
+});
+
+$(document).on('click', '#commentLink', function () {
+    var postVal = $(this).val();
+    
+    $('#commentRegion-' + postVal).html("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
+
+    $.get('/students1/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+
+    $('#tcommentRegion-' + postVal).html("<div><input id='tcomment' type='text' name='comments'><button id='tcommentBTN' value='" + postVal + "'>Post</button></div>");
+
+    $.get('/students1/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#tcommentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+
+});
+
+// comment section for new page
+$(document).on('click', '#commentBTN', function () {
+    var postVal = $(this).val();
+
+    $('#commentRegion-' + postVal).append($("#comment").val() + "<br>");
+
+    $.get('/users', function (data, status) {
+        for (var key in data) {
+            if (sessionStorage.getItem("name") == data[key].name) {
+                var userId = data[key].id;
+
+                var commentInfo = {
+                    body: $("#comment").val(),
+                    author: sessionStorage.getItem("name"),
+                    UserId: userId,
+                    PostId: postVal
+                };
+
+                $.post('/students1/comments', commentInfo, function (data, status) {
+                });
+            };
+        };
+    });
+});
+
+// comment section for trending page
+$(document).on('click', '#tcommentBTN', function () {
+    var postVal = $(this).val();
+    var postBody = $('#tcomment').val()
+    $('#tcommentRegion-' + postVal).append(postBody + "<br>");
+
+    $.get('/users', function (data, status) {
+        for (var key in data) {
+            if (sessionStorage.getItem("name") == data[key].name) {
+                var userId = data[key].id;
+
+                var commentInfo = {
+                    body: postBody,
+                    author: sessionStorage.getItem("name"),
+                    UserId: userId,
+                    PostId: postVal
+                };
+
+                $.post('/students1/comments', commentInfo, function (data, status) {
+                });
+            };
+        };
+    });
 });

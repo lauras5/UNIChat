@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed | RA1</title>
+    <title>UNI Chat Feed | RA3</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <a href="devpage.html">
                 <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
             </a>
-            <a href="#" class="brand-logo center">RA : DORM 1</a>
+            <a href="#" class="brand-logo center">RA : DORM 3</a>
             <ul id="nav-mobile" class="right">
                 <li>
                     <button id="logoutBtn" class="logout btn-flat">Logout</button>
@@ -124,7 +124,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="./js/ra1.js"></script>
+    <script src="./js/ra3.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -133,7 +133,7 @@
         });
 
         function getPosts() {
-            $.get('/students1/posts').then(function (data, status) {
+            $.get('/students3/posts').then(function (data, status) {
                 console.log(data)
 
                 // loops through data
@@ -155,7 +155,7 @@
                         var upvoteID = $(this).val()
                         console.log(upvoteID)
 
-                        $.get('/students1/posts', function (data, status) {
+                        $.get('/students3/posts', function (data, status) {
                             for (var key in data) {
                                 if (upvoteID == data[key].id) {
                                     uVotes = data[key].upvotes + 1;
@@ -165,7 +165,7 @@
                                         upvotes: uVotes
                                     };
 
-                                    $.post('/students1/updateUp', postUpdate, function (data, status) {
+                                    $.post('/students3/updateUp', postUpdate, function (data, status) {
                                         console.log(status)
                                     })
                                 }
@@ -180,7 +180,7 @@
                         var downvoteID = $(this).val()
 
                         // gets posts from db and adds one downvote
-                        $.get('/students1/posts', function (data, status) {
+                        $.get('/students3/posts', function (data, status) {
                             for (var key in data) {
                                 if (downvoteID == data[key].id) {
                                     dVotes = data[key].downvotes + 1;
@@ -190,7 +190,7 @@
                                         downvotes: dVotes
                                     };
 
-                                    $.post('/students1/updateDown', postUpdate, function (data, status) {
+                                    $.post('/students3/updateDown', postUpdate, function (data, status) {
                                         console.log(status)
                                     });
                                 };
@@ -202,7 +202,7 @@
             });
 
             // get for students trending page
-            $.get('/students1/trending').then(function (data, status) {
+            $.get('/students3/trending').then(function (data, status) {
                 console.log(data);
 
                 // loops through data
@@ -225,7 +225,7 @@
                         var upvoteID = $(this).val();
                         console.log(upvoteID);
 
-                        $.get('/students1/posts', function (data, status) {
+                        $.get('/students3/posts', function (data, status) {
                             for (var key in data) {
                                 if (upvoteID == data[key].id) {
                                     uVotes = data[key].upvotes + 1;
@@ -235,7 +235,7 @@
                                         upvotes: uVotes
                                     };
 
-                                    $.post('/students1/updateUp', postUpdate, function (data, status) {
+                                    $.post('/students3/updateUp', postUpdate, function (data, status) {
                                         console.log('ping');
                                     })
                                 };
@@ -249,7 +249,7 @@
                         var dVotes = 0;
                         var downvoteID = $(this).val();
 
-                        $.get('/students1/posts', function (data, status) {
+                        $.get('/students3/posts', function (data, status) {
                             for (var key in data) {
                                 if (downvoteID == data[key].id) {
                                     dVotes = data[key].downvotes + 1;
@@ -259,7 +259,7 @@
                                         downvotes: dVotes
                                     };
 
-                                    $.post('/students1/updateDown', postUpdate, function (data, status) {
+                                    $.post('/students3/updateDown', postUpdate, function (data, status) {
                                         console.log('ping')
                                     });
                                 };

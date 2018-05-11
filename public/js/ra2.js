@@ -1,6 +1,5 @@
 $('#postSubmitBTN').on('click', function (event) {
     event.preventDefault();
-    
     // text area turns into var on submit button click
     // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
@@ -12,34 +11,32 @@ $('#postSubmitBTN').on('click', function (event) {
             var uEmail = sessionStorage.getItem("email");
             if (uEmail === data[key].email) {
                 // define post, give it unique id of user id
-                var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
+                var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
                 console.log(post)
                 
                 // post that info to sql
-                $.post('/students1/posts', post, function (data, status) {
+                $.post('/ra2/posts', post, function (data, status) {
                     console.log(status)
                     $('#newPosts').empty()   		
                     getPosts()
-                    getHotPosts()
                 }); 
-            };
-        };
+            }
+        }
     });
 });
 
-// post admin posts on admin card
 $.get('/admin/posts').then(function(data, status) {
     for (var key in data) {
         var adminPost = data[key].body
-        $('#adminCard').prepend("<hr><div id='aPost'>" + adminPost + "</div>")
+        $('#adminCard').prepend("<div id='aPost'>" + adminPost + "</div>")
     };
 });
 
-$.get('/ra1/posts').then(function(data, status) {
+$.get('/ra2/posts').then(function(data, status) {
     for (var key in data) {
         var raPost = data[key].body
-        $('#raCard').prepend("<hr><div id='raPost'>" + raPost + "</div>")
+        $('#raCard').prepend("<div id='raPost'>" + raPost + "</div>")
     };
 });
 
@@ -56,16 +53,16 @@ $('textarea').keyup(function() {
 $("#logoutBtn").on("click", function () {
     sessionStorage.setItem("loggedIn", false);
     sessionStorage.removeItem('name');
-    sessionStorage.removeItem('email');
     window.location.href = '/';
 });
 
-// drop down for comment link
+
 $(document).on('click', '#commentLink', function () {
     var postVal = $(this).val();
     
     $('#commentRegion-' + postVal).html("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
-    $.get('/students1/comments', function (data, status) {
+
+    $.get('/students2/comments', function (data, status) {
         for (var key in data) {
             if (postVal == data[key].PostId) {
                 $('#commentRegion-' + postVal).append(data[key].body + "<br>");
@@ -74,7 +71,8 @@ $(document).on('click', '#commentLink', function () {
     });
 
     $('#tcommentRegion-' + postVal).html("<div><input id='tcomment' type='text' name='comments'><button id='tcommentBTN' value='" + postVal + "'>Post</button></div>");
-    $.get('/students1/comments', function (data, status) {
+
+    $.get('/students2/comments', function (data, status) {
         for (var key in data) {
             if (postVal == data[key].PostId) {
                 $('#tcommentRegion-' + postVal).append(data[key].body + "<br>");
@@ -102,7 +100,7 @@ $(document).on('click', '#commentBTN', function () {
                     PostId: postVal
                 };
 
-                $.post('/students1/comments', commentInfo, function (data, status) {
+                $.post('/students2/comments', commentInfo, function (data, status) {
                 });
             };
         };
@@ -112,7 +110,7 @@ $(document).on('click', '#commentBTN', function () {
 // comment section for trending page
 $(document).on('click', '#tcommentBTN', function () {
     var postVal = $(this).val();
-    var postBody = $('#tcomment').val()
+    var postBody = $('#tcomment').val();
     $('#tcommentRegion-' + postVal).append(postBody + "<br>");
 
     // console.log(postBody)
@@ -129,7 +127,7 @@ $(document).on('click', '#tcommentBTN', function () {
                     PostId: postVal
                 };
 
-                $.post('/students1/comments', commentInfo, function (data, status) {
+                $.post('/students2/comments', commentInfo, function (data, status) {
                 });
             };
         };

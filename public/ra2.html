@@ -5,53 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./public/css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed | RA2</title>
+    <title>UNI Chat Feed | RA1</title>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12">
-            <button id="logoutBtn">Logout</button>
+    <nav id='nav'>
+        <div id="navbar" class="nav-wrapper">
+            <a href="devpage.html">
+                <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+            </a>
+            <a href="#" class="brand-logo center">RA : DORM 1</a>
+            <ul id="nav-mobile" class="right">
+                <li>
+                    <button id="logoutBtn" class="logout btn-flat">Logout</button>
+                    <!-- <i class="fas fa-sign-out-alt"></i> -->
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
+    <div class="row"></div>
+
+    <!-- events on left -->
     <div class="row">
-        <div id="profile" class="col s2">
-            <center>
-                <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-                <h3>RA : Dorm 2</h3>
-                <div>
-                    <a id="links" href="#">Profile</a>
-                </div>
-                <div>
-                    <a id="links" href="#">Current</a>
-                </div>
-                <div>
-                    <a id="links" href="#">Top</a>
-                </div>
-            </center>
+        <div id="profile" class="col s3">
+            <div class="card-panel">
+                <h5>UNI EVENTS</h5>
+                <br>
+                <a href="https://www.sausd.us/domain/7577" target='_blank'>
+                    <img id='eImage' src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>Don't forget to come to career day this ...</p>
+                <br>
+                <br>
+                <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
+                    <img id='eImage' src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>lets GO find some pokemon this Thursday...</p>
+                <br>
+                <br>
+                <a href="http://www.commencement.uci.edu/" target='_blank'>
+                    <img id='eImage' src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>Buy your cap and gown today so you are ready for ...</p>
+            </div>
         </div>
+
         <!-- Input for Posting -->
-        <div id="posts" class="col s7">
+        <div id="posts" class="col s6">
             <form id="postForm">
                 <!-- <div class="row"> -->
-                <div class="input-field col s12 z-depth-2">
+                <div class="input-field col s12 z-depth-3">
                     <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                    <label for="textarea2">Post Away</label>
+                    <!-- <label for="textarea2">Post Away</label> -->
                 </div>
                 <br>
-                <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
+                <button id='postSubmitBTN' class="btn waves-effect waves-evening submitBtn" type="submit" name="action">Post
                     <i class="material-icons right"></i>
                 </button>
                 <!-- </div> -->
             </form>
             <div class="row" id='postTabs'>
                 <div class="col s12">
-                    <ul class="tabs">
+                    <ul id='tabsToggle' class="tabs z-depth-3">
                         <li class="tab col s6">
                             <a id='tabs' href="#newPosts">NEW</a>
                         </li>
@@ -59,9 +81,9 @@
                             <a id='tabs' href="#hotPosts">TRENDING</a>
                         </li>
                     </ul>
+                    <div id="newPosts" class="col s12 postsDiv z-depth-3"></div>
+                    <div id="hotPosts" class="col s12 postsDiv z-depth-3"></div>
                 </div>
-                <div id="newPosts" class="col s12"></div>
-                <div id="hotPosts" class="col s12"></div>
             </div>
         </div>
 
@@ -70,23 +92,29 @@
             <!-- Admin Announcements div -->
             <div class="row admin">
                 <div class="col s12 m12">
-                    <div class="card-panel adminCard">
-                        <h4>Admin Announcements</h4>
+                    <div class="card-panel adminCard z-depth-3">
+                        <h4 id="adminHeader" class="anHeader">Admin
+                            <i class="fas fa-bullhorn"></i> Announcements</h4>
                         <div id="adminCard"></div>
+
                     </div>
                 </div>
             </div>
             <!-- RA Announcements div -->
             <div class="row ra">
                 <div class="col s12 m12">
-                    <div class="card-panel raCard">
-                        <h4 id="raHeader" class="anHeader">RA Announcements</h4>
+                    <div class="card-panel raCard z-depth-3">
+
+                        <h4 id="raHeader" class="anHeader">My
+                            <i class="fas fa-bullhorn"></i> Announcements</h4>
+
                         <div id="raCard"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
@@ -96,160 +124,154 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    <script src="./js/ra1.js"></script>
+    <script src="./js/ra2.js"></script>
     <script>
 
         $(document).ready(function () {
             $('.tabs').tabs();
+            getPosts();
         });
 
-        $.get('/students1/posts').then(function (data, status) {
-            console.log(data)
+        function getPosts() {
+            $.get('/students2/posts').then(function (data, status) {
+                console.log(data)
 
-            // loops through data
-            for (var key in data) {
-                console.log(data[key].id)
-                var postBody = data[key].body
-                var postTime = data[key].createdAt
-                var postId = data[key].id
-                $('#newPosts').prepend(
-                    "<div id='uPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + postTime + "</p></div>" +
-                    // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                )
-                // add downvote & upvote counts
-                $('#upvoteBtn').on('click', function () {
-                    var uVotes = 0;
-                    var upvoteID = $(this).val()
-                    console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
+                // loops through data
+                for (var key in data) {
+                    console.log(data)
+                    var postBody = data[key].body
+                    var postTime = data[key].createdAt
+                    var postId = data[key].id
+                    
+                    if (data[key].UserId > 4) {
+                        $('#newPosts').prepend(
+                            "<div id='uPost'><h4>" + postBody + "</h4><p>" + postTime + "</p><button id='upvoteBtn' value='" + postId + "'><img src='./images/capture2.jpg' style='width: 100%;'></button><button id='downvoteBtn' value='" + postId + "'><img src='./images/capture.jpg' style='width: 100%; '></button></div>" +
+                            "<div id='commentRegion-" + postId + "'></div><button id= 'commentLink' value='" + postId + "'>COMMENTS</button><hr>"
+                        );
+                    };
 
+                    // add downvote & upvote counts
+                    $('#upvoteBtn').on('click', function () {
+                        var uVotes = 0;
+                        var upvoteID = $(this).val()
+                        console.log(upvoteID)
 
-                    $.get('/students1/posts', function (data, status) {
-                        for (var key in data) {
-                            if (upvoteID == data[key].id) {
-                                uVotes = data[key].upvotes + 1;
+                        $.get('/students2/posts', function (data, status) {
+                            for (var key in data) {
+                                if (upvoteID == data[key].id) {
+                                    uVotes = data[key].upvotes + 1;
 
-                                // console.log('found a match at id #' + postId)
+                                    var postUpdate = {
+                                        id: upvoteID,
+                                        upvotes: uVotes
+                                    };
 
-                                var postUpdate = {
-                                    id: upvoteID,
-                                    upvotes: uVotes
-                                };
-
-                                $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                })
+                                    $.post('/students2/updateUp', postUpdate, function (data, status) {
+                                        console.log(status)
+                                    })
+                                }
                             }
-                        }
 
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
-                });
-
-
-                $('#downvoteBtn').on('click', function () {
-                    var dVotes = 0;
-                    var downvoteID = $(this).val()
-
-                    $.get('/students1/posts', function (data, status) {
-                        for (var key in data) {
-                            if (downvoteID == data[key].id) {
-                                dVotes = data[key].downvotes + 1;
-
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: downvoteID,
-                                    downvotes: dVotes
-                                };
-
-                                $.post('/students1/updateDown', postUpdate, function (data, status) {
-
-                                })
-                            }
-                        }
-
-
-                    })
-                });
-            }
-        });
-
-        $.get('/students1/trending').then(function (data, status) {
-            console.log(data)
-            // loops through data
-            for (var key in data) {
-                console.log(data[key].id)
-                var postBody = data[key].body
-                var postTime = data[key].createdAt
-                var postId = data[key].id
-                $('#hotPosts').append(
-                    "<div id='tPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + postTime + "</p></div>" +
-                    // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                )
-                // add downvote & upvote counts
-                $('#upvoteBtn').on('click', function () {
-                    var uVotes = 0;
-                    var upvoteID = $(this).val()
-                    console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
-
-                    $.get('/students1/trending', function (data, status) {
-                        for (var key in data) {
-                            if (upvoteID == data[key].id) {
-                                uVotes = data[key].upvotes + 1;
-
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: upvoteID,
-                                    upvotes: uVotes
-                                };
-
-                                $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                    console.log('ping');
-                                })
-                            };
-                        };
+                        })
                     });
-                });
 
+                    // downvote button on click
+                    $('#downvoteBtn').on('click', function () {
+                        var dVotes = 0;
+                        var downvoteID = $(this).val()
 
-                $('#downvoteBtn').on('click', function () {
-                    var dVotes = 0;
-                    var downvoteID = $(this).val()
+                        // gets posts from db and adds one downvote
+                        $.get('/students2/posts', function (data, status) {
+                            for (var key in data) {
+                                if (downvoteID == data[key].id) {
+                                    dVotes = data[key].downvotes + 1;
 
-                    $.get('/students1/trending', function (data, status) {
-                        for (var key in data) {
-                            if (downvoteID == data[key].id) {
-                                dVotes = data[key].downvotes + 1;
+                                    var postUpdate = {
+                                        id: downvoteID,
+                                        downvotes: dVotes
+                                    };
 
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: downvoteID,
-                                    downvotes: dVotes
+                                    $.post('/students2/updateDown', postUpdate, function (data, status) {
+                                        console.log(status)
+                                    });
                                 };
-
-                                $.post('/students1/updateDown', postUpdate, function (data, status) {
-                                    console.log('ping')
-                                });
                             };
-                        };
+                        });
+
                     });
-                });
-            };
-        });
+                };
+            });
+
+            // get for students trending page
+            $.get('/students2/trending').then(function (data, status) {
+                console.log(data);
+
+                // loops through data
+                for (var key in data) {
+                    console.log(data[key].id);
+                    var postBody = data[key].body;
+                    var postTime = data[key].createdAt;
+                    var postId = data[key].id;
+
+                    if (data[key].UserId > 4) {
+                        $('#hotPosts').append(
+                            "<div id='tPost'><h4>" + postBody + "</h4><p>" + postTime + "</p><button id='tupvoteBtn' value='" + postId + "'><img src='./images/capture2.jpg' style='width: 100%;'></button><button id='tdownvoteBtn' value='" + postId + "'><img src='./images/capture.jpg' style='width: 100%; '></button></div>" +
+                            "<div id='tcommentRegion-" + postId + "'></div><button id= 'commentLink' value='" + postId + "'>COMMENTS</button><hr>"
+                        );
+                    };
+ac
+                    // add upvote counts
+                    $('#tupvoteBtn').on('click', function () {
+                        var uVotes = 0;
+                        var upvoteID = $(this).val();
+                        console.log(upvoteID);
+
+                        $.get('/students2/posts', function (data, status) {
+                            for (var key in data) {
+                                if (upvoteID == data[key].id) {
+                                    uVotes = data[key].upvotes + 1;
+
+                                    var postUpdate = {
+                                        id: upvoteID,
+                                        upvotes: uVotes
+                                    };
+
+                                    $.post('/students2/updateUp', postUpdate, function (data, status) {
+                                        console.log('ping');
+                                    })
+                                };
+                            };
+                        });
+
+                    });
+
+                    // adds downvotes to post
+                    $('#tdownvoteBtn').on('click', function () {
+                        var dVotes = 0;
+                        var downvoteID = $(this).val();
+
+                        $.get('/students2/posts', function (data, status) {
+                            for (var key in data) {
+                                if (downvoteID == data[key].id) {
+                                    dVotes = data[key].downvotes + 1;
+
+                                    var postUpdate = {
+                                        id: downvoteID,
+                                        downvotes: dVotes
+                                    };
+
+                                    $.post('/students2/updateDown', postUpdate, function (data, status) {
+                                        console.log('ping')
+                                    });
+                                };
+                            };
+                        });
+                    });
+                };
+            });
+        };
+
+
     </script>
 
 </body>

@@ -243,5 +243,46 @@ module.exports = function (app) {
             { where: { id: req.body.id } });
     });
 
+    app.post('/students1/comments', function (req, res) {
+        db.Comments.create(req.body).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err);
+        });
+    });
+
+    app.get('/students1/comments', function (req, res) {
+        db.Comments.findAll({}).then(function (comments) {
+            res.json(comments)
+        });
+    });
+
+    app.post('/students2/comments', function (req, res) {
+        db.Comments.create(req.body).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err);
+        });
+    });
+
+    app.get('/students2/comments', function (req, res) {
+        db.Comments.findAll({}).then(function (comments) {
+            res.json(comments)
+        });
+    });
+
+    app.post('/students3/comments', function (req, res) {
+        db.Comments.create(req.body).then(function (res) {
+            console.log(res)
+        }).catch(function (err) {
+            console.log(err);
+        });
+    });
+
+    app.get('/students3/comments', function (req, res) {
+        db.Comments.findAll({}).then(function (comments) {
+            res.json(comments)
+        });
+    });
 
 };

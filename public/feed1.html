@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feed.css">
-    <title>UNI Chat Feed | Dorm I</title>
+    <title>UNI Chat Feed | Dorm 1</title>
 </head>
 
 <body>
-    <nav>
+    <nav id='nav'>
         <div id="navbar" class="nav-wrapper">
             <a href="devpage.html">
                 <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
@@ -32,37 +32,37 @@
 
     <div class="row"></div>
 
-    <!-- Links on left -->
+    <!-- events on left -->
     <div class="row">
         <div id="profile" class="col s3">
-
             <div class="card-panel">
                 <h5>UNI EVENTS</h5>
                 <br>
                 <a href="https://www.sausd.us/domain/7577" target='_blank'>
-                    <img src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
+                    <img id='eImage' src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
                 </a>
                 <p>Don't forget to come to career day this ...</p>
                 <br>
                 <br>
                 <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
-                    <img src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
+                    <img id='eImage' src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
                 </a>
                 <p>lets GO find some pokemon this Thursday...</p>
                 <br>
                 <br>
                 <a href="http://www.commencement.uci.edu/" target='_blank'>
-                    <img src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
+                    <img id='eImage' src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
                 </a>
                 <p>Buy your cap and gown today so you are ready for ...</p>
             </div>
         </div>
+
         <!-- Input for Posting -->
         <div id="posts" class="col s6">
             <form id="postForm">
                 <!-- <div class="row"> -->
-                <div class="input-field col s12 z-depth-3">
-                    <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
+                <div id='postArea' class="input-field col s12 z-depth-3">
+                    <textarea name='textarea2' id="textarea2" class="materialize-textarea" data-length="150"></textarea>
                     <!-- <label for="textarea2">Post Away</label> -->
                 </div>
                 <br>
@@ -71,9 +71,10 @@
                 </button>
                 <!-- </div> -->
             </form>
+            
             <div class="row" id='postTabs'>
                 <div class="col s12">
-                    <ul class="tabs z-depth-3">
+                    <ul id='tabsToggle' class="tabs z-depth-3">
                         <li class="tab col s6">
                             <a id='tabs' href="#newPosts">NEW</a>
                         </li>
@@ -132,157 +133,151 @@
 
         $(document).ready(function () {
             $('.tabs').tabs();
+            getPosts();
+            getHotPosts();
         });
 
-        $.get('/students1/posts').then(function (data, status) {
-            console.log(data)
+        function getPosts() {
+            $.get('/students1/posts').then(function (data, status) {
+                console.log(data)
 
-            // loops through data
-            for (var key in data) {
-                console.log(data[key].id)
-                var postBody = data[key].body
-                var postTime = data[key].createdAt
-                var postId = data[key].id
-                $('#newPosts').prepend(
-                    "<div id='uPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + postTime + "</p></div>" +
-                    // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                )
-                // add downvote & upvote counts
-                $('#upvoteBtn').on('click', function () {
-                    var uVotes = 0;
-                    var upvoteID = $(this).val()
-                    console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
+                // loops through data
+                for (var key in data) {
+                    console.log(data[key].id)
+                    var postBody = data[key].body
+                    var postTime = data[key].createdAt
+                    var postId = data[key].id
 
+                    if (data[key].UserId > 4) {
+                        $('#newPosts').prepend(
+                            "<div id='uPost'><h4>" + postBody + "</h4><p>" + postTime + "</p><button id='upvoteBtn' value='" + postId + "'><img src='./images/capture2.jpg' style='width: 100%;'></button><button id='downvoteBtn' value='" + postId + "'><img src='./images/capture.jpg' style='width: 100%; '></button></div>" +
+                            "<div id='commentRegion-" + postId + "'></div><button id= 'commentLink' value='" + postId + "'>COMMENTS</button><hr>"
+                        );
+                    };
 
-                    $.get('/students1/posts', function (data, status) {
-                        for (var key in data) {
-                            if (upvoteID == data[key].id) {
-                                uVotes = data[key].upvotes + 1;
+                    // add downvote & upvote counts
+                    $('#upvoteBtn').on('click', function () {
+                        var uVotes = 0;
+                        var upvoteID = $(this).val()
+                        console.log(upvoteID)
 
-                                // console.log('found a match at id #' + postId)
+                        $.get('/students1/posts', function (data, status) {
+                            for (var key in data) {
+                                if (upvoteID == data[key].id) {
+                                    uVotes = data[key].upvotes + 1;
 
-                                var postUpdate = {
-                                    id: upvoteID,
-                                    upvotes: uVotes
-                                };
+                                    var postUpdate = {
+                                        id: upvoteID,
+                                        upvotes: uVotes
+                                    };
 
-                                $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                })
+                                    $.post('/students1/updateUp', postUpdate, function (data, status) {
+                                        console.log(status)
+                                    })
+                                }
                             }
-                        }
 
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
-                });
-
-
-                $('#downvoteBtn').on('click', function () {
-                    var dVotes = 0;
-                    var downvoteID = $(this).val()
-
-                    $.get('/students1/posts', function (data, status) {
-                        for (var key in data) {
-                            if (downvoteID == data[key].id) {
-                                dVotes = data[key].downvotes + 1;
-
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: downvoteID,
-                                    downvotes: dVotes
-                                };
-
-                                $.post('/students1/updateDown', postUpdate, function (data, status) {
-
-                                })
-                            }
-                        }
-
-
-                    })
-                });
-            }
-        });
-
-        $.get('/students1/trending').then(function (data, status) {
-            console.log(data);
-            // loops through data
-            for (var key in data) {
-                console.log(data[key].id);
-                var postBody = data[key].body;
-                var postTime = data[key].createdAt;
-                var postId = data[key].id;
-
-                $('#hotPosts').append(
-                    "<div id='tPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + postTime + "</p></div>" +
-                    // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                );
-
-                // add downvote & upvote counts
-                $('#upvoteBtn').on('click', function () {
-                    var uVotes = 0;
-                    var upvoteID = $(this).val();
-                    console.log(upvoteID);
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
-
-                    $.get('/students1/trending', function (data, status) {
-                        for (var key in data) {
-                            if (upvoteID == data[key].id) {
-                                uVotes = data[key].upvotes + 1;
-
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: upvoteID,
-                                    upvotes: uVotes
-                                };
-
-                                $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                    console.log('ping');
-                                })
-                            };
-                        };
+                        })
                     });
-                });
 
+                    // downvote button on click
+                    $('#downvoteBtn').on('click', function () {
+                        var dVotes = 0;
+                        var downvoteID = $(this).val()
 
-                $('#downvoteBtn').on('click', function () {
-                    var dVotes = 0;
-                    var downvoteID = $(this).val();
+                        // gets posts from db and adds one downvote
+                        $.get('/students1/posts', function (data, status) {
+                            for (var key in data) {
+                                if (downvoteID == data[key].id) {
+                                    dVotes = data[key].downvotes + 1;
 
-                    $.get('/students1/trending', function (data, status) {
-                        for (var key in data) {
-                            if (downvoteID == data[key].id) {
-                                dVotes = data[key].downvotes + 1;
+                                    var postUpdate = {
+                                        id: downvoteID,
+                                        downvotes: dVotes
+                                    };
 
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: downvoteID,
-                                    downvotes: dVotes
+                                    $.post('/students1/updateDown', postUpdate, function (data, status) {
+                                        console.log(status)
+                                    });
                                 };
-
-                                $.post('/students1/updateDown', postUpdate, function (data, status) {
-                                    console.log('ping')
-                                });
                             };
-                        };
+                        });
+
                     });
-                });
-            };
-        });
+                };
+            });
+        };
+
+        function getHotPosts() {
+            // get for students trending page
+            $.get('/students1/trending').then(function (data, status) {
+                console.log(data);
+
+                // loops through data
+                for (var key in data) {
+                    console.log(data[key].id);
+                    var postBody = data[key].body;
+                    var postTime = data[key].createdAt;
+                    var postId = data[key].id;
+
+                    if (data[key].UserId > 4) {
+                        $('#hotPosts').append(
+                            "<div id='tPost'><h4>" + postBody + "</h4><p>" + postTime + "</p><button id='tupvoteBtn' value='" + postId + "'><img src='./images/capture2.jpg' style='width: 100%;'></button><button id='tdownvoteBtn' value='" + postId + "'><img src='./images/capture.jpg' style='width: 100%; '></button></div>" +
+                            "<div id='tcommentRegion-" + postId + "'></div><button id= 'commentLink' value='" + postId + "'>COMMENTS</button><hr>"
+                        );
+                    };
+
+                    // add upvote counts
+                    $('#tupvoteBtn').on('click', function () {
+                        var uVotes = 0;
+                        var upvoteID = $(this).val();
+                        console.log(upvoteID);
+
+                        $.get('/students1/posts', function (data, status) {
+                            for (var key in data) {
+                                if (upvoteID == data[key].id) {
+                                    uVotes = data[key].upvotes + 1;
+
+                                    var postUpdate = {
+                                        id: upvoteID,
+                                        upvotes: uVotes
+                                    };
+
+                                    $.post('/students1/updateUp', postUpdate, function (data, status) {
+                                        console.log('ping');
+                                    })
+                                };
+                            };
+                        });
+
+                    });
+
+                    // adds downvotes to post
+                    $('#tdownvoteBtn').on('click', function () {
+                        var dVotes = 0;
+                        var downvoteID = $(this).val();
+
+                        $.get('/students1/posts', function (data, status) {
+                            for (var key in data) {
+                                if (downvoteID == data[key].id) {
+                                    dVotes = data[key].downvotes + 1;
+
+                                    var postUpdate = {
+                                        id: downvoteID,
+                                        downvotes: dVotes
+                                    };
+
+                                    $.post('/students1/updateDown', postUpdate, function (data, status) {
+                                        console.log('ping')
+                                    });
+                                };
+                            };
+                        });
+                    });
+                };
+            });
+        };
+
 
     </script>
 

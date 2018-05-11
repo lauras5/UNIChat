@@ -24,206 +24,229 @@
     </head>
 
     <body>
-            <nav>
-                    <div id="navbar" class="nav-wrapper">
-                        <a href="devpage.html">
-                            <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-                        </a>
-                        <a href="#" class="brand-logo center">DORM I</a>
-                        <ul id="nav-mobile" class="right">
-                            <li>
-                                <button id="logoutBtn" class="logout btn-flat">Logout</button>
-                                <!-- <i class="fas fa-sign-out-alt"></i> -->
-            
-            
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            
-                <div class="row"></div>
+        <div id="adminBody">
 
-        <div class="row">
-            <div id="profile" class="col s2">
-                <center>
-                    <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm" style="width: 100%;">
-                    <h3>Admin</h3>
-                </center>
-            </div>
-            <!-- Input for Posting -->
-            <div id="posts" class="col s6">
-                <form id="postForm">
-                    <!-- <div class="row"> -->
-                    <div class="input-field col s12 z-depth-2">
-                        <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                        <label for="textarea2">Post</label>
-                    </div>
-                    <br>
-                    <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
-                        <i class="material-icons right"></i>
-                    </button>
-                    <!-- </div> -->
-                </form>
-                <div class="row" id='postTabs'>
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s4">
-                                <a id='tabs' href="#postArea1">Dorm 1</a>
-                            </li>
-                            <li class="tab col s4">
-                                <a id='tabs' href="#postArea2">Dorm 2</a>
-                            </li>
-                            <li class="tab col s4">
-                                <a id='tabs' href="#postArea3">Dorm 3</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="postArea1" class="col s12"></div>
-                    <div id="postArea2" class="col s12"></div>
-                    <div id="postArea3" class="col s12"></div>
+            <nav id='nav'>
+                <div id="navbar" class="nav-wrapper">
+                    <a href="devpage.html">
+                        <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
+                    </a>
+                    <a href="#" class="brand-logo center">ADMIN</a>
+                    <ul id="nav-mobile" class="right">
+                        <li>
+                            <button id="logoutBtn" class="logout btn-flat">Logout</button>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            </nav>
+            
+            <div class="row"></div>
+            
+            <!-- events on left -->
+            <div class="row">
+                <div id="profile" class="col s2">
+                    <div class="card-panel">
+                        <h5>UNI EVENTS</h5>
+                        <br>
+                        <a href="https://www.sausd.us/domain/7577" target='_blank'>
+                            <img id='eImage' src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
+                        </a>
+                        <p>Don't forget to come to career day this ...</p>
+                        <br>
+                        <br>
+                        <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
+                            <img id='eImage' src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
+                        </a>
+                        <p>lets GO find some pokemon this Thursday...</p>
+                        <br>
+                        <br>
+                        <a href="http://www.commencement.uci.edu/" target='_blank'>
+                            <img id='eImage' src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
+                        </a>
+                        <p>Buy your cap and gown today so you are ready for ...</p>
+                    </div>
+                </div>
+                
+                <!-- Input for Posting -->
+                <div id="posts" class="col s6">
+                    <form id="postForm">
+                        <!-- <div class="row"> -->
+                            <div id='postArea' class="input-field col s12 z-depth-2">
+                                <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
+                                <label for="textarea2">Post</label>
+                            </div>
+                            <br>
+                            <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
+                                <i class="material-icons right"></i>
+                            </button>
+                            <!-- </div> -->
+                        </form>
 
-            <!-- Announcements Column -->
-            <div id="announcements" class="col s4">
-                <!-- Admin Announcements div -->
-                <div class="row admin">
-                    <div class="col s12 m12">
-                        <div class="card-panel adminCard">
-                            <h4>Admin Announcements</h4>
-                            <div id="adminCard"></div>
+                        <div class="row" id='postTabsA'>
+                            <div class="col s12">
+                                <ul class="tabs">
+                                    <li class="tab col s4">
+                                        <a id='tabs' href="#postArea1">Dorm 1</a>
+                                    </li>
+                                    <li class="tab col s4">
+                                        <a id='tabs' href="#postArea2">Dorm 2</a>
+                                    </li>
+                                    <li class="tab col s4">
+                                        <a id='tabs' href="#postArea3">Dorm 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="postArea1" class="col s12 postsDiv z-depth-4"></div>
+                            <div id="postArea2" class="col s12 postsDiv z-depth-4"></div>
+                            <div id="postArea3" class="col s12 postsDiv z-depth-4"></div>
                         </div>
                     </div>
-                </div>
-                <div class="row ra">
-                    <div class="col s12 m12">
-                        <div class="card-panel raCard">
-                            <h4>RA Announcements</h4>
-                            <div id="raCard">
-                                <div class="row" id='postTabs'>
-                                    <div class="col s12">
-                                        <ul class="tabs">
-                                            <li class="tab col s4">
-                                                <a id='tabs' href="#raTab1">Dorm 1</a>
-                                            </li>
-                                            <li class="tab col s4">
-                                                <a id='tabs' href="#raTab2">Dorm 2</a>
-                                            </li>
-                                            <li class="tab col s4">
-                                                <a id='tabs' href="#raTab3">Dorm 3</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div id="raTab1" class="col s12"></div>
-                                    <div id="raTab2" class="col s12"></div>
+                    
+                    <!-- Announcements Column -->
+                    <div id="announcements" class="col s4">
+                        <!-- Admin Announcements div -->
+                        <div class="row admin">
+                            <div class="col s12 m12">
+                                <div class="card-panel adminCard">
+                                    <h4>Admin Announcements</h4>
+                                    <div id="adminCard"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ra">
+                            <div class="col s12 m12">
+                                <div class="card-panel raCard">
+                                    <h4>RA Announcements</h4>
+                                    <div id="raCard">
+                                        <div class="row" id='postTabs'>
+                                            <div class="col s12">
+                                                <ul class="tabs">
+                                                    <li class="tab col s4">
+                                                        <a id='tabs' href="#raTab1">Dorm 1</a>
+                                                    </li>
+                                                    <li class="tab col s4">
+                                                        <a id='tabs' href="#raTab2">Dorm 2</a>
+                                                    </li>
+                                                    <li class="tab col s4">
+                                                        <a id='tabs' href="#raTab3">Dorm 3</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div id="raTab1" class="col s12"></div>
+                                            <div id="raTab2" class="col s12"></div>
                                     <div id="raTab3" class="col s12"></div>
                                 </div>
                             </div>
-                            </span>
-                        </div>
+                        </span>
                     </div>
                 </div>
-                <!-- RA Announcements div -->
-                <div class="row ra">
-                    <div class="col s12 m12">
-                        <div class="card-panel raCard">
-                            <h4 id="raHeader" class="anHeader">Authorization Keys</h4>
-                            <center>
-                                <p>Select a Dorm :</p>
-
-                                <select name="dorm" id="dorm">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-
-                                <button class="generateBtn" style="display: block; margin: auto; margin: 10px;">Generate New Key</button>
-                                <p>New Key Will Be Generated Below : </p>
-                                <div class="results">
-                                    <div id="key" style="background-color: lightgrey; padding: 10px;">
-                                        <div class="key"></div>
-                                    </div>
-                                    <button id='copyKey'>Copy to Clipboard</button>
-                                    <p>Once key per student, key will be disactivated once used.</p>
+            </div>
+            <!-- RA Announcements div -->
+            <div class="row ra">
+                <div class="col s12 m12">
+                    <div class="card-panel raCard">
+                        <h4 id="raHeader" class="anHeader">Authorization Keys</h4>
+                        <center>
+                            <p>Select a Dorm :</p>
+                            
+                            <select name="dorm" id="dorm">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            
+                            <button class="generateBtn" style="display: block; margin: auto; margin: 10px;">Generate New Key</button>
+                            <p>New Key Will Be Generated Below : </p>
+                            <div class="results">
+                                <div id="key" style="background-color: lightgrey; padding: 10px;">
+                                    <div class="key"></div>
                                 </div>
-                            </center>
-                        </div>
+                                <button id='copyKey'>Copy to Clipboard</button>
+                                <p>Once key per student, key will be disactivated once used.</p>
+                            </div>
+                        </center>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
-        <script src="https://apis.google.com/js/client.js?onload=init"></script>
-        <script src="./js/admin.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
-
-        <script>
-
-            // initialize tabs functionality
-            $(document).ready(function () {
-                $('.tabs').tabs();
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <script src="./js/admin.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    
+    <script>
+        
+        // initialize tabs functionality
+        $(document).ready(function () {
+            $('.tabs').tabs();
+            getPosts()
+        });
+        
+        $(".generateBtn").on('click', function (event) {
+            event.preventDefault()
+            // console.log('hello')
+            var rand = function () {
+                return Math.random().toString(26).substr(2); // remove `0.`
+            };
+            
+            var key = function () {
+                return rand() + rand(); // to make it longer
+            };
+            // push token to db
+            
+            // object we are pushing to db
+            var adminToken = { key: key(), dorm: dorm.value }
+            
+            // console.log(adminToken)
+            // append key to div
+            $('.key').html("<p>New Student AUTH KEY :</p> <p><b>" + adminToken.key + "</b></p> <p>for dorm #" + adminToken.dorm + ".</p>")
+            
+            // adding button to copy key to clipboard
+            $('#copyKey').on('click', function () {
+                var copyToken = adminToken.key
+                /* Select the text field */
+                /* Copy the text inside the text field */
+                document.execCommand("Copy");
+                /* Alert the copied text */
+                alert("Copied the key: " + copyToken);
+            })
+            
+            // post generated key to db
+            $.post('/admin/token', adminToken, function (data, status) {
+                console.log(data)
             });
-
-            $(".generateBtn").on('click', function (event) {
-                event.preventDefault()
-                // console.log('hello')
-                var rand = function () {
-                    return Math.random().toString(26).substr(2); // remove `0.`
-                };
-
-                var key = function () {
-                    return rand() + rand(); // to make it longer
-                };
-                // push token to db
-
-                // object we are pushing to db
-                var adminToken = { key: key(), dorm: dorm.value }
-
-                // console.log(adminToken)
-                // append key to div
-                $('.key').html("<p>New Student AUTH KEY :</p> <p><b>" + adminToken.key + "</b></p> <p>for dorm #" + adminToken.dorm + ".</p>")
-
-                // adding button to copy key to clipboard
-                $('#copyKey').on('click', function () {
-                    var copyToken = adminToken.key
-                    /* Select the text field */
-                    /* Copy the text inside the text field */
-                    document.execCommand("Copy");
-                    /* Alert the copied text */
-                    alert("Copied the key: " + copyToken);
-                })
-
-                // post generated key to db
-                $.post('/admin/token', adminToken, function (data, status) {
-                    console.log(data)
-                });
-            });
-
-            // posts from dorm 1
-            $.get('/students1/posts').then(function (data, status) {
-                // console.log(data)
-                // loops through data
-                for (var key in data) {
-                    // console.log(data[key].id)
-                    var postBody = data[key].body
-                    var postTime = data[key].createdAt
-                    var postId = data[key].id
+        });
+        
+        // posts from dorm 1
+        $.get('/students1/posts').then(function (data, status) {
+            // console.log(data)
+            // loops through data
+            for (var key in data) {
+                // console.log(data[key].id)
+                var postBody = data[key].body
+                var postTime = data[key].createdAt
+                var postId = data[key].id
+                
+                if (data[key].UserId > 4) {
                     $('#postArea1').prepend(
                         "<div id='uPost'><h4>" + postBody + "</h4>" +
-                        "<p>" + postTime + "</p></div>" +
-                        // get comments and number of comments to display & upvotes/downvotes buttons
-                        "<div id= 'commentLink'>COMMENTS</div>"
-                    );
+                            "<p>" + postTime + "</p></div>" +
+                            // get comments and number of comments to display & upvotes/downvotes buttons
+                            "<div id='commentRegion-" + postId + "'></div><button id= 'commentLink1' value='" + postId + "'>COMMENTS</button><hr>"
+                        );
+                    };
                 };
             });
-
+            
             // posts from dorm 2
             $.get('/students2/posts').then(function (data, status) {
                 // console.log(data)
@@ -233,12 +256,16 @@
                     var postBody = data[key].body
                     var postTime = data[key].createdAt
                     var postId = data[key].id
-                    $('#postArea2').prepend(
-                        "<div id='uPost'><h4>" + postBody + "</h4>" +
-                        "<p>" + postTime + "</p></div>" +
-                        // get comments and number of comments to display & upvotes/downvotes buttons
-                        "<div id= 'commentLink'>COMMENTS</div>"
-                    );
+                    
+                    if (data[key].UserId > 4) {
+                        $('#postArea2').prepend(
+                            "<div id='uPost'><h4>" + postBody + "</h4>" +
+                                "<p>" + postTime + "</p></div>" +
+                                
+                                // get comments and number of comments to display & upvotes/downvotes buttons
+                                "<div id='commentRegion-" + postId + "'></div><button id= 'commentLink2' value='" + postId + "'>COMMENTS</button><hr>"
+                            );
+                        };
                 };
             });
 
@@ -251,43 +278,50 @@
                     var postBody = data[key].body
                     var postTime = data[key].createdAt
                     var postId = data[key].id
-                    $('#postArea3').prepend(
-                        "<div id='uPost'><h4>" + postBody + "</h4>" +
-                        "<p>" + postTime + "</p></div>" +
-                        // get comments and number of comments to display & upvotes/downvotes buttons
-                        "<div id= 'commentLink'>COMMENTS</div>"
-                    );
+                    
+                    if (data[key].UserId > 4) {
+                        $('#postArea3').prepend(
+                            "<hr><div id='uPost'><h4>" + postBody + "</h4>" +
+                                "<p>" + postTime + "</p></div>" +
+                                
+                                // get comments and number of comments to display & upvotes/downvotes buttons
+                                "<div id='commentRegion-" + postId + "'></div><button id= 'commentLink3' value='" + postId + "'>COMMENTS</button>"
+                            );
+                        };
+                    };
+                });
+                
+                function getPosts() {
+                    $('#postSubmitBTN').on('click', function (event) {
+                        event.preventDefault();
+                        // text area turns into var on submit button click
+                        // do if statement for 150 characters, do not post if more than 150.
+                        var body = $('#textarea2').val().trim();
+                        
+                        $.get('/users').then(function (data, status) {
+                            // loops through the keys
+                            for (var key in data) {
+                                
+                                var uEmail = sessionStorage.getItem("email");
+                                if (uEmail === data[key].email) {
+                                    // define post, give it unique id of user id
+                                    var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id }
+                                    
+                                    console.log(post)
+                                    
+                                    // post that info to sql
+                                    $.post('/admin/posts', post, function (data, status) {
+                                        console.log(status)
+                                    });
+                                };
+                            };
+                        });
+                    });
                 };
-            });
+                
+                </script>
 
-            $('#postSubmitBTN').on('click', function (event) {
-                event.preventDefault();
-                // text area turns into var on submit button click
-                // do if statement for 150 characters, do not post if more than 150.
-                var body = $('#textarea2').val().trim();
+</div>
+</body>
 
-                $.get('/users').then(function (data, status) {
-                    // loops through the keys
-                    for (var key in data) {
-
-                        var uEmail = sessionStorage.getItem("email");
-                        if (uEmail === data[key].email) {
-                            // define post, give it unique id of user id
-                            var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id }
-
-                            console.log(post)
-
-                            // post that info to sql
-                            $.post('/admin/posts', post, function (data, status) {
-                                console.log(status)
-                            });
-                        }
-                    }
-                })
-            });
-
-        </script>
-
-    </body>
-
-    </html>
+</html>
