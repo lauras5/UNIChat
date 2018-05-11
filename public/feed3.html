@@ -20,13 +20,11 @@
             <a href="devpage.html">
                 <img id="feedLogo" class="halfway-fab" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
             </a>
-            <a href="#" class="brand-logo center">DORM I</a>
+            <a href="#" class="brand-logo center">DORM 3</a>
             <ul id="nav-mobile" class="right">
                 <li>
                     <button id="logoutBtn" class="logout btn-flat">Logout</button>
                     <!-- <i class="fas fa-sign-out-alt"></i> -->
-
-
                 </li>
             </ul>
         </div>
@@ -34,22 +32,29 @@
 
     <div class="row"></div>
 
-    <!-- Links on left -->
+    <!-- events on left -->
     <div class="row">
         <div id="profile" class="col s3">
-
             <div class="card-panel">
-                <div>
-                    <a id="links" href="#">Profile</a>
-                </div>
-                <div>
-                    <a id="links" href="#">Current</a>
-                </div>
-                <div>
-                    <a id="links" href="#">Top</a>
-                </div>
+                <h5>UNI EVENTS</h5>
+                <br>
+                <a href="https://www.sausd.us/domain/7577" target='_blank'>
+                    <img src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>Don't forget to come to career day this ...</p>
+                <br>
+                <br>
+                <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
+                    <img src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>lets GO find some pokemon this Thursday...</p>
+                <br>
+                <br>
+                <a href="http://www.commencement.uci.edu/" target='_blank'>
+                    <img src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
+                </a>
+                <p>Buy your cap and gown today so you are ready for ...</p>
             </div>
-            </center>
         </div>
         <!-- Input for Posting -->
         <div id="posts" class="col s6">
@@ -81,9 +86,6 @@
             </div>
         </div>
 
-
-
-
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
             <!-- Admin Announcements div -->
@@ -97,11 +99,13 @@
                     </div>
                 </div>
             </div>
+
             <!-- RA Announcements div -->
             <div class="row ra">
                 <div class="col s12 m12">
                     <div class="card-panel raCard z-depth-3">
-                        <h4 id="raHeader" class="anHeader"><i class="fas fa-bullhorn rev"></i>RA Announcements</h4>
+                        <h4 id="raHeader" class="anHeader">
+                            <i class="fas fa-bullhorn rev"></i>RA Announcements</h4>
                         <div id="raCard"></div>
                     </div>
                 </div>
@@ -124,7 +128,7 @@
             $('.tabs').tabs();
         });
 
-        $.get('/students1/posts').then(function (data, status) {
+        $.get('/students3/posts').then(function (data, status) {
             console.log(data)
             // loops through data
             for (var key in data) {
@@ -152,7 +156,7 @@
                         for (var key in data) {
                             if (upvoteID == data[key].id) {
                                 uVotes = data[key].upvotes + 1;
-                                
+
                                 // console.log('found a match at id #' + postId)
 
                                 var postUpdate = {
@@ -160,28 +164,22 @@
                                     upvotes: uVotes
                                 };
 
-                                $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                })
-                            }
-                        }
-
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
+                                $.post('/students3/updateUp', postUpdate, function (data, status) {
+                                });
+                            };
+                        };
+                    });
                 });
-
 
                 $('#downvoteBtn').on('click', function () {
                     var dVotes = 0;
-                    var downvoteID = $(this).val()
+                    var downvoteID = $(this).val();
 
-                    $.get('/students1/posts', function (data, status) {
+                    $.get('/students3/posts', function (data, status) {
                         for (var key in data) {
                             if (downvoteID == data[key].id) {
                                 dVotes = data[key].downvotes + 1;
-                                
+
                                 // console.log('found a match at id #' + postId)
 
                                 var postUpdate = {
@@ -189,19 +187,14 @@
                                     downvotes: dVotes
                                 };
 
-                                $.post('/students1/updateDown', postUpdate, function (data, status) {
-    
-                                })
-                            }
-                        }
+                                $.post('/students3/updateDown', postUpdate, function (data, status) {
 
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
+                                });
+                            };
+                        };
+                    });
                 });
-            }
+            };
         });
 
         $.get('/students3/trending').then(function (data, status) {
@@ -273,16 +266,6 @@
                 });
             };
         });
-
-
-        // getting RA posts to post, how many?
-        // $.get('/students2/ra/posts').then(function (data, status) {
-        //     console.log(data);
-        //     for (var key in data) {
-        //         var RApost = data[key].body
-        //     }
-        // })
-
 
     </script>
 
