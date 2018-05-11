@@ -60,11 +60,9 @@ body {
 }
 
 #aPost {
-    background-color: rgb(138, 40, 40);
-    color: white;
-    border: 5px solid black;
-    margin: 5px;
-    font-size: 25px;
+    background-color: lightgrey;
+    box-shadow: 2px 2px 2px dimgrey;
+    font-size: 22px;
 }
 
 #feedHeader {
@@ -76,7 +74,6 @@ body {
     background-color: white;
     margin: 0;
 }
-
 
 .headCols {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
