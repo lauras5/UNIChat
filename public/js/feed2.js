@@ -18,6 +18,8 @@ $('#postSubmitBTN').on('click', function (event) {
                 // post that info to sql
                 $.post('/students2/posts', post, function (data, status) {
                     console.log(status)
+                    $('#newPosts').empty()
+                    getPosts()
                 }); 
             }
         }
@@ -46,4 +48,45 @@ $("#logoutBtn").on("click", function () {
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('email');
     window.location.href = '/';
+});
+
+
+$(document).on('click', '#commentLink', function () {
+    console.log("Helllooooo")
+    var postVal = $(this).val();
+    
+    $('#commentRegion-' + postVal).append("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
+
+    $.get('/students2/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+});
+
+
+$(document).on('click', '#commentBTN', function () {
+    var postVal = $(this).val();
+
+    $('#commentRegion-' + postVal).append($("#comment").val() + "<br>");
+
+    $.get('/users', function (data, status) {
+        for (var key in data) {
+            if (sessionStorage.getItem("name") == data[key].name) {
+                var userId = data[key].id;
+
+                var commentInfo = {
+                    body: $("#comment").val(),
+                    author: sessionStorage.getItem("name"),
+                    UserId: userId,
+                    PostId: postVal
+                };
+
+                $.post('/students2/comments', commentInfo, function (data, status) {
+                });
+            }
+        }
+    });
 });

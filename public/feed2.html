@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./public/css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="./css/feed.css">
@@ -103,92 +103,100 @@
 
         $(document).ready(function () {
             $('.tabs').tabs();
+            getPosts()
         });
 
-        $.get('/students2/posts').then(function (data, status) {
-            console.log(data)
-            // loops through data
-            for (var key in data) {
-                console.log(data[key].id)
-                var postBody = data[key].body
-                var postTime = data[key].createdAt
-                var postId = data[key].id
-                $('#newPosts').prepend(
-                    "<div id='uPost'><h4>" + postBody + "</h4>" +
-                    "<p>" + postTime + "</p></div>" +
-                    // get comments and number of comments to display & upvotes/downvotes buttons
-                    "<div id= 'commentLink'>COMMENTS</div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
-                )
-                // add downvote & upvote counts
-                $('#upvoteBtn').on('click', function () {
-                    var uVotes = 0;
-                    var upvoteID = $(this).val()
-                    console.log(upvoteID)
-                    // $.post('/students2/posts', function (req, res) {
-                    //     console.log(res)
-                    // });
+        function getPosts() {
+            $.get('/students2/posts').then(function (data, status) {
+                console.log(data)
+                // loops through data
+                for (var key in data) {
+                    console.log(data[key].id)
+                    var postBody = data[key].body
+                    var postTime = data[key].createdAt
+                    var postId = data[key].id
+                    $('#newPosts').prepend(
+                        "<div id='uPost'><h4>" + postBody + "</h4>" +
+                        "<p>" + postTime + "</p></div>" +
+                        // get comments and number of comments to display & upvotes/downvotes buttons
+                        "<div id='commentRegion-" + postId + "'><button id= 'commentLink' value='" + postId + "'>COMMENTS</button></div><upvotes><button id='upvoteBtn' value='" + postId + "'>Upvote</button><button id='downvoteBtn' value='" + postId + "'>Downvote</button>"
+                    )
 
-
-                    $.get('/students2/posts', function (data, status) {
-                        for (var key in data) {
-                            if (upvoteID == data[key].id) {
-                                uVotes = data[key].upvotes + 1;
-                                
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: upvoteID,
-                                    upvotes: uVotes
-                                };
-
-                                $.post('/students2/updateUp', postUpdate, function (data, status) {
-                                    console.log('ping');
-                                })
-                            }
-                        }
-
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
-                });
-
-
-                $('#downvoteBtn').on('click', function () {
-                    var dVotes = 0;
-                    var downvoteID = $(this).val()
-
-                    $.get('/students2/posts', function (data, status) {
-                        for (var key in data) {
-                            if (downvoteID == data[key].id) {
-                                dVotes = data[key].downvotes + 1;
-                                
-                                // console.log('found a match at id #' + postId)
-
-                                var postUpdate = {
-                                    id: downvoteID,
-                                    downvotes: dVotes
-                                };
-
-                                $.post('/students2/updateDown', postUpdate, function (data, status) {
-    
-                                })
-                            }
-                        }
-
-
-                        // where id matches this id add one upvote
-                        // limit 1 per user
-
-                    })
-                });
+                }
+            });
+        }
 
 
 
 
-            }
+        // add downvote & upvote counts
+        $('#upvoteBtn').on('click', function () {
+            var uVotes = 0;
+            var upvoteID = $(this).val()
+            console.log(upvoteID)
+            // $.post('/students2/posts', function (req, res) {
+            //     console.log(res)
+            // });
+
+
+            $.get('/students2/posts', function (data, status) {
+                for (var key in data) {
+                    if (upvoteID == data[key].id) {
+                        uVotes = data[key].upvotes + 1;
+
+                        // console.log('found a match at id #' + postId)
+
+                        var postUpdate = {
+                            id: upvoteID,
+                            upvotes: uVotes
+                        };
+
+                        $.post('/students2/updateUp', postUpdate, function (data, status) {
+                            console.log('ping');
+                        })
+                    }
+                }
+
+
+                // where id matches this id add one upvote
+                // limit 1 per user
+
+            })
         });
+
+
+        $('#downvoteBtn').on('click', function () {
+            var dVotes = 0;
+            var downvoteID = $(this).val()
+
+            $.get('/students2/posts', function (data, status) {
+                for (var key in data) {
+                    if (downvoteID == data[key].id) {
+                        dVotes = data[key].downvotes + 1;
+
+                        // console.log('found a match at id #' + postId)
+
+                        var postUpdate = {
+                            id: downvoteID,
+                            downvotes: dVotes
+                        };
+
+                        $.post('/students2/updateDown', postUpdate, function (data, status) {
+
+                        })
+                    }
+                }
+
+
+                // where id matches this id add one upvote
+                // limit 1 per user
+
+            })
+        });
+
+
+
+
 
 
         // getting RA posts to post, how many?

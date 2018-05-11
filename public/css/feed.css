@@ -27,8 +27,17 @@ body {
     background-color: #26a69a;
     box-shadow: 2px 2px 2px dimgrey;
     color: white;
-    padding: 8px;
+    padding: 5px;
+    width: 100%;
 }
+
+/* #comment {
+    width: 300px;
+}
+
+#commentBTN {
+    float: right;
+} */
 
 #commentLink:hover {
     background-color: grey;

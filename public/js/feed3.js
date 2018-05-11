@@ -3,6 +3,7 @@ $('#postSubmitBTN').on('click', function (event) {
     // text area turns into var on submit button click
     // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
+    
 
     $.get('/users').then(function(data, status) {
         // loops through the keys
@@ -14,10 +15,12 @@ $('#postSubmitBTN').on('click', function (event) {
                 var post = {body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id}
     
                 console.log(post)
-                
                 // post that info to sql
                 $.post('/students3/posts', post, function (data, status) {
                     console.log(status)
+                    console.log('yo waddup my dude')
+                    $('#newPosts').empty()
+                    getPosts()
                 }); 
             }
         }
@@ -45,4 +48,44 @@ $("#logoutBtn").on("click", function () {
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('email');
     window.location.href = '/';
+});
+
+
+$(document).on('click', '#commentLink', function () {
+    var postVal = $(this).val();
+    
+    $('#commentRegion-' + postVal).append("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
+
+    $.get('/students3/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+});
+
+
+$(document).on('click', '#commentBTN', function () {
+    var postVal = $(this).val();
+
+    $('#commentRegion-' + postVal).append($("#comment").val() + "<br>");
+
+    $.get('/users', function (data, status) {
+        for (var key in data) {
+            if (sessionStorage.getItem("name") == data[key].name) {
+                var userId = data[key].id;
+
+                var commentInfo = {
+                    body: $("#comment").val(),
+                    author: sessionStorage.getItem("name"),
+                    UserId: userId,
+                    PostId: postVal
+                };
+
+                $.post('/students3/comments', commentInfo, function (data, status) {
+                });
+            }
+        }
+    });
 });
