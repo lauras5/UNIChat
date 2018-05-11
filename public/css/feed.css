@@ -3,7 +3,9 @@ div {
 }
 
 body {
-    background-color: #4b152410;
+    background-image: url('../images/bookbg.jpeg');
+    background-size: 100%;
+    /* background-color: #4b152410; */
     /* background-color: #F9EAE1; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
@@ -102,7 +104,7 @@ body {
     border: #4b1524 solid 3px; */
     font-weight: bold;
     /* padding: 10px; */
-    /* margin-top: 23px; */
+    margin-top: 25px;
 }
 
 /* .logout:before {
@@ -124,7 +126,7 @@ body {
 #postSubmitBTN {
     margin-top: 5px;
     margin-bottom: 20px;
-    background-color: #435663;
+    background-color: #494e6b;
 }
 
 #feedLogo {
@@ -215,7 +217,7 @@ and (max-width: 1920px) {
 }
 
 .nav-wrapper {
-    background-color: #435663;    
+    background-color: #192231;    
     /* background-color: #435663;     */
     padding: 5px;
 
@@ -248,8 +250,10 @@ and (max-width: 1920px) {
 }
 
 nav .brand-logo.center {
-    margin-top: 18px;
-    font-size: 
-    
+    margin-top: 18px    
 }
 
+.waves-effect.waves-evening {
+    background-color: #985e6d;
+    margin-top: 12px;
+}
