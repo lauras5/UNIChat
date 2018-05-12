@@ -133,6 +133,20 @@
         });
 
         function getPosts() {
+            $.get('/admin/posts').then(function (data, status) {
+                for (var key in data) {
+                    var adminPost = data[key].body
+                    $('#adminCard').prepend("<hr><div id='aPost'>" + adminPost + "</div>")
+                };
+            });
+
+            $.get('/ra1/posts').then(function (data, status) {
+                for (var key in data) {
+                    var raPost = data[key].body
+                    $('#raCard').prepend("<hr><div id='raPost'>" + raPost + "</div>")
+                };
+            });
+            
             $.get('/students1/posts').then(function (data, status) {
                 console.log(data)
 
