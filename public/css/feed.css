@@ -7,12 +7,12 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
-
+/* 
 #adminBody {
     background-color: rgb(190, 192, 192);
     height: 100%;
     width: 100%;
-}
+} */
 
 .generateBtn, #copyKey {
     background-color: #383c50fa;
@@ -41,6 +41,8 @@ body {
 #postArea1, #postArea2, #postArea3, #newPosts, #hotPosts {
     background-color: white;
     text-align: center;
+    overflow-y: scroll;
+    height: 700px;
 }
 
 #uPost, #tPost {
@@ -192,11 +194,18 @@ body {
 }
 
 .adminCard, .raCard {
+    overflow-y: scroll;
+    height: 200px;
     /* margin: 10px; */
     text-align: center;
     /* font-size: 30px; */
     /* margin-top: 10px; */
 }
+
+#authCard {
+    overflow-y: hidden;
+    height: 100%;
+ }
 
 .admin {
     margin-top: 10px;
