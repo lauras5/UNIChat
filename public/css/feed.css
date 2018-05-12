@@ -206,6 +206,11 @@ body {
     /* margin-top: 10px; */
 }
 
+#authCard {
+    overflow-y: hidden;
+    height: 100%;
+ }
+
 .admin {
     margin-top: 10px;
 }
