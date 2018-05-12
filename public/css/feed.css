@@ -191,6 +191,8 @@ body {
 }
 
 .adminCard, .raCard {
+    overflow-y: scroll;
+    height: 200px;
     /* margin: 10px; */
     text-align: center;
     /* font-size: 30px; */
