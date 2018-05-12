@@ -4,6 +4,7 @@ $('#postSubmitBTN').on('click', function (event) {
     // text area turns into var on submit button click
     // do if statement for 150 characters, do not post if more than 150.
     var body = $('#textarea2').val().trim();
+    $('#textarea2').val("");
 
     $.get('/users').then(function(data, status) {
         // loops through the keys
