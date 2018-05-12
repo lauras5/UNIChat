@@ -47,3 +47,29 @@ $(document).on('click', '#commentLink1', function () {
         }
     });
 });
+
+$(document).on('click', '#commentLink2', function () {
+    var postVal = $(this).val();
+    
+    // $('#commentRegion-' + postVal).html("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
+    $.get('/students2/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+});
+
+$(document).on('click', '#commentLink3', function () {
+    var postVal = $(this).val();
+    
+    // $('#commentRegion-' + postVal).html("<div><input id='comment' type='text' name='comments'><button id='commentBTN' value='" + postVal + "'>Post</button></div>");
+    $.get('/students3/comments', function (data, status) {
+        for (var key in data) {
+            if (postVal == data[key].PostId) {
+                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+            }
+        }
+    });
+});

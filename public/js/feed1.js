@@ -21,6 +21,7 @@ $('#postSubmitBTN').on('click', function (event) {
                     console.log(status)
                     $('#newPosts').empty()   		
                     getPosts()
+                    $('#hotPosts').empty()
                     getHotPosts()
                 }); 
             };
@@ -114,8 +115,6 @@ $(document).on('click', '#tcommentBTN', function () {
     var postVal = $(this).val();
     var postBody = $('#tcomment').val()
     $('#tcommentRegion-' + postVal).append(postBody + "<br>");
-
-    // console.log(postBody)
 
     $.get('/users', function (data, status) {
         for (var key in data) {
