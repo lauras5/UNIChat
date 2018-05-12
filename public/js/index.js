@@ -157,7 +157,7 @@ $("#register-btn").on("click", function () {
                         console.log(data);
                         var userEmail = $("#user-email-r").val().trim();
 
-                        var count = 0;
+                        var count = 0; 
 
                         for (var key in data) {
                             if (userEmail === data[key].email) {
@@ -166,7 +166,11 @@ $("#register-btn").on("click", function () {
                         }
                         if (count === 0) {
                             if ($("#user-email-r").val().trim().indexOf("@") === -1) {
-                                alert("Please enter a valid email.");
+                                swal ({
+                                    title: "Oops!",
+                                    text: "Please enter a valid email.",
+                                    icon: "error"
+                                })
                             }
                             else {
                                 var user = {
@@ -191,15 +195,22 @@ $("#register-btn").on("click", function () {
 
                         }
                         else {
-                            alert("A account already exists under this email. Please use a different email.");
-                        }
-
-                    })
-                }
+                            swal ({
+                            title: "Oops!",
+                            text: "A account already exists under this email. Please use a different email.",
+                            icon: "error"
+                        })
+                    }
+                })
             }
         }
+    }
         if (count === 0) {
-            alert("You have entered an invalid student code. Please try again!");
+            swal ({
+                title: "Oops!",
+                text: "You have entered an invalid student code. Please try again!",
+                icon: "error"
+            })
         }
     });
 });
@@ -243,7 +254,12 @@ $("#login-btn").on("click", function () {
             }
         }
         if (count === 0) {
-            alert("You did not enter a valid email or password. Try Again");
+            swal ({
+                title: "Oops!",
+                text: "You did not enter a valid email or password. Try Again!",
+                icon: "error"
+            })
         }
     });
 });
+

@@ -152,19 +152,19 @@ body {
     margin-top: 25px;
 }
 
-.logout:before {
+/* .logout:before { */
     /* top: 4px; */
-    left: 4px;
-    right: 8px;
-    bottom: 7px;
-    content: " ";
-    height: 85px;
-    width: 106px;
-    display: block;
-    position: absolute;
+                        /* left: 4px;
+                        right: 8px;
+                        bottom: 7px;
+                        content: " ";
+                        height: 85px;
+                        width: 106px;
+                        display: block;
+                        position: absolute; */
     /* box-shadow: -0.1px -0.1px 1px rgb(104, 102, 102); */
     /* background-color: white; */
-} 
+/* }  */
 
 #postArea {
     border: 10px solid #581717;
