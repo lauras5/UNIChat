@@ -16,7 +16,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="./public/css/reset.css">
+        <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="./css/feed.css">
@@ -144,7 +144,7 @@
                     <!-- RA Announcements div -->
                     <div class="row ra">
                         <div class="col s12 m12">
-                            <div class="card-panel raCard">
+                            <div class="card-panel raCard" id="authCard">
                                 <h4 id="raHeader" class="anHeader">Authorization Keys</h4>
                                 <center>
                                     <p>Select a Dorm :</p>
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
                 crossorigin="anonymous"></script>
@@ -217,7 +217,7 @@
                         /* Copy the text inside the text field */
                         document.execCommand("Copy");
                         /* Alert the copied text */
-                        alert("Copied the key: " + copyToken);
+                        swal("Copied the key: " + copyToken);
                     })
 
                     // post generated key to db
@@ -311,7 +311,7 @@
 
                                     // post that info to sql
                                     $.post('/admin/posts', post, function (data, status) {
-                                        console.log(status)
+                                        location.reload();
                                         getPosts();
                                     });
                                 };

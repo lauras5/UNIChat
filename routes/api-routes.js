@@ -199,8 +199,8 @@ module.exports = function (app) {
 
     // direct admin posts to new route
     app.post("/admin/posts", function (req, res) {
-        db.Posts.create(req.body).then(function (res) {
-            console.log(res)
+        db.Posts.create(req.body).then(function (response) {
+            res.json(response)
         }).catch(function (err) {
             console.log(err);
         });
