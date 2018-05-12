@@ -72,8 +72,7 @@
                     <form id="postForm">
                         <!-- <div class="row"> -->
                         <div id='postArea' class="input-field col s12 z-depth-2">
-                            <textarea id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                            <label for="textarea2">Post</label>
+                            <textarea id="textarea2" class="materialize-textarea" data-length="150" placeholder='what is going on?' style='text-align:left;'></textarea>
                         </div>
                         <br>
                         <button id='postSubmitBTN' class="btn waves-effect waves-light submitBtn" type="submit" name="action">Post
@@ -201,7 +200,6 @@
                     var key = function () {
                         return rand() + rand(); // to make it longer
                     };
-                    // push token to db
 
                     // object we are pushing to db
                     var adminToken = { key: key(), dorm: dorm.value }

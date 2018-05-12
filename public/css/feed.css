@@ -207,6 +207,12 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 30px;
     text-align: center;
+    border-bottom-color: rgb(59, 20, 26);
+}
+
+#textarea2:focus {
+    border-bottom-color: grey;
+    box-shadow: none;
 }
 
 .anHeader {

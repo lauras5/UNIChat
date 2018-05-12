@@ -69,7 +69,7 @@ $(document).on('click', '#commentLink', function () {
     $.get('/students1/comments', function (data, status) {
         for (var key in data) {
             if (postVal == data[key].PostId) {
-                $('#commentRegion-' + postVal).append(data[key].body + "<br>");
+                $('#commentRegion-' + postVal).append("<p style='background-color: lightgrey;'>" + data[key].body + "</p><br>");
             }
         }
     });
