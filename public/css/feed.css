@@ -42,7 +42,7 @@ body {
     background-color: white;
     text-align: center;
     overflow-y: scroll;
-    height: 700px;
+    max-height: 600px;
 }
 
 #uPost, #tPost {
