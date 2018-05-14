@@ -150,7 +150,7 @@ body {
 }
 
 #postArea {
-    border: 10px solid #581717;
+    border: 10px solid #404852;
 }
 
 #postSubmitBTN {
@@ -265,7 +265,7 @@ and (max-width: 1920px) {
 #nav {
     height: 100%;
     padding: 10px;
-    background-color: #0e222deb;
+    background-color: #404852eb;
 }
 
 #navbar {
