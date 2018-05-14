@@ -2,7 +2,7 @@ body {
     background-image: url('../images/bookbg.jpeg');
     background-size: cover;
     background-attachment: fixed;
-    /* background-color: #4b152410; */
+    /* background-color: ##40485210; */
     /* background-color: #F9EAE1; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
@@ -129,7 +129,6 @@ body {
     font-size: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 5px;
 }
 
 .input-field {
@@ -144,29 +143,11 @@ body {
 }
 
 .logout {
-    /* background-color: white; */
     color: white;
-    /* height: 100px;
-    width: 124px;
-    border: #4b1524 solid 3px; */
+
     font-weight: bold;
-    /* padding: 10px; */
     margin-top: 25px;
 }
-
-/* .logout:before { */
-    /* top: 4px; */
-                        /* left: 4px;
-                        right: 8px;
-                        bottom: 7px;
-                        content: " ";
-                        height: 85px;
-                        width: 106px;
-                        display: block;
-                        position: absolute; */
-    /* box-shadow: -0.1px -0.1px 1px rgb(104, 102, 102); */
-    /* background-color: white; */
-/* }  */
 
 #postArea {
     border: 10px solid #581717;
@@ -175,7 +156,7 @@ body {
 #postSubmitBTN {
     margin-top: 0;
     margin-bottom: 20px;
-    background-color: #581717;
+    background-color: #404852;
     width: 100%;
 }
 
@@ -193,14 +174,18 @@ body {
     color: #435663;
 }
 
-.adminCard, .raCard {
-    overflow-y: scroll;
-    height: 200px;
-    /* margin: 10px; */
-    text-align: center;
-    /* font-size: 30px; */
-    /* margin-top: 10px; */
+.ra {
+   overflow: hidden;
+   height:100%;
 }
+
+.adminCard, .raCard {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+}
+
 
 #authCard {
     overflow-y: hidden;
@@ -216,7 +201,7 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 30px;
     text-align: center;
-    border-bottom-color: rgb(59, 20, 26);
+    border-bottom-color: #404852;
 }
 
 #textarea2:focus {
@@ -237,7 +222,7 @@ body {
 and (min-width: 350px)
 and (max-width: 767px) {
 .anHeader {
-    color: #4b1524;
+    color: #404852;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-right: 10px;
@@ -250,7 +235,7 @@ and (max-width: 767px) {
 and (min-width: 768px)
 and (max-width: 1024px) {
 .anHeader {
-    color: #4b1524;
+    color: #404852;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-right: 10px;
@@ -263,7 +248,7 @@ and (max-width: 1024px) {
 and (min-width: 1025px)
 and (max-width: 1920px) {
 .anHeader {
-    color: #4b1524;
+    color: #404852;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-right: 10px;
@@ -314,6 +299,6 @@ nav .brand-logo.center {
 }
 
 .waves-effect.waves-evening {
-    background-color: #985e6d;
+    background-color: #6b6280;
     margin-top: 12px;
 }

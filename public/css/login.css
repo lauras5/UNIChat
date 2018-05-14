@@ -1,11 +1,12 @@
 body {
   margin: 0;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(59%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('../images/trinitylibrary-blr.png') no-repeat;
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/trinitylibrary-blr.png') no-repeat;
+  background-image: url('../images/background.jpeg');
+  /* background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/background.jpeg') no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(59%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0.65))), url('../images/background.jpeg') no-repeat;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/background.jpeg') no-repeat;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/background.jpeg') no-repeat;
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/background.jpeg') no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 59%, rgba(0, 0, 0, 0.65) 100%), url('../images/background.jpeg') no-repeat; */
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -32,7 +33,7 @@ body {
   display: block;
   position: absolute;
   right: 50%;
-  background: url("http://imgh.us/close_white.svg") no-repeat scroll 0% 0% transparent;
+  background: url("../images/background.jpeg") no-repeat scroll 0% 0% transparent;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -88,7 +89,7 @@ body {
 }
 
 .logmod__tabs li.current a {
-  background: #4b1524;
+  background: #404852;
   color: white;
 }
 
@@ -97,7 +98,7 @@ body {
   position: relative;
   float: left;
   text-align: center;
-  background: #d2d8d8;
+  background: #9db2c7;
   line-height: 72px;
   height: 72px;
   text-decoration: none;
@@ -248,7 +249,6 @@ body {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
 }
 
 .sminputs .input.active {
@@ -275,7 +275,7 @@ body {
   font-size: 12px;
   cursor: pointer;
   line-height: 24px;
-  color: #4b1524;
+  color: #404852;
 }
 
 .sminputs .input input {
@@ -343,7 +343,7 @@ html {
 
 #login-btn:hover,
 #register-btn:hover {
-  background: #4b1524;
+  background: #404852;
   color: white;
 }
 
@@ -352,4 +352,8 @@ html {
   background: no-repeat;
   width: 550px;
   margin-top: 50px;
+  background-color: #626f80;
+  border: 20px solid white;
+  /* border-top: 10px solid white; */
+  margin-bottom: -3px;
 }
