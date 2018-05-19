@@ -143,10 +143,16 @@ body {
 }
 
 .logout {
-    color: white;
-
-    font-weight: bold;
-    margin-top: 25px;
+    /* color: white; */
+    /* font-weight: bold; */
+    /* margin-top: -14%; */
+    background-color: white;
+    width: 190px;
+    /* margin-bottom: 2%; */
+    /* border-left: 10px solid #6b2724; */
+    /* border-right: 10px solid #6b2724; */
+    /* padding: 10px; */
+    /* box-shadow: 5px 5px 5px rgba(64, 9, 9, 0.75); */
 }
 
 #postArea {
@@ -161,10 +167,8 @@ body {
 }
 
 #feedLogo {
-    height: 100%;
-    float: left;
+    width: 100%;
     background-color: white;
-    margin-left: 60px;
 }
 
 #links {
@@ -218,7 +222,7 @@ body {
 
 /* Announcements media queries */
 /* phones */
-@media only screen 
+/* @media only screen 
 and (min-width: 350px)
 and (max-width: 767px) {
 .anHeader {
@@ -228,10 +232,10 @@ and (max-width: 767px) {
     margin-right: 10px;
     font-size: 12px;
     }
-}
+} */
 
 /* tablets */
-@media only screen 
+/* @media only screen 
 and (min-width: 768px)
 and (max-width: 1024px) {
 .anHeader {
@@ -241,10 +245,10 @@ and (max-width: 1024px) {
     margin-right: 10px;
     font-size: 18px;
     }
-}
+} */
 
 /* large screens */
-@media only screen 
+/* @media only screen 
 and (min-width: 1025px)
 and (max-width: 1920px) {
 .anHeader {
@@ -254,28 +258,21 @@ and (max-width: 1920px) {
     margin-right: 10px;
     font-size: 24px;
     }
-}
-
-/* .nav-wrapper { */
-    /* background-color: #161f2ceb;     */
-    /* padding: 5px; */
-
-/* } */
+} */
 
 #nav {
-    height: 100%;
     padding: 10px;
     background-color: #404852eb;
+    height: 80px;
 }
 
 #navbar {
-    height: 100px;
+    height: 80px;
 }
 
 #profile, #posts {
     margin-top: 10px;
 }
-
 
 #tabs:focus.active {
     background-color: #C1A5A9;
@@ -292,10 +289,6 @@ and (max-width: 1920px) {
 
 .card-panel {
     margin: 0;
-}
-
-nav .brand-logo.center {
-    margin-top: 18px    
 }
 
 .waves-effect.waves-evening {
