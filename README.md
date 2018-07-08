@@ -11,6 +11,8 @@
 </ul>
 
 <ul><strong>Libraries Used:</strong>
+  <li>Express</li>
+  <li>Sequelize
   <li>jQuery</li>
   <li>Bootstrap 4</li>
 </ul>
