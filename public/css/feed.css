@@ -197,7 +197,13 @@ body {
     overflow-y: scroll;
     height: 200px;
     /* margin: 10px; */
-    text-align: center;
+    text-align: center; 
+    /* font-size: 30px; */
+    /* margin-top: 10px; */
+}
+.adminCard, .raCard {
+    /* margin: 10px; */
+    text-align: center; 
     /* font-size: 30px; */
     /* margin-top: 10px; */
 }
