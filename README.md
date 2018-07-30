@@ -21,4 +21,7 @@
   <li></li>
 </ul>
 
+![DEMO](https://user-images.githubusercontent.com/33909888/43424570-bb9bfb5c-9404-11e8-98e8-02bac4d84437.JPG)
+![DEMO](https://user-images.githubusercontent.com/33909888/43424572-bd9c236e-9404-11e8-851d-ee71d0de5377.JPG)
+
 <p>contributers: Laura Salcido, Rifa Syed, Breanna Nelson, Jordan Novoa</p>
