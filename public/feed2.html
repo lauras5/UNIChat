@@ -17,25 +17,22 @@
 <body>
     <nav id='nav'>
         <div id="navbar" class="nav-wrapper">
-            <a href="devpage.html">
-                <img id="feedLogo" src="./images/unichatlogo-sml.png" alt="UNI Chat logo sm">
-            </a>
-            <a href="#" class="brand-logo center">DORM 2</a>
+            <a href="#" class="brand-logo center">UNI Chat | DORM 2</a>
             <ul id="nav-mobile" class="right">
                 <li>
                     <button id="logoutBtn" class="logout btn-flat">Logout</button>
-                    <!-- <i class="fas fa-sign-out-alt"></i> -->
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="row"></div>
-
     <!-- events on left -->
     <div class="row">
         <div id="profile" class="col s3">
             <div class="card-panel">
+                <a href="devpage.html">
+                    <img id='feedLogo' src="./images/unichatlogo-sml.png" alt="UNIChatLogo">
+                </a>
                 <h5>UNI EVENTS</h5>
                 <br>
                 <a href="https://www.sausd.us/domain/7577" target='_blank'>
@@ -71,6 +68,7 @@
                 </button>
                 <!-- </div> -->
             </form>
+
             <div class="row" id='postTabs'>
                 <div class="col s12">
                     <ul id='tabsToggle' class="tabs z-depth-3">
@@ -86,9 +84,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
         <!-- Announcements Column -->
         <div id="announcements" class="col s3">
@@ -108,8 +103,7 @@
                 <div class="col s12 m12">
                     <div class="card-panel raCard z-depth-3">
 
-                        <h4 id="raHeader" class="anHeader">RA
-                            <i class="fas fa-bullhorn"></i> Announcements</h4>
+                        <h4 id="raHeader" class="anHeader">RA Announcements</h4>
 
                         <div id="raCard"></div>
                     </div>
@@ -144,6 +138,7 @@
                     console.log(data[key].id)
                     var postBody = data[key].body
                     var postTime = data[key].createdAt
+                    // console.log(postTime)
                     var postId = data[key].id
 
                     if (data[key].UserId > 4) {
