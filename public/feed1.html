@@ -38,7 +38,7 @@
                 <a href="https://www.sausd.us/domain/7577" target='_blank'>
                     <img id='eImage' src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
                 </a>
-                <p>Career Day May 15th! Bring your resumes</p>
+                <p>Demo Day August 9th! Bring your resumes!</p>
                 <br>
                 <br>
                 <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
@@ -60,7 +60,6 @@
                 <!-- <div class="row"> -->
                 <div id='postArea' class="input-field col s12 z-depth-3">
                     <textarea name='textarea2' id="textarea2" class="materialize-textarea" data-length="150"></textarea>
-                    <!-- <label for="textarea2">Post Away</label> -->
                 </div>
                 <br>
                 <button id='postSubmitBTN' class="btn waves-effect waves-evening submitBtn" type="submit" name="action">Post
@@ -132,11 +131,11 @@
 
         function getPosts() {
             $.get('/students1/posts').then(function (data, status) {
-                console.log(data)
+                // console.log(data)
 
                 // loops through data
                 for (var key in data) {
-                    console.log(data[key].id)
+                    // console.log(data[key].id)
                     var postBody = data[key].body
                     var postTime = data[key].createdAt
                     var postId = data[key].id
@@ -152,7 +151,7 @@
                     $('#upvoteBtn').on('click', function () {
                         var uVotes = 0;
                         var upvoteID = $(this).val()
-                        console.log(upvoteID)
+                        // console.log(upvoteID)
 
                         $.get('/students1/posts', function (data, status) {
                             for (var key in data) {
@@ -165,7 +164,7 @@
                                     };
 
                                     $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                        console.log(status)
+                                        // console.log(status)
                                     })
                                 }
                             }
@@ -190,7 +189,7 @@
                                     };
 
                                     $.post('/students1/updateDown', postUpdate, function (data, status) {
-                                        console.log(status)
+                                        // console.log(status)
                                     });
                                 };
                             };
@@ -204,11 +203,11 @@
         function getHotPosts() {
             // get for students trending page
             $.get('/students1/trending').then(function (data, status) {
-                console.log(data);
+                // console.log(data);
 
                 // loops through data
                 for (var key in data) {
-                    console.log(data[key].id);
+                    // console.log(data[key].id);
                     var postBody = data[key].body;
                     var postTime = data[key].createdAt;
                     var postId = data[key].id;
@@ -224,7 +223,7 @@
                     $('#tupvoteBtn').on('click', function () {
                         var uVotes = 0;
                         var upvoteID = $(this).val();
-                        console.log(upvoteID);
+                        // console.log(upvoteID);
 
                         $.get('/students1/posts', function (data, status) {
                             for (var key in data) {
@@ -237,7 +236,7 @@
                                     };
 
                                     $.post('/students1/updateUp', postUpdate, function (data, status) {
-                                        console.log('ping');
+                                        // console.log('ping');
                                     })
                                 };
                             };
@@ -261,7 +260,7 @@
                                     };
 
                                     $.post('/students1/updateDown', postUpdate, function (data, status) {
-                                        console.log('ping')
+                                        // console.log('ping')
                                     });
                                 };
                             };

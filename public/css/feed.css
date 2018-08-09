@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/bookbg.jpeg');
+    background-image: url('../images/bookbg2.jpeg');
     background-size: cover;
     background-attachment: fixed;
     /* background-color: ##40485210; */
@@ -7,16 +7,9 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
-/* 
-#adminBody {
-    background-color: rgb(190, 192, 192);
-    height: 100%;
-    width: 100%;
-} */
 
 .generateBtn, #copyKey {
     background-color: #383c50fa;
-    /* box-shadow: 2px 2px 2px dimgrey; */
     color: white;
     padding: 10px;
     display: block;
@@ -53,7 +46,6 @@ body {
 
 #commentLink, #commentLink1, #commentLink2, #commentLink3 {
     background-color: #383c50fa;
-    /* box-shadow: 2px 2px 2px dimgrey; */
     color: white;
     padding: 10px;
     display: block;
@@ -64,8 +56,15 @@ body {
 }
 
 #commentBTN {
-    float: right;
-} */
+    /* float: right; */
+    margin-bottom: 5px;
+    width: 80%;
+    background-color: #2f374e;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+}
 
 #commentLink:hover {
     background-color: grey;

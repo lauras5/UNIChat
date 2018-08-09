@@ -52,19 +52,19 @@
                         <a href="https://www.sausd.us/domain/7577" target='_blank'>
                             <img id='eImage' src="./images/careerday.jpeg" style="width: 100%;" alt="career day 2018">
                         </a>
-                        <p>Don't forget to come to career day this ...</p>
+                        <p>Demo Day August 9th! Bring your resumes!</p>
                         <br>
                         <br>
                         <a href="http://www.newsweek.com/pokemon-go-fest-rewards-torkoal-unknown-920687" target='_blank'>
                             <img id='eImage' src="./images/pokemongo.jpeg" style="width: 100%;" alt="career day 2018">
                         </a>
-                        <p>lets GO find some pokemon this Thursday...</p>
+                        <p>Gotta Catch Em All! Pokemon GO Event</p>
                         <br>
                         <br>
                         <a href="http://www.commencement.uci.edu/" target='_blank'>
                             <img id='eImage' src="./images/graduation.jpeg" style="width: 100%;" alt="career day 2018">
                         </a>
-                        <p>Buy your cap and gown today so you are ready for ...</p>
+                        <p>Cap & Gown Order Deadline April 18th</p>
                     </div>
                 </div>
 
@@ -219,7 +219,7 @@
 
                         // post generated key to db
                         $.post('/admin/token', adminToken, function (data, status) {
-                            console.log(data)
+                            // console.log(data)
                         });
                     });
 
@@ -304,7 +304,7 @@
                                         // define post, give it unique id of user id
                                         var post = { body: body, upvotes: 0, downvotes: 0, dorm: data[key].dorm, type: 'post', UserId: data[key].id }
 
-                                        console.log(post)
+                                        // console.log(post)
 
                                         // post that info to sql
                                         $.post('/admin/posts', post, function (data, status) {
