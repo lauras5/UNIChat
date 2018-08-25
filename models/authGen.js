@@ -1,3 +1,4 @@
+// Authorization, takes in key and dorm
 module.exports = function(sequelize, DataTypes) {
     var authKeys = sequelize.define("authKeys", {
         key: {

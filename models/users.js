@@ -1,11 +1,10 @@
+// Using Sequelize to creat user model
+// export the function
 module.exports = function (sequelize, DataTypes) {
     var Users = sequelize.define("Users", {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-            // validate: {
-            //     len: [5, 20]
-            // }
         },
         password: {
             type: DataTypes.STRING,
@@ -26,6 +25,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+    // associate user model to posts and comments, User is the owner of those models
     Users.associate =  function(models) {
         Users.hasMany(models.Posts, {
             foreignKey: {allowNull: false}

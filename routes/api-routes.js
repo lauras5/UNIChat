@@ -5,30 +5,38 @@ var db = require('../models');
 module.exports = function (app) {
 
     // post to the database in users table
-    app.post("/users", function (req, res) {
-        db.Users.create(req.body).then(function (res) {
-            console.log(res)
-        }).catch(function (err) {
-            // print the error details
-            console.log(err);
-        });
+    app.post("/users",  (req, res) => {
+        db.Users.create(req.body)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                // print the error details
+                console.log(err);
+            });
     });
 
     // returns all users from db in json format
-    app.get("/users", function (req, res) {
-        db.Users.findAll({}).then(function (Users) {
-            res.json(Users)
-        });
+    app.get("/users", (req, res) => {
+        db.Users.findAll({})
+            .then(Users => {
+                res.json(Users)
+            })
+            .catch(err => {
+                console.log(err)
+            });
     });
 
     // Dorm 1 new posts
-    app.post('/students1/posts', function (req, res) {
-        db.Posts.create(req.body).then(function (response) {
-            console.log(res)
-            res.json(response)
-        }).catch(function (err) {
-            console.log(err);
-        });
+    app.post('/students1/posts', (req, res) => {
+        db.Posts.create(req.body)
+            .then(response => {
+                console.log(res)
+                res.json(response)
+            })
+            .catch(err => {
+                console.log(err);
+            });
     });
 
     app.get("/students1/posts", function (req, res) {

@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 3000;
 var db = require('./models');
 
 // parses app/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse app/json
 app.use(bodyParser.json());
 

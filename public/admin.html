@@ -188,24 +188,28 @@
                         $('.tabs').tabs();
                         getPosts()
                     });
-
+                    
+                    // button functionality to generate a new authorization key/token
                     $(".generateBtn").on('click', function (event) {
                         event.preventDefault()
-                        // console.log('hello')
                         var rand = function () {
-                            return Math.random().toString(26).substr(2); // remove `0.`
+                            // returns token
+                            // remove `0.`
+                            return Math.random().toString(26).substr(2); 
                         };
 
                         var key = function () {
-                            return rand() + rand(); // to make it longer
+                            // runds the random token twice and concatinates them to make it longer/more complex
+                            return rand() + rand(); 
                         };
 
                         // object we are pushing to db
+                        // we will complare the login info to this later
                         var adminToken = { key: key(), dorm: dorm.value }
 
-                        // console.log(adminToken)
                         // append key to div
-                        $('.key').html("<p>New Student AUTH KEY :</p> <p><b>" + adminToken.key + "</b></p> <p>for dorm #" + adminToken.dorm + ".</p>")
+                        // changed to backticks and used template literals
+                        $('.key').html(`<p>New Student AUTH KEY:</p><p><b> ${adminToken.key} </b></p> <p>For Dorm #${adminToken.dorm}.</p>`);
 
                         // adding button to copy key to clipboard
                         $('#copyKey').on('click', function () {
